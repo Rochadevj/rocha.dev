@@ -35,7 +35,7 @@ export function GithubSection() {
         <div className="w-full flex justify-center bg-neutral-900/50 p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-colors" aria-busy={!isMounted}>
             {isMounted ? (
               <GitHubCalendar 
-                  username="shafisma"
+                  username="Rochadevj"
                   colorScheme="dark"
                   fontSize={12}
                   blockSize={12}
