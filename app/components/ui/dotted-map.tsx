@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import { createMap } from "svg-dotted-map"
 
@@ -31,19 +33,28 @@ export function DottedMap({
   className,
   style,
 }: DottedMapProps) {
-  const { points, addMarkers } = React.useMemo(
-    () =>
-      createMap({
-        width,
-        height,
-        mapSamples,
-      }),
-    [height, mapSamples, width]
-  )
+  const [mapData, setMapData] = React.useState<{
+    points: Array<{ x: number; y: number }>
+    processedMarkers: Array<{ x: number; y: number; size?: number }>
+  } | null>(null)
 
+  React.useEffect(() => {
+    const { points, addMarkers } = createMap({
+      width,
+      height,
+      mapSamples,
+    })
+
+    setMapData({
+      points,
+      processedMarkers: addMarkers(markers),
+    })
+  }, [height, mapSamples, markers, width])
+
+  const points = React.useMemo(() => mapData?.points ?? [], [mapData])
   const processedMarkers = React.useMemo(
-    () => addMarkers(markers),
-    [addMarkers, markers]
+    () => mapData?.processedMarkers ?? [],
+    [mapData]
   )
 
   // Compute stagger helpers in a single, simple pass

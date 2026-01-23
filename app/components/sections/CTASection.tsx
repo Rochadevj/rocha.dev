@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 
 export function CTASection() {
+  const { copy } = useTranslations();
   return (
     <section className="relative py-24 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
@@ -14,15 +18,17 @@ export function CTASection() {
                 alt="Profile"
                 fill
                 sizes="(min-width: 768px) 64px, 48px"
+                style={{ filter: "invert(0)" }}
+                suppressHydrationWarning
                 className="object-cover"
               />
             </div>
             <h2 className="text-5xl md:text-8xl font-medium text-white tracking-tighter">
-              Let's create
+              {copy.cta.line1}
             </h2>
           </div>
           <h2 className="text-5xl md:text-8xl font-medium text-zinc-600 tracking-tighter pl-2 md:pl-24">
-            something real.
+            {copy.cta.line2}
           </h2>
         </div>
 

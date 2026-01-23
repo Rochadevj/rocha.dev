@@ -2,11 +2,23 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTranslations } from "../i18n/LanguageProvider";
 
 const sections = ["about", "projects", "skills", "contact"];
 
 export function Navbar() {
   const [activeSection, setActiveSection] = useState("about");
+  const { language, setLanguage, copy } = useTranslations();
+  const sectionLabels: Record<string, string> = {
+    about: copy.nav.about,
+    projects: copy.nav.projects,
+    skills: copy.nav.skills,
+    contact: copy.nav.contact,
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === "pt-BR" ? "en" : "pt-BR");
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,9 +71,18 @@ export function Navbar() {
                       : "text-white/70 hover:text-white hover:bg-white/10"
                   }`}
                 >
-                  {section}
+                  {sectionLabels[section] ?? section}
                 </Link>
               ))}
+              <button
+                type="button"
+                onClick={toggleLanguage}
+                aria-label={copy.nav.languageToggle}
+                title={copy.nav.languageToggle}
+                className="text-xs sm:text-sm font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all duration-300 whitespace-nowrap border border-white/10 text-white/80 hover:text-white hover:bg-white/10"
+              >
+                {language === "pt-BR" ? "EN" : "PT"}
+              </button>
             </div>
           </div>
         </div>

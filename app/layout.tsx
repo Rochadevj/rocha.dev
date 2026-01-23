@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 import CustomCursor from "./components/ui/CustomCursor";
 
 const geistSans = Geist({
@@ -87,6 +87,7 @@ const jsonLd = {
 
 import ClientLayout from "./components/layout/ClientLayout";
 import { AnimatedBackground, SmoothScroll } from "./components/layout";
+import { LanguageProvider } from "./components/i18n/LanguageProvider";
 
 export default function RootLayout({
   children,
@@ -94,7 +95,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR" style={{ filter: "invert(0)" }} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${lustDidone.variable} antialiased cursor-none bg-transparent text-white`}
       >
@@ -102,13 +103,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <ClientLayout>
-          <SmoothScroll />
-          <AnimatedBackground />
-          <CustomCursor />
-          {children}
-          <Analytics />
-        </ClientLayout>
+        <LanguageProvider>
+          <ClientLayout>
+            <SmoothScroll />
+            <AnimatedBackground />
+            <CustomCursor />
+            {children}
+            <Analytics />
+          </ClientLayout>
+        </LanguageProvider>
       </body>
     </html>
   );

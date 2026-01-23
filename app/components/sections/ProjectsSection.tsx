@@ -7,10 +7,12 @@ import { Code2, Star } from "lucide-react";
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function ProjectsSection() {
+  const { copy } = useTranslations();
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -73,17 +75,21 @@ export function ProjectsSection() {
         <div ref={titleRef} className="text-center mb-24">
           <div className="flex flex-col items-center justify-center gap-2">
             <span className="text-accent text-sm font-bold tracking-[0.2em] uppercase">
-              CRAFTING DIGITAL EXPERIENCES
+              {copy.projects.label}
             </span>
             <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase relative z-10">
-              Venture <span className="font-serif italic font-thin text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-secondary to-accent-tertiary normal-case">Showcase</span>
+              {copy.projects.titlePrimary}{" "}
+              <span className="font-serif italic font-thin text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-secondary to-accent-tertiary normal-case">
+                {copy.projects.titleAccent}
+              </span>
             </h2>
           </div>
           <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-secondary mt-6 mx-auto rounded-full" />
         </div>
         {/* Projects Stack */}
         <div ref={projectsRef} className="flex flex-col gap-24 md:gap-32">
-          {projects.slice(0, 4).map((project) => {
+          {projects.slice(0, 4).map((project, index) => {
+            const localized = copy.projects.items[index];
             return (
               <div
                 key={project.name}
@@ -99,20 +105,22 @@ export function ProjectsSection() {
                    </div>
 
                    <p className="text-gray-400 text-lg leading-relaxed">
-                      {project.description}
+                      {localized?.description ?? project.description}
                    </p>
 
                    {/* Features / Outcome List */}
                    <div className="flex flex-col gap-3 my-4">
-                      {project.outcome && (
+                      {(localized?.outcome ?? project.outcome) && (
                         <div className="flex items-start gap-3">
                            <Star className="w-5 h-5 text-accent shrink-0 mt-1" />
-                           <p className="text-gray-300">{project.outcome}</p>
+                           <p className="text-gray-300">{localized?.outcome ?? project.outcome}</p>
                         </div>
                       )}
                        <div className="flex items-start gap-3">
                            <Code2 className="w-5 h-5 text-accent shrink-0 mt-1" />
-                           <p className="text-gray-300">{project.role || "Full Stack Development"}</p>
+                           <p className="text-gray-300">
+                             {localized?.role || project.role || copy.projects.fallbackRole}
+                           </p>
                         </div>
                    </div>
 
@@ -148,6 +156,8 @@ export function ProjectsSection() {
                                      alt={`${project.name} Screen 1`}
                                      fill
                                      sizes="(min-width: 1024px) 18vw, (min-width: 768px) 24vw, 40vw"
+                                     style={{ filter: "invert(0)" }}
+                                     suppressHydrationWarning
                                      className="object-cover"
                                    />
                                </div>
@@ -161,6 +171,8 @@ export function ProjectsSection() {
                                      alt={`${project.name} Screen 3`}
                                      fill
                                      sizes="(min-width: 1024px) 18vw, (min-width: 768px) 24vw, 40vw"
+                                     style={{ filter: "invert(0)" }}
+                                     suppressHydrationWarning
                                      className="object-cover"
                                    />
                                </div>
@@ -174,6 +186,8 @@ export function ProjectsSection() {
                                      alt={`${project.name} Screen 2`}
                                      fill
                                      sizes="(min-width: 1024px) 20vw, (min-width: 768px) 28vw, 45vw"
+                                     style={{ filter: "invert(0)" }}
+                                     suppressHydrationWarning
                                      className="object-cover"
                                    />
                                </div>
@@ -189,6 +203,8 @@ export function ProjectsSection() {
                                       alt={project.name}
                                       fill
                                       sizes="(min-width: 1024px) 58vw, 100vw"
+                                      style={{ filter: "invert(0)" }}
+                                      suppressHydrationWarning
                                       className="object-fill transition-transform duration-700"
                                     />
                                 </div>
@@ -210,7 +226,7 @@ export function ProjectsSection() {
                         className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
                       >
                          <GithubIcon className="w-5 h-5" />
-                         <span>Source</span>
+                         <span>{copy.projects.source}</span>
                       </a>
                       <a 
                          href={project.weburl || project.url}
@@ -219,7 +235,7 @@ export function ProjectsSection() {
                          className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
                       >
                          <ExternalLinkIcon className="w-5 h-5" />
-                         <span>Live Demo</span>
+                         <span>{copy.projects.liveDemo}</span>
                       </a>
                    </div>
                 </div>
@@ -232,7 +248,7 @@ export function ProjectsSection() {
         {/* Foot note */}
         <div className="mt-32 text-center">
             <p className="text-gray-500">
-               And many more internal experiments...
+               {copy.projects.footer}
             </p>
         </div>
       </div>

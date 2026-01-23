@@ -7,6 +7,7 @@ export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null); // The small dot
   const followerRef = useRef<HTMLDivElement>(null); // The big ring
   const [isHovering, setIsHovering] = useState(false);
+  const isHoveringRef = useRef(false);
 
   useEffect(() => {
     // Hide default cursor
@@ -35,7 +36,7 @@ export default function CustomCursor() {
 
     const onMouseUp = () => {
       gsap.to(cursorRef.current, { scale: 1, duration: 0.2, ease: "elastic.out(1, 0.3)" });
-      gsap.to(followerRef.current, { scale: isHovering ? 2 : 1, duration: 0.2, ease: "elastic.out(1, 0.3)" });
+      gsap.to(followerRef.current, { scale: isHoveringRef.current ? 2 : 1, duration: 0.2, ease: "elastic.out(1, 0.3)" });
     };
 
     const handleLinkHover = (e: MouseEvent) => {
@@ -51,6 +52,7 @@ export default function CustomCursor() {
         window.getComputedStyle(target).cursor === 'pointer';
       
       if (isLink) {
+        isHoveringRef.current = true;
         setIsHovering(true);
         // Animate follower to expand and maybe blend
         gsap.to(followerRef.current, { 
@@ -64,6 +66,7 @@ export default function CustomCursor() {
         // Hide small cursor inside
         gsap.to(cursorRef.current, { opacity: 0, duration: 0.2 });
       } else {
+        isHoveringRef.current = false;
         setIsHovering(false);
         // Reset properties
         gsap.to(followerRef.current, { 

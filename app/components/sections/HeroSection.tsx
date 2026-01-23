@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 
 export function HeroSection() {
+  const { copy, language } = useTranslations();
   const containerRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -16,8 +18,7 @@ export function HeroSection() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
 
-  const firstWords = ["Software", "Software", "Front-End", "Mobile"];
-  const secondWords = ["Engineer.", "Developer.", "Developer.", "Developer."];
+  const roles = copy.hero.roles;
   const [roleIndex, setRoleIndex] = useState(0);
 
   const techStack = [
@@ -29,7 +30,7 @@ export function HeroSection() {
     { src: "/techstacks/nodejs.svg", alt: "nodejs" },
     { src: "/techstacks/typescript.svg", alt: "typescript" },
     { src: "/techstacks/python.svg", alt: "python" },
-    { src: "/techstacks/c++.svg", alt: "c++" },
+    { src: "/techstacks/cplusplus.svg", alt: "c++" },
     { src: "/techstacks/git.svg", alt: "git" },
     { src: "/techstacks/firebase.svg", alt: "firebase" },
     { src: "/techstacks/postgresql.svg", alt: "postgresql" },
@@ -79,7 +80,7 @@ export function HeroSection() {
         duration: 0.25,
         ease: "power2.in",
         onComplete: () => {
-          setRoleIndex((prev) => (prev + 1) % firstWords.length);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
           requestAnimationFrame(() => {
             gsap.fromTo(
               [firstWordRef.current, secondWordRef.current],
@@ -93,7 +94,14 @@ export function HeroSection() {
 
     const intervalId = window.setInterval(animateRole, 2400);
     return () => window.clearInterval(intervalId);
-  }, [firstWords.length]);
+  }, [roles.length]);
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      setRoleIndex(0);
+    }, 0);
+    return () => window.clearTimeout(timeoutId);
+  }, [language]);
 
   return (
     <section ref={containerRef} className="relative min-h-[100dvh] flex items-center justify-center px-4 sm:px-6 pt-24 overflow-hidden">
@@ -103,20 +111,22 @@ export function HeroSection() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-green-500"></span>
           </span>
-          <span className="text-[10px] sm:text-xs font-bold text-white/90 uppercase tracking-widest group-hover:text-white">Available for work</span>
+          <span className="text-[10px] sm:text-xs font-bold text-white/90 uppercase tracking-widest group-hover:text-white">
+            {copy.hero.badge}
+          </span>
         </div>
 
         <h1 ref={titleRef} className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 sm:mb-6 tracking-tight leading-[0.95] text-white whitespace-nowrap">
-          KENNETH SUNJAYA
+          HENRIQUE ROCHA
         </h1>
 
         <p ref={roleRef} className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-green-500 mb-6 flex items-baseline gap-3">
-          <span ref={firstWordRef}>{firstWords[roleIndex]}</span>
-          <span ref={secondWordRef} className="text-white">{secondWords[roleIndex]}</span>
+          <span ref={firstWordRef}>{roles[roleIndex]?.first}</span>
+          <span ref={secondWordRef} className="text-white">{roles[roleIndex]?.second}</span>
         </p>
 
         <p ref={quoteRef} className="text-base sm:text-lg text-gray-300 font-medium max-w-2xl leading-relaxed mb-8 sm:mb-12">
-          "I build full-stack web and mobile applications with a focus on performance, scalability, and user experience."
+          {`"${copy.hero.quote}"`}
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full sm:w-auto">
@@ -128,7 +138,7 @@ export function HeroSection() {
             }}
             className="modern-button items-center justify-center inline-flex shadow-lg shadow-accent/20 w-full sm:w-auto py-3 sm:py-4 text-base sm:text-lg"
           >
-            Start a project
+            {copy.hero.ctaPrimary}
           </a>
           <a
             href="#projects"
@@ -138,7 +148,7 @@ export function HeroSection() {
             }}
             className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white/5 border border-white/10 rounded-full text-white font-bold text-base sm:text-lg hover:bg-white/10 hover:-translate-y-1 hover:border-white/20 transition-all w-full sm:w-auto backdrop-blur-sm"
           >
-            View projects
+            {copy.hero.ctaSecondary}
           </a>
         </div>
 
@@ -154,6 +164,8 @@ export function HeroSection() {
                     alt={tech.alt}
                     width={32}
                     height={32}
+                    style={{ filter: "invert(0)" }}
+                    suppressHydrationWarning
                     className="h-6 w-6 sm:h-7 sm:w-7 object-contain"
                   />
                 </div>

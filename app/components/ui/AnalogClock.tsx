@@ -45,6 +45,8 @@ export function AnalogClock() {
           alt="Clock Dial" 
           fill
           sizes="(min-width: 768px) 320px, 256px"
+          style={{ filter: "invert(0)" }}
+          suppressHydrationWarning
           className="object-cover opacity-90"
         />
       </div>

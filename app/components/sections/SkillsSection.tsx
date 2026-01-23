@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 import { skills } from "@/app/data/skills";
 import { 
@@ -8,6 +10,7 @@ import {
   SiAdobeillustrator, SiGodotengine, SiZod
 } from "react-icons/si";
 import { GiBearFace } from "react-icons/gi"; // For Zustand (Bear)
+import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 
 const skillIcons: Record<string, ReactNode> = {
   JavaScript: <SiJavascript />,
@@ -82,27 +85,26 @@ const skillColors: Record<string, { bg: string; text: string; color: string }> =
 };
 
 export function SkillsSection() {
+  const { copy } = useTranslations();
   return (
     <section id="skills" className="relative py-20 sm:py-32 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 border border-white/10 bg-white/5 text-gray-400 text-xs font-bold uppercase tracking-widest mb-6 rounded-full">
-            Process & Tools
+            {copy.skills.label}
           </span>
           <h2 className="text-5xl sm:text-7xl md:text-8xl font-black text-white mb-8 tracking-tighter">
-            The Magic <span className="font-serif italic bg-linear-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text pr-2">Behind</span>
+            {copy.skills.title}{" "}
+            <span className="font-serif italic bg-linear-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text pr-2">
+              {copy.skills.titleAccent}
+            </span>
           </h2>
         </div>
 
         {/* Process Steps */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-           {[
-             { title: "Understand", desc: "Digging deep into the problem space and user needs.", icon: "01" },
-             { title: "Design", desc: "Crafting intuitive flows and interactions that feel natural.", icon: "02" },
-             { title: "Build", desc: "Writing clean, scalable code with modern standards.", icon: "03" },
-             { title: "Final Touches", desc: "Updating based on feedback to reach perfection.", icon: "04" }
-           ].map((step) => (
+           {copy.skills.steps.map((step) => (
              <div key={step.title} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
                <span className="text-4xl font-black text-white/5 mb-4 block group-hover:text-accent/20 transition-colors">{step.icon}</span>
                <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
@@ -112,12 +114,12 @@ export function SkillsSection() {
         </div>
 
         <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold text-white mb-6">My Toolbox</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">{copy.skills.toolboxTitle}</h3>
              <div className="flex flex-wrap justify-center gap-4 text-xs font-mono text-gray-500 mb-8">
-               <span>FRONTEND</span> <span className="text-gray-700">/</span>
-               <span>BACKEND</span> <span className="text-gray-700">/</span>
-               <span>INFRASTRUCTURE</span> <span className="text-gray-700">/</span>
-               <span>TESTING</span>
+               <span>{copy.skills.toolboxCategories.frontend}</span> <span className="text-gray-700">/</span>
+               <span>{copy.skills.toolboxCategories.backend}</span> <span className="text-gray-700">/</span>
+               <span>{copy.skills.toolboxCategories.infrastructure}</span> <span className="text-gray-700">/</span>
+               <span>{copy.skills.toolboxCategories.testing}</span>
              </div>
         </div>
 
