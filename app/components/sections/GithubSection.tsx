@@ -51,7 +51,7 @@ export function GithubSection() {
                   }}
               />
             ) : (
-              <div className="h-[152px] w-full" />
+              <div className="h-38 w-full" />
             )}
         </div>
       </div>

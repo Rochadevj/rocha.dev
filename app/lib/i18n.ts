@@ -26,7 +26,7 @@ export const translations = {
     },
     about: {
       srOnly: "Sobre mim",
-      location: "DACA, BD",
+      location: "Porto Alegre, RS",
       whoTitle: "Quem eu sou",
       whoParagraph1: {
         prefix:
@@ -247,7 +247,7 @@ export const translations = {
     },
     about: {
       srOnly: "About Me",
-      location: "DHAKA, BD",
+      location: "Porto Alegre, Brazil",
       whoTitle: "Who I am",
       whoParagraph1: {
         prefix:

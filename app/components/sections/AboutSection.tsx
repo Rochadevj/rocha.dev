@@ -24,14 +24,19 @@ export function AboutSection() {
   );
 
   useEffect(() => {
-    const locale = language === "pt-BR" ? "pt-BR" : "en-US";
+    const isPortuguese = language === "pt-BR";
+    const locale = isPortuguese ? "pt-BR" : "en-US";
+    const timeZone = "America/Sao_Paulo";
     const updateTime = () => {
       const now = new Date();
-      setCurrentTime(now.toLocaleTimeString(locale, { 
-        hour: "2-digit", 
-        minute: "2-digit",
-        hour12: true 
-      }));
+      setCurrentTime(
+        now.toLocaleTimeString(locale, {
+          timeZone,
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: !isPortuguese,
+        })
+      );
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
@@ -72,7 +77,7 @@ export function AboutSection() {
           {/* 1. Profile Card */}
           <div className="md:col-span-1 min-h-[350px] md:min-h-[400px] rounded-3xl bg-[#111] border border-white/10 p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group">
             <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-serif italic mb-2 tracking-wide">Shafi<span className="text-gray-400 not-italic font-sans font-bold">uzzaman</span></h3>
+              <h3 className="text-3xl md:text-4xl font-serif italic mb-2 tracking-wide">Henrique <span className="text-gray-400 not-italic font-sans font-bold">Rocha</span></h3>
               <div className="flex items-center gap-2 text-gray-400 text-xs md:text-sm mb-4 md:mb-6">
                 <FiMapPin className="w-3 h-3 md:w-4 md:h-4" />
                 <span>{copy.about.location} - {currentTime}</span>
