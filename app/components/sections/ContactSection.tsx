@@ -1,6 +1,6 @@
 "use client";
 
-import { GithubIcon, XIcon, InstagramIcon } from "../icons";
+import { GithubIcon, InstagramIcon, LinkedinIcon } from "../icons";
 import { useMemo, useState } from "react";
 import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { useTranslations } from "@/app/components/i18n/LanguageProvider";
@@ -8,21 +8,21 @@ import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 const socialLinks = [
   {
     name: "GitHub",
-    href: "https://github.com/shafisma",
+    href: "https://github.com/Rochadevj",
     icon: GithubIcon,
-    username: "@shafisma",
-  },
-  {
-    name: "X (Twitter)",
-    href: "https://x.com/Shafigrate",
-    icon: XIcon,
-    username: "@Shafigrate",
+    username: "@Rochadevj",
   },
   {
     name: "Instagram",
-    href: "https://www.instagram.com/sh4fi_dx/",
+    href: "https://www.instagram.com/hee_rocha/",
     icon: InstagramIcon,
-    username: "@sh4fi_dx",
+    username: "@hee_rocha",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/henrique-rocha-389609287/",
+    icon: LinkedinIcon,
+    username: "Henrique Rocha",
   },
 ];
 

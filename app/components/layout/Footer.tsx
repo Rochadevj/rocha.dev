@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "@/app/components/i18n/LanguageProvider";
+import { SiInstagram, SiLinkedin } from "react-icons/si";
 
 export function Footer() {
   const { copy } = useTranslations();
@@ -11,7 +12,7 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2 w-full sm:w-auto mt-4 sm:mt-0 justify-center">
               <a
-                href="https://github.com/shafisma"
+                href="https://github.com/Rochadevj"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
@@ -32,21 +33,24 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://x.com/shafigrate"
+                href="https://www.instagram.com/hee_rocha/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="X (Twitter) Profile"
+                aria-label="Instagram Profile"
                 className="text-gray-500 hover:text-white transition-colors"
               >
-                <span className="sr-only">X (Twitter)</span>
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
+                <span className="sr-only">Instagram</span>
+                <SiInstagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/henrique-rocha-389609287/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+                className="text-gray-500 hover:text-white transition-colors"
+              >
+                <span className="sr-only">LinkedIn</span>
+                <SiLinkedin className="w-5 h-5" />
               </a>
             </div>
             <p className="text-sm font-medium text-gray-500 text-center sm:text-left">

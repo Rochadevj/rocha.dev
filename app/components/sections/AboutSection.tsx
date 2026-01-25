@@ -1,6 +1,6 @@
 "use client";
 
-import { SiGithub, SiX } from "react-icons/si";
+import { SiGithub, SiInstagram, SiLinkedin } from "react-icons/si";
 import { FiMapPin, FiClock } from "react-icons/fi";
 import { useRef, useState, useEffect, useMemo } from "react";
 import { DottedMap } from "@/app/components/ui/dotted-map";
@@ -86,8 +86,9 @@ export function AboutSection() {
             
 
             <div className="flex gap-4 relative z-10">
-              <a href="https://github.com/shafisma" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-white/20 transition-colors"><SiGithub size={20} /></a>
-              <a href="https://x.com/Shafigrate" aria-label="X (Twitter) Profile" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-white/20 transition-colors"><SiX size={20} /></a>
+              <a href="https://github.com/Rochadevj" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-white/20 transition-colors"><SiGithub size={20} /></a>
+              <a href="https://www.instagram.com/hee_rocha/" aria-label="Instagram Profile" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-white/20 transition-colors"><SiInstagram size={20} /></a>
+              <a href="https://www.linkedin.com/in/henrique-rocha-389609287/" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-white/20 transition-colors"><SiLinkedin size={20} /></a>
             </div>
           </div>
 

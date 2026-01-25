@@ -76,7 +76,7 @@ const jsonLd = {
   "name": "Shafiuzzaman",
   "url": "https://shafisma.me",
   "sameAs": [
-     "https://github.com/shafisma",
+     "https://github.com/Rochadevj",
      "https://x.com/shafigrate",
      "https://www.linkedin.com/in/shafisma/" 
   ],

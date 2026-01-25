@@ -54,7 +54,7 @@ export function Navbar() {
               href="/"
               className="text-lg sm:text-xl font-black tracking-tight text-white hover:text-accent transition-colors uppercase shrink-0"
             >
-              shafi<span className="text-accent">.</span>
+              Rocha<span className="text-accent">.</span>
             </Link>
             <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar">
               {sections.map((section) => (
