@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description: "Finenzo is a smart expense tracker built with Flutter that helps you manage your personal finances with ease. Track expenses, manage multiple wallets, analyze spending patterns, and export your financial data - all in one app.",
     language: "Dart",
     stars: 5,
-    url: "https://github.com/shafisma/finenzo",
+    url: "https://github.com/Rochadevj/MovieTV",
     outcome: "Comprehensive personal finance management on the go.",
     role: "Mobile App Developer",
     tech: ["Flutter", "Dart", "Sqflite"],
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     image: "/studywise.png",
   },
   {
-    name: "NEXUS",
+    name: "Análise AI",
     description: "A chat app enabling real-time collaboration for remote teams to manage tasks visually.",
     language: "TypeScript",
     stars: 9,
