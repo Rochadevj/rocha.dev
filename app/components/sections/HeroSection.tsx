@@ -106,12 +106,15 @@ export function HeroSection() {
   return (
     <section ref={containerRef} className="relative min-h-[100dvh] flex items-center justify-center px-4 sm:px-6 pt-24 overflow-hidden">
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-start text-left">
-        <div ref={badgeRef} className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#111] border border-white/10 mb-6 sm:mb-8 hover:bg-[#1c1c1c] transition-all group cursor-default">
-          <span className="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-green-500"></span>
+        <div
+          ref={badgeRef}
+          className="inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 rounded-full bg-[#1a1a1a]/80 border border-white/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] mb-6 sm:mb-8 hover:bg-[#222] transition-all group cursor-default"
+        >
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/30 blur-[2px]" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
           </span>
-          <span className="text-[10px] sm:text-xs font-bold text-white/90 uppercase tracking-widest group-hover:text-white">
+          <span className="text-[11px] sm:text-xs font-semibold text-white/90 uppercase tracking-[0.24em] group-hover:text-white">
             {copy.hero.badge}
           </span>
         </div>

@@ -20,7 +20,7 @@ export const translations = {
         { first: "Desenvolvedor", second: "Mobile." },
       ],
       quote:
-        "Eu construo aplicacoes web e mobile full-stack com foco em performance, escalabilidade e experiencia do usuario.",
+        "Eu construo aplicações web e mobile full stack, com foco em performance, escalabilidade e experiência do usuário.",
       ctaPrimary: "Iniciar um projeto",
       ctaSecondary: "Ver projetos",
     },
@@ -30,11 +30,11 @@ export const translations = {
       whoTitle: "Quem eu sou",
       whoParagraph1: {
         prefix:
-          "Sou Shafi, um desenvolvedor apaixonado por mergulhar em problemas complexos e resolve-los com software. Minha missao e ",
+          "Sou o Rocha, um desenvolvedor apaixonado por mergulhar em problemas complexos e resolvê-los com software. Minha missão é ",
         linkBuildTools: "construir ferramentas",
         middle:
-          " que capacitam pessoas e negocios a alcancar seus objetivos. Encaro cada projeto com foco em ",
-        linkEmpathy: "empatia com o usuario",
+          " que capacitam pessoas e negócios a alcançar seus objetivos. Encaro cada projeto com foco em ",
+        linkEmpathy: "empatia com o usuário",
         linkScalability: "escalabilidade",
         linkPerformance: "performance",
         suffix: ".",
@@ -48,41 +48,42 @@ export const translations = {
         middle2: " e ",
         linkTailwind: "Tailwind",
         suffix:
-          ". Adoro criar interfaces que parecem instantaneas e vivas.",
+          ". Adoro criar interfaces que parecem instantâneas e vivas.",
       },
       tags: [
         "TypeScript",
         "Next.js",
         "Python",
         "Tailwind",
-        "Codigo aberto",
+        "código aberto",
         "Async-first",
       ],
       philosophyLabel: "FILOSOFIA DE DESIGN",
       philosophyTitleLink: "Interfaces",
-      philosophyTitleEmphasis: "que voce sente.",
+      philosophyTitleEmphasis: "que você sente.",
       philosophyDescription:
-        "Acredito em software que se comunica por movimento. Cada interacao deve fornecer feedback imediato e significativo.",
+        "Acredito em software que se comunica por movimento. Cada interação deve fornecer feedback imediato e significativo.",
       philosophyList: [
         "Estados de hover que informam",
         "Feedback de carregamento que tranquiliza",
-        "Confirmacao de intencao",
+        "Confirmação de intenção",
       ],
-      globalLabel: "DISPONIVEL GLOBALMENTE",
-      globalTitle: "Adaptavel a diferentes",
-      globalTitleEmphasis: "fusos horarios",
-      globalParagraph: {
-        prefix: "Trabalho de forma ",
-        linkAsync: "async-first",
-        middle:
-          " e tenho facilidade para colaborar com equipes nos fusos dos EUA, Reino Unido e Europa. Retorno em 24-48h nas ",
-        linkCommunication: "comunicacoes",
-        suffix: ".",
-      },
-      globalBadge: "Compativel com EST / PST / GMT",
+    globalLabel: "DISPONÍVEL GLOBALMENTE",
+    globalTitle: "Adaptável a diferentes",
+    globalTitleEmphasis: "fusos horários",
+    globalParagraph: {
+      prefix: "Trabalho de forma ",
+      linkAsync: "async-first",
+      middle:
+        " e tenho facilidade para colaborar com equipes nos fusos dos EUA e Europa. Retorno em 24–48h nas ",
+      linkCommunication: "comunicações",
+      suffix: ".",
+    },
+    globalBadge: "Compatível com EST / PST / GMT",
+
     },
     projects: {
-      label: "CONSTRUINDO EXPERIENCIAS DIGITAIS",
+      label: "CONSTRUINDO EXPERIÊNCIAS DIGITAIS",
       titlePrimary: "Vitrine",
       titleAccent: "de Projetos",
       source: "Codigo",
@@ -92,19 +93,19 @@ export const translations = {
       items: [
         {
           description:
-            "Finenzo e um rastreador inteligente de gastos feito em Flutter que ajuda voce a gerenciar suas financas pessoais com facilidade. Controle despesas, varias carteiras, analise padroes de gastos e exporte seus dados financeiros.",
-          outcome: "Gestao financeira pessoal completa no dia a dia.",
+            "O MovieTV é um aplicativo mobile desenvolvido em React Native (Expo) que permite explorar filmes, buscar recomendações via IA e salvar favoritos. Integra a TMDB API para dados de filmes, Appwrite para backend e OpenRouter AI para buscas inteligentes",
+          outcome: "Exploração inteligente de filmes no dia a dia.",
           role: "Desenvolvedor Mobile",
         },
         {
           description:
-            "Ferramenta de estudos com IA para ajudar em provas e no dominio de materias.",
-          outcome: "Apoio pratico para estudantes com exames virtuais.",
+            "Ferramenta de estudos com IA para ajudar em provas e no domínio de matérias.",
+          outcome: "Apoio prático para estudantes com exames virtuais.",
           role: "Desenvolvedor Full Stack",
         },
         {
           description:
-            "Aplicativo de chat para colaboracao em tempo real com times remotos e tarefas visuais.",
+            "Aplicativo de chat para colaboração em tempo real com times remotos e tarefas visuais.",
           outcome: "Chat em tempo real com backend serverless.",
           role: "Desenvolvedor Full Stack",
         },
@@ -117,38 +118,40 @@ export const translations = {
         {
           description:
             "Portfolio responsivo e visualmente atraente para mostrar projetos e habilidades.",
+          outcome: "",
+          role: "",
         },
       ],
     },
     github: {
-      label: "MINHA JORNADA NO CODIGO",
+      label: "MINHA JORNADA NO CÓDIGO",
       title: "Atividade no GitHub",
       titleAccent: "e Open Source",
     },
     skills: {
       label: "Processo e Ferramentas",
-      title: "A Magica",
-      titleAccent: "por tras",
+      title: "A mágica",
+      titleAccent: "por trás",
       steps: [
         {
           icon: "01",
           title: "Entender",
-          desc: "Mergulhar no problema e nas necessidades do usuario.",
+          desc: "Mergulhar no problema e nas necessidades do usuário.",
         },
         {
           icon: "02",
           title: "Design",
-          desc: "Criar fluxos e interacoes intuitivas que parecem naturais.",
+          desc: "Criar fluxos e interações intuitivas que parecem naturais.",
         },
         {
           icon: "03",
           title: "Construir",
-          desc: "Escrever codigo limpo e escalavel com padroes modernos.",
+          desc: "Escrever código limpo e escalável com padrões modernos.",
         },
         {
           icon: "04",
           title: "Ajustes finais",
-          desc: "Refinar com feedback ate chegar ao ideal.",
+          desc: "Refinar com feedback até chegar ao ideal.",
         },
       ],
       toolboxTitle: "Minha Caixa de Ferramentas",
@@ -164,11 +167,11 @@ export const translations = {
       title: "Vamos construir algo",
       titleEmphasis: "significativo.",
       intro:
-        "Atualmente estou disponivel para trabalhos freelance e colaboracoes open source.",
+        "Atualmente estou disponível para trabalhos freelance e colaborações open source.",
       list: [
         {
           title: "Me contrate",
-          desc: "para criar seu MVP ou entregar uma funcionalidade critica.",
+          desc: "para criar seu MVP ou entregar uma funcionalidade crítica.",
         },
         {
           title: "Colabore",
@@ -176,15 +179,15 @@ export const translations = {
         },
         {
           title: "Converse",
-          desc: "sobre implementacao tecnica ou arquitetura.",
+          desc: "sobre implementação técnica ou arquitetura.",
         },
       ],
       responseTimeLabel: "Tempo de resposta",
-      responseTimeValue: "Em ate 24-48 horas",
+      responseTimeValue: "Em até 24-48 horas",
       formTitle: "Inicie um projeto",
       successTitle: "Mensagem enviada!",
       successMessage:
-        "Obrigado por entrar em contato. Vou responder em ate 48 horas.",
+        "Obrigado por entrar em contato. Vou responder em até 48 horas.",
       successButton: "Enviar outra mensagem",
       labels: {
         name: "Nome",
@@ -194,13 +197,13 @@ export const translations = {
         details: "Conte sobre o projeto",
       },
       placeholders: {
-        name: "Joao Silva",
+        name: "João Silva",
         email: "joao@exemplo.com",
         details: "O que vamos construir?",
       },
       options: {
         projectTypes: [
-          "Desenvolvimento de aplicacao web",
+          "Desenvolvimento de aplicação web",
           "Landing page / Site de marketing",
           "Desenvolvimento de MVP",
           "API / Backend",
@@ -213,7 +216,7 @@ export const translations = {
       errorGeneric: "Algo deu errado. Tente novamente.",
       errorNetwork:
         "Falha ao enviar mensagem. Tente novamente ou envie um email direto.",
-      footer: "Vou responder em ate 48 horas.",
+      footer: "Vou responder em até 48 horas.",
     },
     cta: {
       line1: "Vamos criar",
@@ -337,6 +340,8 @@ export const translations = {
         {
           description:
             "A fully responsive and visually appealing portfolio website to showcase projects and skills.",
+          outcome: "",
+          role: "",
         },
       ],
     },

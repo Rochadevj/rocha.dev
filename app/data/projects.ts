@@ -22,7 +22,7 @@ export const projects: Project[] = [
     url: "https://github.com/Rochadevj/MovieTV",
     outcome: "Comprehensive personal finance management on the go.",
     role: "Mobile App Developer",
-    tech: ["Flutter", "Dart", "Sqflite"],
+    tech: ["React Native", "TypeScript", "Appwrite", "TMDB API", "OpenRouter AI"],
     metric: "Multi-wallet Support",
     image: "/finenzo-mockup/finenzo-hero.png",
     images: [

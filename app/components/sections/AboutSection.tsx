@@ -11,8 +11,17 @@ import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 export function AboutSection() {
   const { copy, language } = useTranslations();
   const [currentTime, setCurrentTime] = useState("");
+  const [clockTime, setClockTime] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
   const philosophyRef = useRef<HTMLDivElement>(null);
   const dialRef = useRef<HTMLDivElement>(null);
+  const profileCardRef = useRef<HTMLDivElement>(null);
+  const whoCardRef = useRef<HTMLDivElement>(null);
+  const globalCardRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
   const mapMarkers = useMemo(
     () => [
       { lat: 51.5074, lng: -0.1278, size: 0.6 }, // London
@@ -27,6 +36,13 @@ export function AboutSection() {
     const isPortuguese = language === "pt-BR";
     const locale = isPortuguese ? "pt-BR" : "en-US";
     const timeZone = "America/Sao_Paulo";
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone,
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
     const updateTime = () => {
       const now = new Date();
       setCurrentTime(
@@ -37,6 +53,17 @@ export function AboutSection() {
           hour12: !isPortuguese,
         })
       );
+      const parts = formatter.formatToParts(now);
+      const hourPart = parts.find((part) => part.type === "hour")?.value ?? "0";
+      const minutePart =
+        parts.find((part) => part.type === "minute")?.value ?? "0";
+      const secondPart =
+        parts.find((part) => part.type === "second")?.value ?? "0";
+      setClockTime({
+        hours: Number(hourPart),
+        minutes: Number(minutePart),
+        seconds: Number(secondPart) + now.getMilliseconds() / 1000,
+      });
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
@@ -68,6 +95,28 @@ export function AboutSection() {
     });
   }
 
+  const handleDepthMouseMove = (
+    ref: React.RefObject<HTMLDivElement | null>,
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
+    if (!ref.current) return;
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      if (!ref.current) return;
+      const rect = ref.current.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      const rotateX = (-y * 18).toFixed(2);
+      const rotateY = (x * 18).toFixed(2);
+      ref.current.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(-40px)`;
+    });
+  };
+
+  const handleDepthLeave = (ref: React.RefObject<HTMLDivElement | null>) => {
+    if (!ref.current) return;
+    ref.current.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0px)";
+  };
+
   return (
     <section id="about" className="relative py-20 px-4 sm:px-6 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-8">
@@ -75,7 +124,12 @@ export function AboutSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
           
           {/* 1. Profile Card */}
-          <div className="md:col-span-1 min-h-[350px] md:min-h-[400px] rounded-3xl bg-[#111] border border-white/10 p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group">
+          <div
+            ref={profileCardRef}
+            onPointerMove={(e) => handleDepthMouseMove(profileCardRef, e)}
+            onPointerLeave={() => handleDepthLeave(profileCardRef)}
+            className="md:col-span-1 min-h-[350px] md:min-h-[400px] rounded-3xl bg-[#111] border border-white/10 p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group cursor-default transition-transform duration-100 will-change-transform hover:shadow-xl"
+          >
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-serif italic mb-2 tracking-wide">Henrique <span className="text-gray-400 not-italic font-sans font-bold">Rocha</span></h3>
               <div className="flex items-center gap-2 text-gray-400 text-xs md:text-sm mb-4 md:mb-6">
@@ -93,7 +147,12 @@ export function AboutSection() {
           </div>
 
           {/* 2. About Me Text Card */}
-          <div className="md:col-span-2 rounded-3xl bg-[#0a0a0a] border border-white/10 p-6 md:p-10 flex flex-col justify-center gap-6">
+          <div
+            ref={whoCardRef}
+            onPointerMove={(e) => handleDepthMouseMove(whoCardRef, e)}
+            onPointerLeave={() => handleDepthLeave(whoCardRef)}
+            className="md:col-span-2 rounded-3xl bg-[#0a0a0a] border border-white/10 p-6 md:p-10 flex flex-col justify-center gap-6 cursor-default transition-transform duration-100 will-change-transform hover:shadow-xl"
+          >
              <div className="space-y-4">
                 <h3 className="text-2xl font-bold text-white">{copy.about.whoTitle}</h3>
                 <p className="text-gray-400 leading-relaxed text-sm md:text-base">
@@ -158,14 +217,19 @@ export function AboutSection() {
             {/* Graphic Side (Clock) */}
             <div className="relative w-full md:w-[400px] h-[300px] flex items-center justify-center pointer-events-none">
                 <div className="scale-75 md:scale-100 relative">
-                   <AnalogClock />
+                   <AnalogClock time={clockTime} />
                 </div>
             </div>
           </div>
 
 
           {/* 4. Global Timezone Card */}
-          <div className="md:col-span-3 min-h-[250px] rounded-3xl bg-[#080808] border border-white/10 p-6 md:p-8 overflow-hidden relative flex flex-col md:flex-row items-center gap-6 md:gap-8">
+          <div
+            ref={globalCardRef}
+            onPointerMove={(e) => handleDepthMouseMove(globalCardRef, e)}
+            onPointerLeave={() => handleDepthLeave(globalCardRef)}
+            className="md:col-span-3 min-h-[250px] rounded-3xl bg-[#080808] border border-white/10 p-6 md:p-8 overflow-hidden relative flex flex-col md:flex-row items-center gap-6 md:gap-8 cursor-default transition-transform duration-100 will-change-transform hover:shadow-xl"
+          >
             <div className="flex-1 space-y-4 z-10 w-full">
                             <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">{copy.about.globalLabel}</span>
               <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{copy.about.globalTitle} <br/><span className="text-gray-500">{copy.about.globalTitleEmphasis}</span></h3>
