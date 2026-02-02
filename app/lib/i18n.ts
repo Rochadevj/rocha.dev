@@ -86,27 +86,27 @@ export const translations = {
       label: "CONSTRUINDO EXPERIÊNCIAS DIGITAIS",
       titlePrimary: "Vitrine",
       titleAccent: "de Projetos",
-      source: "Codigo",
+      source: "Código",
       liveDemo: "Demo",
       fallbackRole: "Desenvolvimento Full Stack",
       footer: "E muitos outros experimentos internos...",
       items: [
         {
           description:
-            "O MovieTV é um aplicativo mobile desenvolvido em React Native (Expo) que permite explorar filmes, buscar recomendações via IA e salvar favoritos. Integra a TMDB API para dados de filmes, Appwrite para backend e OpenRouter AI para buscas inteligentes",
+            "O MovieTV é um aplicativo mobile desenvolvido em React Native (Expo) que permite explorar filmes, buscar recomendações via IA e salvar favoritos. Integra a TMDB API para dados de filmes, Appwrite para backend e OpenRouter AI para buscas inteligentes.",
           outcome: "Exploração inteligente de filmes no dia a dia.",
           role: "Desenvolvedor Mobile",
         },
         {
           description:
-            "Ferramenta de estudos com IA para ajudar em provas e no domínio de matérias.",
-          outcome: "Apoio prático para estudantes com exames virtuais.",
-          role: "Desenvolvedor Full Stack",
+            "O ClickCV é uma aplicação web interativa que permite criar currículos de forma visual e intuitiva, apenas clicando e ajustando os elementos diretamente na tela. Após a personalização, o usuário pode exportar o currículo em PDF pronto para uso.",
+          outcome: "Criação de currículos interativos de forma simples e eficiente.",
+          role: "Desenvolvedor Front-end",
         },
         {
           description:
-            "Aplicativo de chat para colaboração em tempo real com times remotos e tarefas visuais.",
-          outcome: "Chat em tempo real com backend serverless.",
+            "Solução full stack para análise e registro automatizado de atendimentos via WhatsApp Business, desenvolvida e validada por cliente real. Integra WAHA, n8n, Docker e IA para processamento em tempo real, com dashboard em React e TypeScript para visualização de métricas e fluxos.",
+          outcome: "Automação para gerar dados estratégicos.",
           role: "Desenvolvedor Full Stack",
         },
         {

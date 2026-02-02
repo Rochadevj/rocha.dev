@@ -11,11 +11,6 @@ import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 export function AboutSection() {
   const { copy, language } = useTranslations();
   const [currentTime, setCurrentTime] = useState("");
-  const [clockTime, setClockTime] = useState({
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
   const philosophyRef = useRef<HTMLDivElement>(null);
   const dialRef = useRef<HTMLDivElement>(null);
   const profileCardRef = useRef<HTMLDivElement>(null);
@@ -36,13 +31,6 @@ export function AboutSection() {
     const isPortuguese = language === "pt-BR";
     const locale = isPortuguese ? "pt-BR" : "en-US";
     const timeZone = "America/Sao_Paulo";
-    const formatter = new Intl.DateTimeFormat("en-US", {
-      timeZone,
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-    });
     const updateTime = () => {
       const now = new Date();
       setCurrentTime(
@@ -53,17 +41,6 @@ export function AboutSection() {
           hour12: !isPortuguese,
         })
       );
-      const parts = formatter.formatToParts(now);
-      const hourPart = parts.find((part) => part.type === "hour")?.value ?? "0";
-      const minutePart =
-        parts.find((part) => part.type === "minute")?.value ?? "0";
-      const secondPart =
-        parts.find((part) => part.type === "second")?.value ?? "0";
-      setClockTime({
-        hours: Number(hourPart),
-        minutes: Number(minutePart),
-        seconds: Number(secondPart) + now.getMilliseconds() / 1000,
-      });
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
@@ -128,7 +105,7 @@ export function AboutSection() {
             ref={profileCardRef}
             onPointerMove={(e) => handleDepthMouseMove(profileCardRef, e)}
             onPointerLeave={() => handleDepthLeave(profileCardRef)}
-            className="md:col-span-1 min-h-[350px] md:min-h-[400px] rounded-3xl bg-[#111] border border-white/10 p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group cursor-default transition-transform duration-100 will-change-transform hover:shadow-xl"
+            className="md:col-span-1 min-h-87.5 md:min-h-100 rounded-3xl bg-[#111] border border-white/10 p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group cursor-default transition-transform duration-100 will-change-transform hover:shadow-xl"
           >
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-serif italic mb-2 tracking-wide">Henrique <span className="text-gray-400 not-italic font-sans font-bold">Rocha</span></h3>
@@ -191,7 +168,7 @@ export function AboutSection() {
             ref={philosophyRef}
             onMouseMove={handlePhilosophyMouseMove}
             onMouseLeave={handlePhilosophyLeave}
-            className="md:col-span-3 min-h-[300px] md:min-h-[350px] rounded-3xl bg-[#111] border border-white/10 p-6 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 hover:border-white/20 transition-colors duration-500 cursor-auto md:cursor-none"
+            className="md:col-span-3 min-h-75 md:min-h-87.5 rounded-3xl bg-[#111] border border-white/10 p-6 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 hover:border-white/20 transition-colors duration-500 cursor-auto md:cursor-none"
           >
             {/* Text Side */}
             <div className="relative z-10 flex-1 space-y-6">
@@ -215,9 +192,9 @@ export function AboutSection() {
             </div>
 
             {/* Graphic Side (Clock) */}
-            <div className="relative w-full md:w-[400px] h-[300px] flex items-center justify-center pointer-events-none">
+            <div className="relative w-full md:w-100 h-75 flex items-center justify-center pointer-events-none">
                 <div className="scale-75 md:scale-100 relative">
-                   <AnalogClock time={clockTime} />
+                   <AnalogClock />
                 </div>
             </div>
           </div>
@@ -228,7 +205,7 @@ export function AboutSection() {
             ref={globalCardRef}
             onPointerMove={(e) => handleDepthMouseMove(globalCardRef, e)}
             onPointerLeave={() => handleDepthLeave(globalCardRef)}
-            className="md:col-span-3 min-h-[250px] rounded-3xl bg-[#080808] border border-white/10 p-6 md:p-8 overflow-hidden relative flex flex-col md:flex-row items-center gap-6 md:gap-8 cursor-default transition-transform duration-100 will-change-transform hover:shadow-xl"
+            className="md:col-span-3 min-h-62.5 rounded-3xl bg-[#080808] border border-white/10 p-6 md:p-8 overflow-hidden relative flex flex-col md:flex-row items-center gap-6 md:gap-8 cursor-default transition-transform duration-100 will-change-transform hover:shadow-xl"
           >
             <div className="flex-1 space-y-4 z-10 w-full">
                             <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">{copy.about.globalLabel}</span>
@@ -250,7 +227,7 @@ export function AboutSection() {
             </div>
 
             {/* Dotted Map Visualization */}
-            <div className="flex-1 w-full h-[200px] relative opacity-50 contrast-125">
+            <div className="flex-1 w-full h-50 relative opacity-50 contrast-125">
                <div className="absolute inset-0 mask-radial-gradient">
                  <DottedMap 
                    dotColor="#555"

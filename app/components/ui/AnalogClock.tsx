@@ -3,36 +3,53 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 
-type ClockTime = {
-  hours: number;
-  minutes: number;
-  seconds: number;
-};
-
-type AnalogClockProps = {
-  time: ClockTime;
-};
-
-export function AnalogClock({ time }: AnalogClockProps) {
+export function AnalogClock() {
   const hourRef = useRef<HTMLDivElement>(null);
   const minuteRef = useRef<HTMLDivElement>(null);
   const secondRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const seconds = time.seconds;
-    const minutes = time.minutes + seconds / 60;
-    const hours = time.hours + minutes / 60;
+    let rafId = 0;
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Sao_Paulo",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
 
-    if (secondRef.current) {
-      secondRef.current.style.transform = `rotate(${seconds * 6}deg)`;
-    }
-    if (minuteRef.current) {
-      minuteRef.current.style.transform = `rotate(${minutes * 6}deg)`;
-    }
-    if (hourRef.current) {
-      hourRef.current.style.transform = `rotate(${hours * 15}deg)`;
-    }
-  }, [time]);
+    const updateClock = () => {
+      const now = new Date();
+      const parts = formatter.formatToParts(now);
+      const hourPart =
+        parts.find((part) => part.type === "hour")?.value ?? "0";
+      const minutePart =
+        parts.find((part) => part.type === "minute")?.value ?? "0";
+      const secondPart =
+        parts.find((part) => part.type === "second")?.value ?? "0";
+
+      const seconds = Number(secondPart) + now.getMilliseconds() / 1000;
+      const minutes = Number(minutePart) + seconds / 60;
+      const hours24 = Number(hourPart) + minutes / 60;
+      const hours = hours24 % 12;
+
+      // Rotate the containers, not the hands themselves
+      if (secondRef.current) {
+        secondRef.current.style.transform = `rotate(${seconds * 6}deg)`;
+      }
+      if (minuteRef.current) {
+        minuteRef.current.style.transform = `rotate(${minutes * 6}deg)`;
+      }
+      if (hourRef.current) {
+        hourRef.current.style.transform = `rotate(${hours * 30}deg)`;
+      }
+
+      rafId = requestAnimationFrame(updateClock);
+    };
+
+    rafId = requestAnimationFrame(updateClock);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
 
   return (
     <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-[#050505] shadow-[0_0_50px_rgba(0,0,0,0.8)] border-[6px] border-[#1a1a1a] ring-1 ring-white/10 group select-none">
