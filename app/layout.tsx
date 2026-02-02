@@ -22,23 +22,23 @@ const lustDidone = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shafisma.me"),
+  metadataBase: new URL("https://rocha.dev"),
   title: {
-    default: "Shafiuzzaman | Full‑Stack Developer Portfolio (Next.js)",
-    template: "%s | Shafi's Portfolio"
+    default: "Rocha | Full‑Stack Developer Portfolio (Next.js)",
+    template: "%s | Rocha's Portfolio"
   },
-  description: "Explore Shafiuzzaman’s full‑stack developer portfolio: Next.js, TypeScript and Python projects. View featured work, open-source repos, and get in touch.",
+  description: "Explore Rocha’s full‑stack developer portfolio: Next.js, TypeScript and Python projects. View featured work, open-source repos, and get in touch.",
   keywords: ["full-stack developer", "Next.js portfolio", "TypeScript projects", "Python developer", "open-source", "web development", "react", "software engineer"],
   alternates: {
     canonical: "/",
   },
-  authors: [{ name: "Shafiuzzaman", url: "https://shafisma.me" }],
-  creator: "Shafiuzzaman",
+  authors: [{ name: "Rocha", url: "https://rocha.dev" }],
+  creator: "Rocha",
   openGraph: {
-    title: "Shafiuzzaman | Full‑Stack Developer Portfolio (Next.js)",
-    description: "Explore Shafiuzzaman’s full‑stack developer portfolio featuring Next.js, TypeScript and Python projects.",
-    url: "https://shafisma.me",
-    siteName: "Shafiuzzaman Portfolio",
+    title: "Rocha | Full‑Stack Developer Portfolio (Next.js)",
+    description: "Explore Rocha’s full‑stack developer portfolio featuring Next.js, TypeScript and Python projects.",
+    url: "https://rocha.dev",
+    siteName: "Rocha Portfolio",
     locale: "en_US",
     type: "website",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: "/og-image.png", // Ensure you add an og-image.png to your public folder
         width: 1200,
         height: 630,
-        alt: "Shafiuzzaman - Full Stack Developer",
+        alt: "Rocha - Full Stack Developer",
       },
     ],
   },

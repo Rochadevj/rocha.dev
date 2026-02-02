@@ -16,8 +16,6 @@ export const translations = {
       roles: [
         { first: "Engenheiro", second: "de Software." },
         { first: "Desenvolvedor", second: "Full Stack." },
-        { first: "Desenvolvedor", second: "Front-End." },
-        { first: "Desenvolvedor", second: "Mobile." },
       ],
       quote:
         "Eu construo aplicações web e mobile full stack, com foco em performance, escalabilidade e experiência do usuário.",

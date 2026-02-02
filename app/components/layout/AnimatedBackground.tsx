@@ -117,11 +117,11 @@ export function AnimatedBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-black">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#0b1a2a_0%,#000_65%)] opacity-80" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(16,185,129,0.08),transparent_45%)]" />
+    <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-[#050505]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#122234_0%,#050505_65%)] opacity-70" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(16,185,129,0.12),transparent_50%)]" />
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#000_75%)] opacity-80" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_25%,#050505_75%)] opacity-70" />
     </div>
   );
 }
