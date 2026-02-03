@@ -21,6 +21,7 @@ export const skills: Skill[] = [
   { name: "GitHub", color: "bg-gray-800" },
   { name: "Vercel", color: "bg-black" },
   { name: "Docker", color: "bg-blue-500" },
+  { name: "Supabase", color: "bg-emerald-500" },
   { name: "n8n", color: "bg-orange-500" },
   { name: "Linux", color: "bg-yellow-500" },
 ];

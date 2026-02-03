@@ -7,7 +7,7 @@ import {
   SiTailwindcss, SiFramer, SiSanity, SiContentful, SiNodedotjs, SiExpress, 
   SiPostgresql, SiMongodb, SiPrisma, SiPnpm, SiBun, SiGit, SiGithub, SiVercel, 
   SiAmazon, SiDocker, SiExpo, SiClerk, SiLinux, SiRust, SiFlutter, SiBlender, 
-  SiAdobeillustrator, SiGodotengine, SiZod, SiBootstrap, SiWordpress, SiN8N
+  SiAdobeillustrator, SiGodotengine, SiZod, SiBootstrap, SiWordpress, SiN8N, SiSupabase
 } from "react-icons/si";
 import { GiBearFace } from "react-icons/gi"; // For Zustand (Bear)
 import { useTranslations } from "@/app/components/i18n/LanguageProvider";
@@ -41,6 +41,7 @@ const skillIcons: Record<string, ReactNode> = {
   Vercel: <SiVercel />,
   AWS: <SiAmazon />,
   Docker: <SiDocker />,
+  Supabase: <SiSupabase />,
   Expo: <SiExpo />,
   Clerk: <SiClerk />,
   Linux: <SiLinux />,
@@ -81,6 +82,7 @@ const skillColors: Record<string, { bg: string; text: string; color: string }> =
   Vercel: { bg: "bg-white/10", text: "text-white", color: "#ffffff" },
   AWS: { bg: "bg-[#FF9900]/10", text: "text-[#FF9900]", color: "#FF9900" },
   Docker: { bg: "bg-[#2496ED]/10", text: "text-[#2496ED]", color: "#2496ED" },
+  Supabase: { bg: "bg-[#3ECF8E]/10", text: "text-[#3ECF8E]", color: "#3ECF8E" },
   Expo: { bg: "bg-white/10", text: "text-white", color: "#ffffff" },
   Clerk: { bg: "bg-[#6C47FF]/10", text: "text-[#6C47FF]", color: "#6C47FF" },
   Linux: { bg: "bg-[#FCC624]/10", text: "text-[#FCC624]", color: "#FCC624" },

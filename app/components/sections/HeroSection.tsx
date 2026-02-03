@@ -23,6 +23,7 @@ import {
   SiGithub,
   SiVercel,
   SiDocker,
+  SiSupabase,
   SiN8N,
   SiLinux,
 } from "react-icons/si";
@@ -60,6 +61,7 @@ export function HeroSection() {
     GitHub: { icon: <SiGithub />, color: "#ffffff" },
     Vercel: { icon: <SiVercel />, color: "#ffffff" },
     Docker: { icon: <SiDocker />, color: "#2496ED" },
+    Supabase: { icon: <SiSupabase />, color: "#3ECF8E" },
     n8n: { icon: <SiN8N />, color: "#EA4B71" },
     Linux: { icon: <SiLinux />, color: "#FCC624" },
   };
