@@ -3,11 +3,11 @@
 import { ReactNode } from "react";
 import { skills } from "@/app/data/skills";
 import { 
-  SiJavascript, SiTypescript, SiPython, SiHtml5, SiCss3, SiNextdotjs, SiReact, 
+  SiJavascript, SiTypescript, SiPhp, SiMysql, SiHtml5, SiCss3, SiNextdotjs, SiReact, 
   SiTailwindcss, SiFramer, SiSanity, SiContentful, SiNodedotjs, SiExpress, 
   SiPostgresql, SiMongodb, SiPrisma, SiPnpm, SiBun, SiGit, SiGithub, SiVercel, 
   SiAmazon, SiDocker, SiExpo, SiClerk, SiLinux, SiRust, SiFlutter, SiBlender, 
-  SiAdobeillustrator, SiGodotengine, SiZod
+  SiAdobeillustrator, SiGodotengine, SiZod, SiBootstrap, SiWordpress, SiN8N
 } from "react-icons/si";
 import { GiBearFace } from "react-icons/gi"; // For Zustand (Bear)
 import { useTranslations } from "@/app/components/i18n/LanguageProvider";
@@ -15,18 +15,21 @@ import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 const skillIcons: Record<string, ReactNode> = {
   JavaScript: <SiJavascript />,
   TypeScript: <SiTypescript />,
-  Python: <SiPython />,
+  PHP: <SiPhp />,
   HTML: <SiHtml5 />,
   CSS: <SiCss3 />,
   NextJS: <SiNextdotjs />,
   ReactJS: <SiReact />,
   "Tailwind CSS": <SiTailwindcss />,
+  Bootstrap: <SiBootstrap />,
+  WordPress: <SiWordpress />,
   Motion: <SiFramer />,
   Sanity: <SiSanity />,
   Contentful: <SiContentful />,
   NodeJS: <SiNodedotjs />,
   ExpressJS: <SiExpress />,
   PostgreSQL: <SiPostgresql />,
+  MySQL: <SiMysql />,
   MongoDB: <SiMongodb />,
   Prisma: <SiPrisma />,
   Zustand: <GiBearFace />,
@@ -46,23 +49,27 @@ const skillIcons: Record<string, ReactNode> = {
   Blender: <SiBlender />,
   Illustrator: <SiAdobeillustrator />,
   Godot: <SiGodotengine />,
+  n8n: <SiN8N />,
 };
 
 const skillColors: Record<string, { bg: string; text: string; color: string }> = {
   JavaScript: { bg: "bg-[#F7DF1E]/10", text: "text-[#F7DF1E]", color: "#F7DF1E" },
   TypeScript: { bg: "bg-[#3178C6]/10", text: "text-[#3178C6]", color: "#3178C6" },
-  Python: { bg: "bg-[#FFE873]/10", text: "text-[#FFE873]", color: "#FFE873" },
+  PHP: { bg: "bg-[#777BB4]/10", text: "text-[#777BB4]", color: "#777BB4" },
   HTML: { bg: "bg-[#E34F26]/10", text: "text-[#E34F26]", color: "#E34F26" },
   CSS: { bg: "bg-[#1572B6]/10", text: "text-[#1572B6]", color: "#1572B6" },
   NextJS: { bg: "bg-white/10", text: "text-white", color: "#ffffff" },
   ReactJS: { bg: "bg-[#61DAFB]/10", text: "text-[#61DAFB]", color: "#61DAFB" },
   "Tailwind CSS": { bg: "bg-[#38B2AC]/10", text: "text-[#38B2AC]", color: "#38B2AC" },
+  Bootstrap: { bg: "bg-[#7952B3]/10", text: "text-[#7952B3]", color: "#7952B3" },
+  WordPress: { bg: "bg-[#21759B]/10", text: "text-[#21759B]", color: "#21759B" },
   Motion: { bg: "bg-[#0055FF]/10", text: "text-[#0055FF]", color: "#0055FF" },
   Sanity: { bg: "bg-[#F03E2F]/10", text: "text-[#F03E2F]", color: "#F03E2F" },
   Contentful: { bg: "bg-[#2478CC]/10", text: "text-[#2478CC]", color: "#2478CC" },
   NodeJS: { bg: "bg-[#339933]/10", text: "text-[#339933]", color: "#339933" },
   ExpressJS: { bg: "bg-white/10", text: "text-white", color: "#ffffff" },
   PostgreSQL: { bg: "bg-[#336791]/10", text: "text-[#336791]", color: "#336791" },
+  MySQL: { bg: "bg-[#4479A1]/10", text: "text-[#4479A1]", color: "#4479A1" },
   MongoDB: { bg: "bg-[#47A248]/10", text: "text-[#47A248]", color: "#47A248" },
   Prisma: { bg: "bg-[#2D3748]/10", text: "text-white", color: "#ffffff" },
   Zustand: { bg: "bg-[#443E38]/10", text: "text-[#F6C778]", color: "#443E38" }, // Using brownish for bear
@@ -82,6 +89,7 @@ const skillColors: Record<string, { bg: string; text: string; color: string }> =
   Blender: { bg: "bg-[#E87D0D]/10", text: "text-[#E87D0D]", color: "#E87D0D" },
   Illustrator: { bg: "bg-[#FF9A00]/10", text: "text-[#FF9A00]", color: "#FF9A00" },
   Godot: { bg: "bg-[#478CBF]/10", text: "text-[#478CBF]", color: "#478CBF" },
+  n8n: { bg: "bg-[#EA4B71]/10", text: "text-[#EA4B71]", color: "#EA4B71" },
 };
 
 export function SkillsSection() {

@@ -1,10 +1,31 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useTranslations } from "@/app/components/i18n/LanguageProvider";
+import { skills } from "@/app/data/skills";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPhp,
+  SiHtml5,
+  SiCss3,
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiBootstrap,
+  SiWordpress,
+  SiNodedotjs,
+  SiPostgresql,
+  SiMysql,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiDocker,
+  SiN8N,
+  SiLinux,
+} from "react-icons/si";
 
 export function HeroSection() {
   const { copy, language } = useTranslations();
@@ -21,20 +42,35 @@ export function HeroSection() {
   const roles = copy.hero.roles;
   const [roleIndex, setRoleIndex] = useState(0);
 
-  const techStack = [
-    { src: "/techstacks/tailwindcss.svg", alt: "tailwindcss" },
-    { src: "/techstacks/kotlin.svg", alt: "kotlin" },
-    { src: "/techstacks/flutter.svg", alt: "flutter" },
-    { src: "/techstacks/react.svg", alt: "react" },
-    { src: "/techstacks/nextjs.svg", alt: "nextjs" },
-    { src: "/techstacks/nodejs.svg", alt: "nodejs" },
-    { src: "/techstacks/typescript.svg", alt: "typescript" },
-    { src: "/techstacks/python.svg", alt: "python" },
-    { src: "/techstacks/cplusplus.svg", alt: "c++" },
-    { src: "/techstacks/git.svg", alt: "git" },
-    { src: "/techstacks/firebase.svg", alt: "firebase" },
-    { src: "/techstacks/postgresql.svg", alt: "postgresql" },
-  ];
+  const techIconByName: Record<string, { icon: React.ReactNode; color: string }> = {
+    JavaScript: { icon: <SiJavascript />, color: "#F7DF1E" },
+    TypeScript: { icon: <SiTypescript />, color: "#3178C6" },
+    PHP: { icon: <SiPhp />, color: "#777BB4" },
+    HTML: { icon: <SiHtml5 />, color: "#E34F26" },
+    CSS: { icon: <SiCss3 />, color: "#1572B6" },
+    NextJS: { icon: <SiNextdotjs />, color: "#ffffff" },
+    ReactJS: { icon: <SiReact />, color: "#61DAFB" },
+    "Tailwind CSS": { icon: <SiTailwindcss />, color: "#38B2AC" },
+    Bootstrap: { icon: <SiBootstrap />, color: "#7952B3" },
+    WordPress: { icon: <SiWordpress />, color: "#21759B" },
+    NodeJS: { icon: <SiNodedotjs />, color: "#339933" },
+    PostgreSQL: { icon: <SiPostgresql />, color: "#336791" },
+    MySQL: { icon: <SiMysql />, color: "#4479A1" },
+    Git: { icon: <SiGit />, color: "#F05032" },
+    GitHub: { icon: <SiGithub />, color: "#ffffff" },
+    Vercel: { icon: <SiVercel />, color: "#ffffff" },
+    Docker: { icon: <SiDocker />, color: "#2496ED" },
+    n8n: { icon: <SiN8N />, color: "#EA4B71" },
+    Linux: { icon: <SiLinux />, color: "#FCC624" },
+  };
+
+  const techStack = skills
+    .map((skill) => ({
+      name: skill.name,
+      icon: techIconByName[skill.name]?.icon,
+      color: techIconByName[skill.name]?.color,
+    }))
+    .filter((tech) => Boolean(tech.icon));
 
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -161,16 +197,18 @@ export function HeroSection() {
           <div className="marquee">
             <div className="marquee-track">
               {techStack.concat(techStack).map((tech, index) => (
-                <div key={`${tech.alt}-${index}`} className="flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 rounded-full border border-white/10 bg-white/5">
-                  <Image
-                    src={tech.src}
-                    alt={tech.alt}
-                    width={32}
-                    height={32}
-                    style={{ filter: "invert(0)" }}
-                    suppressHydrationWarning
-                    className="h-6 w-6 sm:h-7 sm:w-7 object-contain"
-                  />
+                <div
+                  key={`${tech.name}-${index}`}
+                  className="flex items-center justify-center h-14 w-14 sm:h-16 sm:w-16 rounded-full border border-white/10 bg-white/5"
+                  aria-label={tech.name}
+                  title={tech.name}
+                >
+                  <span
+                    className="text-xl sm:text-2xl"
+                    style={{ color: tech.color ?? "#ffffff" }}
+                  >
+                    {tech.icon}
+                  </span>
                 </div>
               ))}
             </div>

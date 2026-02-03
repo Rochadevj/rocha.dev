@@ -56,7 +56,7 @@ export function Footer() {
             <p className="text-sm font-medium text-gray-500 text-center sm:text-left">
               {new Date().getFullYear()}{" "}
               <a href="#" className="hover:text-white transition-colors">
-                Shafi
+                Rocha
               </a>
               . {copy.footer.builtWith}{" "}
               <a
