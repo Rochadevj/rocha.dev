@@ -142,7 +142,7 @@ export function HeroSection() {
   }, [language]);
 
   return (
-    <section ref={containerRef} className="relative min-h-[100dvh] flex items-center justify-center px-4 sm:px-6 pt-24 overflow-hidden">
+    <section ref={containerRef} className="relative min-h-dvh flex items-center justify-center px-4 sm:px-6 pt-24 overflow-hidden">
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-start text-left">
         <div
           ref={badgeRef}
@@ -194,8 +194,8 @@ export function HeroSection() {
         </div>
 
         <div ref={marqueeRef} className="relative w-full mt-10 sm:mt-14 overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-black to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-black to-transparent" />
           <div className="marquee">
             <div className="marquee-track">
               {techStack.concat(techStack).map((tech, index) => (
