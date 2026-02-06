@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export function AnalogClock() {
   const hourRef = useRef<HTMLDivElement>(null);
   const minuteRef = useRef<HTMLDivElement>(null);
   const secondRef = useRef<HTMLDivElement>(null);
+  const [dialImageError, setDialImageError] = useState(false);
 
   useEffect(() => {
     let rafId = 0;
@@ -56,6 +57,7 @@ export function AnalogClock() {
       
       {/* Clock Face Image */}
       <div className="absolute inset-0 rounded-full overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,#0f0f0f_0%,#050505_62%,#111111_100%)]" />
         <Image 
           src="/clockDial.avif" 
           alt="Clock Dial" 
@@ -63,8 +65,12 @@ export function AnalogClock() {
           sizes="(min-width: 768px) 320px, 256px"
           style={{ filter: "invert(0)" }}
           suppressHydrationWarning
-          className="object-cover opacity-90"
+          onError={() => setDialImageError(true)}
+          className={`object-cover opacity-90 ${dialImageError ? "hidden" : ""}`}
         />
+        {/* Tick fallback for mobile/in-app browsers that fail to decode AVIF */}
+        <div className="absolute inset-[8%] rounded-full opacity-35 [background:repeating-conic-gradient(from_0deg,rgba(255,255,255,0.9)_0deg,rgba(255,255,255,0.9)_0.7deg,transparent_0.7deg,transparent_6deg)] [mask:radial-gradient(circle,transparent_60%,black_61%,black_69%,transparent_70%)]" />
+        <div className="absolute inset-[8%] rounded-full opacity-65 [background:repeating-conic-gradient(from_0deg,rgba(255,255,255,0.95)_0deg,rgba(255,255,255,0.95)_2deg,transparent_2deg,transparent_30deg)] [mask:radial-gradient(circle,transparent_54%,black_55%,black_72%,transparent_73%)]" />
       </div>
 
       {/* Hands Container - Centered Overlay */}

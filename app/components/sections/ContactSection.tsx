@@ -37,18 +37,26 @@ type FormData = {
 export function ContactSection() {
   const { copy } = useTranslations();
   const projectTypeKeys = useMemo(
-    () => ["web", "landing", "mvp", "api", "consulting"],
+    () => ["web", "landing", "hiring", "general"],
     []
   );
   const timelineKeys = useMemo(() => ["lt1", "1to3", "3to6", "flex"], []);
+  const hideTimelineFor = useMemo(() => new Set(["hiring", "general"]), []);
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    type: projectTypeKeys[0],
+    type: "general",
     timeline: timelineKeys[1],
     details: "",
   });
+  const shouldShowTimeline = !hideTimelineFor.has(formData.type);
+  const detailsLabel = shouldShowTimeline
+    ? copy.contact.labels.details
+    : copy.contact.labels.detailsGeneral;
+  const detailsPlaceholder = shouldShowTimeline
+    ? copy.contact.placeholders.details
+    : copy.contact.placeholders.detailsGeneral;
 
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
@@ -66,11 +74,13 @@ export function ContactSection() {
       const payload = {
         ...formData,
         type: copy.contact.options.projectTypes[typeIndex] ?? formData.type,
-        timeline:
-          copy.contact.options.timeline[timelineIndex] ?? formData.timeline,
+        ...(shouldShowTimeline && {
+          timeline:
+            copy.contact.options.timeline[timelineIndex] ?? formData.timeline,
+        }),
       };
 
-      const response = await fetch("https://formspree.io/f/xreegbqy", {
+      const response = await fetch("https://formspree.io/f/xvzbpdjl", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,7 +94,7 @@ export function ContactSection() {
         setFormData({
           name: "",
           email: "",
-          type: projectTypeKeys[0],
+          type: "general",
           timeline: timelineKeys[1],
           details: "",
         });
@@ -261,31 +271,33 @@ export function ContactSection() {
                 </select>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-500 uppercase">
-                  {copy.contact.labels.timeline}
-                </label>
-                <select
-                  name="timeline"
-                  value={formData.timeline}
-                  onChange={handleChange}
-                  disabled={status === "submitting"}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-gray-400 focus:outline-none focus:border-accent/50 transition-colors disabled:opacity-50 appearance-none"
-                >
-                  {copy.contact.options.timeline.map((label, index) => (
-                    <option
-                      key={timelineKeys[index]}
-                      value={timelineKeys[index]}
-                    >
-                      {label}
-                    </option>
-                  ))}
-                </select>
-              </div>
+              {shouldShowTimeline && (
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-gray-500 uppercase">
+                    {copy.contact.labels.timeline}
+                  </label>
+                  <select
+                    name="timeline"
+                    value={formData.timeline}
+                    onChange={handleChange}
+                    disabled={status === "submitting"}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-gray-400 focus:outline-none focus:border-accent/50 transition-colors disabled:opacity-50 appearance-none"
+                  >
+                    {copy.contact.options.timeline.map((label, index) => (
+                      <option
+                        key={timelineKeys[index]}
+                        value={timelineKeys[index]}
+                      >
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
 
               <div className="space-y-2">
                 <label className="text-xs font-bold text-gray-500 uppercase">
-                  {copy.contact.labels.details}
+                  {detailsLabel}
                 </label>
                 <textarea
                   name="details"
@@ -293,7 +305,7 @@ export function ContactSection() {
                   rows={4}
                   value={formData.details}
                   onChange={handleChange}
-                  placeholder={copy.contact.placeholders.details}
+                  placeholder={detailsPlaceholder}
                   disabled={status === "submitting"}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent/50 transition-colors resize-none disabled:opacity-50"
                 ></textarea>

@@ -42,7 +42,7 @@ export const projects: Project[] = [
     role: "Full Stack Developer",
     tech: ["Javascript", "CSS", "html2pdf"],
     metric: "2 GitHub Stars",
-    image: "/Captura de tela 2026-02-01 214351.png",
+    image: "/clickCV.png",
   },
   {
     name: "AnáliseAI",

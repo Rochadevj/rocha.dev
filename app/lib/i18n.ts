@@ -21,6 +21,8 @@ export const translations = {
         "Eu construo aplicações web e mobile full stack, com foco em performance, escalabilidade e experiência do usuário.",
       ctaPrimary: "Iniciar um projeto",
       ctaSecondary: "Ver projetos",
+      ctaResume: "Download CV",
+      ctaResumeSoon: "Curriculo em breve",
     },
     about: {
       srOnly: "Sobre mim",
@@ -166,15 +168,15 @@ export const translations = {
       title: "Vamos construir algo",
       titleEmphasis: "significativo.",
       intro:
-        "Atualmente estou disponível para trabalhos freelance e colaborações open source.",
+        "Atualmente estou disponível para contratação em empresa e oportunidades profissionais.",
       list: [
         {
           title: "Me contrate",
-          desc: "para criar seu MVP ou entregar uma funcionalidade crítica.",
+          desc: "para atuar no seu time e entregar funcionalidades críticas.",
         },
         {
-          title: "Colabore",
-          desc: "em ferramentas open source ou infraestrutura para desenvolvedores.",
+          title: "Freelancer",
+          desc: "para trabalhos freelance e demandas pontuais.",
         },
         {
           title: "Converse",
@@ -194,19 +196,20 @@ export const translations = {
         projectType: "Tipo de projeto",
         timeline: "Prazo",
         details: "Conte sobre o projeto",
+        detailsGeneral: "Conte sobre sua mensagem",
       },
       placeholders: {
         name: "João Silva",
         email: "joao@exemplo.com",
         details: "O que vamos construir?",
+        detailsGeneral: "Como posso te ajudar?",
       },
       options: {
         projectTypes: [
           "Desenvolvimento de aplicação web",
           "Landing page / Site de marketing",
-          "Desenvolvimento de MVP",
-          "API / Backend",
-          "Consultoria",
+          "Contratação em empresa",
+          "Contato geral",
         ],
         timeline: ["Menos de 1 mes", "1 - 3 meses", "3 - 6 meses", "Flexivel"],
       },
@@ -246,6 +249,8 @@ export const translations = {
         "I build full-stack web and mobile applications with a focus on performance, scalability, and user experience.",
       ctaPrimary: "Start a project",
       ctaSecondary: "View projects",
+      ctaResume: "Download CV",
+      ctaResumeSoon: "Resume file coming soon",
     },
     about: {
       srOnly: "About Me",
@@ -315,20 +320,20 @@ export const translations = {
       items: [
         {
           description:
-            "Finenzo is a smart expense tracker built with Flutter that helps you manage your personal finances with ease. Track expenses, manage multiple wallets, analyze spending patterns, and export your financial data - all in one app.",
-          outcome: "Comprehensive personal finance management on the go.",
-          role: "Mobile App Developer",
+            "MovieTV is a mobile app built with React Native (Expo) that lets users explore movies, get AI-powered recommendations, and save favorites. It integrates TMDB API for movie data, Appwrite for backend services, and OpenRouter AI for intelligent search.",
+          outcome: "Smart movie discovery for everyday use.",
+          role: "Mobile Developer",
         },
         {
           description:
-            "AI-powered study enhancement tool for acing exams and mastering subjects.",
-          outcome: "Practical study aid for students with virtual exams.",
-          role: "Full Stack Developer",
+            "ClickCV is an interactive web app that allows users to build resumes visually by clicking and adjusting elements directly on screen. After customization, users can export the resume as a ready-to-use PDF.",
+          outcome: "Simple and effective interactive resume building.",
+          role: "Front-End Developer",
         },
         {
           description:
-            "A chat app enabling real-time collaboration for remote teams to manage tasks visually.",
-          outcome: "Real-time chat app with serverless backend.",
+            "Full-stack solution for analysis and automated logging of WhatsApp Business support interactions, developed and validated with a real client. It integrates WAHA, n8n, Docker, and AI for real-time processing, with a React + TypeScript dashboard for metrics and workflow visibility.",
+          outcome: "Automation that turns operations into strategic data.",
           role: "Full Stack Developer",
         },
         {
@@ -389,15 +394,15 @@ export const translations = {
       title: "Let's build something",
       titleEmphasis: "meaningful.",
       intro:
-        "I am currently available for freelance work and open source collaborations.",
+        "I am currently available for full-time hiring and professional opportunities.",
       list: [
         {
           title: "Hire me",
-          desc: "to build your MVP or ship a critical feature.",
+          desc: "to join your team and ship critical product features.",
         },
         {
-          title: "Collaborate",
-          desc: "on open source tools or developer infrastructure.",
+          title: "Freelance",
+          desc: "for freelance work and scoped product demands.",
         },
         {
           title: "Discuss",
@@ -417,19 +422,20 @@ export const translations = {
         projectType: "Project Type",
         timeline: "Timeline",
         details: "Tell me about the project",
+        detailsGeneral: "Tell me about your message",
       },
       placeholders: {
         name: "John Doe",
         email: "john@example.com",
         details: "What are we building?",
+        detailsGeneral: "How can I help?",
       },
       options: {
         projectTypes: [
           "Web Application Development",
           "Landing Page / Marketing Site",
-          "MVP Development",
-          "API / Backend System",
-          "Consultation",
+          "Hiring Opportunity (Company Role)",
+          "General Contact",
         ],
         timeline: [
           "Less than 1 month",

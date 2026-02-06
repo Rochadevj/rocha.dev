@@ -55,6 +55,13 @@ export function Navbar() {
     }
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!isHome) return;
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setActiveSection("hero");
+  };
+
   const isLightMode = activeSection === "hero" || (isHome && activeSection === "");
   const sectionLabels: Record<string, string> = {
     about: copy.nav.about,
@@ -77,40 +84,43 @@ export function Navbar() {
               : "glass hover:bg-black/80"
           }`}
         >
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
             <Link
               href="/"
+              onClick={handleLogoClick}
               className={`text-lg sm:text-xl font-black tracking-tight transition-colors uppercase shrink-0 ${
                 isLightMode ? "text-black hover:text-accent" : "text-white hover:text-accent"
               }`}
             >
               rocha<span className="text-accent">.</span>
             </Link>
-            <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleLinkClick(e, item)}
-                  className={`relative capitalize text-xs sm:text-sm font-medium px-3 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
-                    activeSection === item.name
-                      ? isLightMode
-                        ? "text-white bg-black shadow-lg shadow-black/20"
-                        : "text-black bg-white shadow-[0_0_20px_rgba(255,255,255,0.3)]"
-                      : isLightMode
-                        ? "text-black/70 hover:text-black hover:bg-black/5"
-                        : "text-white/70 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  {sectionLabels[item.name] ?? item.name}
-                </Link>
-              ))}
+            <div className="min-w-0 flex-1 flex items-center justify-end gap-2">
+              <div className="min-w-0 flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar pr-1">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleLinkClick(e, item)}
+                    className={`relative capitalize text-[11px] sm:text-sm font-medium px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
+                      activeSection === item.name
+                        ? isLightMode
+                          ? "text-white bg-black shadow-lg shadow-black/20"
+                          : "text-black bg-white shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                        : isLightMode
+                          ? "text-black/70 hover:text-black hover:bg-black/5"
+                          : "text-white/70 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {sectionLabels[item.name] ?? item.name}
+                  </Link>
+                ))}
+              </div>
               <button
                 type="button"
                 onClick={toggleLanguage}
                 aria-label={copy.nav.languageToggle}
                 title={copy.nav.languageToggle}
-                className={`text-xs sm:text-sm font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all duration-300 whitespace-nowrap border ${
+                className={`shrink-0 text-[11px] sm:text-sm font-semibold px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all duration-300 whitespace-nowrap border ${
                   isLightMode
                     ? "border-black/10 text-black/80 hover:text-black hover:bg-black/5"
                     : "border-white/10 text-white/80 hover:text-white hover:bg-white/10"
