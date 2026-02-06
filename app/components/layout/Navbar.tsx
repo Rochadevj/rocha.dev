@@ -84,7 +84,7 @@ export function Navbar() {
                 isLightMode ? "text-black hover:text-accent" : "text-white hover:text-accent"
               }`}
             >
-              shafi<span className="text-accent">.</span>
+              rocha<span className="text-accent">.</span>
             </Link>
             <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar">
               {navItems.map((item) => (

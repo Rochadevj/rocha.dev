@@ -12,15 +12,15 @@ export function CTASection() {
         {/* Left Side: Avatar + Text */}
         <div className="flex flex-col gap-2 md:gap-4 z-10">
           <div className="flex items-center gap-4 md:gap-6">
-            <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-white/10">
+            <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-white/10 bg-gradient-to-br from-cyan-400/20 via-blue-500/20 to-indigo-500/20">
               <Image
-                src="https://github.com/shafisma.png"
-                alt="Profile"
+                src="/techstacks/react.svg"
+                alt="Technology Icon"
                 fill
                 sizes="(min-width: 768px) 64px, 48px"
                 style={{ filter: "invert(0)" }}
                 suppressHydrationWarning
-                className="object-cover"
+                className="object-contain p-2"
               />
             </div>
             <h2 className="text-5xl md:text-8xl font-medium text-white tracking-tighter">
