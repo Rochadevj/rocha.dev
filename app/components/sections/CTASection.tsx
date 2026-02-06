@@ -12,7 +12,7 @@ export function CTASection() {
         {/* Left Side: Avatar + Text */}
         <div className="flex flex-col gap-2 md:gap-4 z-10">
           <div className="flex items-center gap-4 md:gap-6">
-            <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-white/10 bg-gradient-to-br from-cyan-400/20 via-blue-500/20 to-indigo-500/20">
+            <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-white/10 bg-linear-to-br from-cyan-400/20 via-blue-500/20 to-indigo-500/20">
               <Image
                 src="/techstacks/react.svg"
                 alt="Technology Icon"
@@ -32,15 +32,15 @@ export function CTASection() {
           </h2>
         </div>
 
-        {/* Right Side: Siri-like Glowing Orb */}
-        <div className="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 mt-8 md:mt-0 flex items-center justify-center">
+        {/* Right Side: Photo Orb */}
+        <div className="relative w-48 h-48 md:w-64 md:h-64 shrink-0 mt-8 md:mt-0 flex items-center justify-center">
             {/* Ambient Background Glow */}
             <div className="absolute inset-0 bg-blue-600/20 blur-[80px] rounded-full" />
             
             {/* Animated Gradients Container */}
             <div className="absolute inset-0 rounded-full overflow-hidden isolate z-0">
                 {/* Rotating Color Mesh */}
-                <div className="absolute inset-[-100%] animate-[spin_3s_linear_infinite] opacity-100 blur-[30px]">
+                <div className="absolute -inset-full animate-[spin_3s_linear_infinite] opacity-100 blur-[30px]">
                      {/* Blue blob */}
                     <div className="absolute top-0 right-[20%] w-[70%] h-[70%] bg-[#3b82f6] rounded-full mix-blend-screen opacity-80" />
                     {/* Purple blob */}
@@ -50,16 +50,25 @@ export function CTASection() {
                 </div>
                 
                  {/* Second Counter-Rotating Layer for Complexity */}
-                 <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite_reverse] opacity-80 blur-[20px] mix-blend-overlay">
+                 <div className="absolute -inset-full animate-[spin_4s_linear_infinite_reverse] opacity-80 blur-[20px] mix-blend-overlay">
                     <div className="absolute top-0 left-[30%] w-[60%] h-[60%] bg-[#ec4899] rounded-full mix-blend-screen" />
                     <div className="absolute bottom-[20%] right-0 w-[60%] h-[60%] bg-[#6366f1] rounded-full mix-blend-screen" />
                  </div>
             </div>
 
-            {/* Inner Mask to create the "Ring" shape */}
-            <div className="absolute inset-[4px] bg-[#0a0a0a] rounded-full z-10 flex items-center justify-center border border-white/5 box-border">
+            {/* Inner Photo Circle */}
+            <div className="absolute inset-1 bg-[#0a0a0a] rounded-full z-10 flex items-center justify-center border border-white/5 box-border overflow-hidden">
+                <Image
+                  src="/81716008.jpg"
+                  alt="Henrique Rocha"
+                  fill
+                  sizes="(min-width: 768px) 256px, 192px"
+                  className="object-cover"
+                  style={{ filter: "invert(0)" }}
+                  suppressHydrationWarning
+                />
                 {/* Secondary inner reflection */}
-                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/5 to-transparent opacity-20" />
+                <div className="absolute inset-0 rounded-full bg-linear-to-tr from-white/10 to-transparent opacity-30 pointer-events-none" />
             </div>
 
              {/* Surface Glare */}
