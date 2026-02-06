@@ -49,13 +49,13 @@ export function MarqueeSection() {
 
   return (
     <section ref={containerRef} className="py-12 sm:py-24 overflow-hidden">
-      <div className="w-full border-y border-white/5 bg-white/5 backdrop-blur-sm -rotate-2 scale-110">
+      <div className="w-full border-y border-white/10 bg-black/20 backdrop-blur-sm -rotate-2 scale-110">
         <div ref={sliderRef} className="flex whitespace-nowrap will-change-transform">
           {Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="flex items-center gap-8 px-4">
               <span
-                className="text-6xl sm:text-8xl md:text-9xl font-black uppercase tracking-tighter text-transparent"
-                style={{ WebkitTextStroke: "1px rgba(255,255,255,0.2)" }}
+                className="text-6xl sm:text-8xl md:text-9xl font-black uppercase tracking-tighter text-white/[0.02]"
+                style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.24)" }}
               >
                 Projects
               </span>

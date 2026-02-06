@@ -28,7 +28,8 @@ export function AnimatedBackground() {
     ).matches;
 
     const generateStars = (width: number, height: number) => {
-      const density = 0.00014;
+      const density =
+        width < 640 ? 0.00009 : width < 1024 ? 0.00012 : 0.00014;
       const count = Math.floor(width * height * density);
       const stars: Star[] = [];
 

@@ -46,7 +46,7 @@ export function SplashScreen({ onFinish }: { onFinish: () => void }) {
         <h1
           className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter text-white uppercase overflow-hidden"
         >
-          {"Shafiuzzaman".split("").map((char, index) => (
+          {"Henrique Rocha".split("").map((char, index) => (
             <span key={index} className="char inline-block">
               {char}
             </span>

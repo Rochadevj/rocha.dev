@@ -1,4 +1,4 @@
-export type Language = "pt-BR" | "en";
+﻿export type Language = "pt-BR" | "en";
 
 export const defaultLanguage: Language = "pt-BR";
 
@@ -12,7 +12,7 @@ export const translations = {
       languageToggle: "Alternar idioma",
     },
     hero: {
-      badge: "Disponivel para trabalhos",
+      badge: "Disponível para trabalhos",
       roles: [
         { first: "Engenheiro", second: "de Software." },
         { first: "Desenvolvedor", second: "Full Stack." },
@@ -22,7 +22,7 @@ export const translations = {
       ctaPrimary: "Iniciar um projeto",
       ctaSecondary: "Ver projetos",
       ctaResume: "Download CV",
-      ctaResumeSoon: "Curriculo em breve",
+      ctaResumeSoon: "Currículo em breve",
     },
     about: {
       srOnly: "Sobre mim",
@@ -75,7 +75,7 @@ export const translations = {
       prefix: "Trabalho de forma ",
       linkAsync: "async-first",
       middle:
-        " e tenho facilidade para colaborar com equipes nos fusos dos EUA e Europa. Retorno em 24–48h nas ",
+        " e tenho facilidade para colaborar com equipes nos fusos dos EUA e Europa. Retorno em 24-48h nas ",
       linkCommunication: "comunicações",
       suffix: ".",
     },
@@ -114,7 +114,7 @@ export const translations = {
           description:
             "Site moderno para um clube de tecnologia com recursos envolventes.",
           outcome: "Hub central para eventos e recursos da comunidade.",
-          role: "Desenvolvedor Lider",
+          role: "Desenvolvedor Líder",
         },
         {
           description:
@@ -211,7 +211,7 @@ export const translations = {
           "Contratação em empresa",
           "Contato geral",
         ],
-        timeline: ["Menos de 1 mes", "1 - 3 meses", "3 - 6 meses", "Flexivel"],
+        timeline: ["Menos de 1 mês", "1 - 3 meses", "3 - 6 meses", "Flexível"],
       },
       submit: "Enviar mensagem",
       sending: "Enviando...",
@@ -225,7 +225,7 @@ export const translations = {
       line2: "algo real.",
     },
     footer: {
-      builtWith: "Construido com",
+      builtWith: "Construído com",
       madeWith: "Feito com",
     },
   },
@@ -258,7 +258,7 @@ export const translations = {
       whoTitle: "Who I am",
       whoParagraph1: {
         prefix:
-          "I am Shafi, a passionate developer digging deep into complex problems and solving them with software. My mission is to ",
+          "I am Henrique, a developer passionate about diving into complex problems and solving them with software. My mission is to ",
         linkBuildTools: "build tools",
         middle:
           " that empower people and businesses to achieve their goals. I approach every project with a focus on ",
@@ -353,7 +353,7 @@ export const translations = {
     github: {
       label: "MY CODE JOURNEY",
       title: "GitHub Activity",
-      titleAccent: "&& Open Source",
+      titleAccent: "& Open Source",
     },
     skills: {
       label: "Process & Tools",
@@ -463,3 +463,5 @@ export const translations = {
 } as const;
 
 export type Translation = (typeof translations)[Language];
+
+

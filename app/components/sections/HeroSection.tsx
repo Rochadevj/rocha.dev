@@ -196,7 +196,7 @@ export function HeroSection() {
 
         <h1
           ref={titleRef}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 sm:mb-6 tracking-tight leading-[0.95] text-black whitespace-nowrap"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 sm:mb-6 tracking-tight leading-[0.95] text-black"
         >
           Henrique{" "}
           <span className="font-serif italic font-normal text-black/90 pr-0 block sm:inline sm:pr-4">
@@ -216,7 +216,7 @@ export function HeroSection() {
 
         <p
           ref={quoteRef}
-          className="text-base sm:text-lg text-gray-600 font-medium max-w-2xl leading-relaxed mb-8 sm:mb-12 mx-auto"
+          className="text-base sm:text-lg text-gray-700 font-medium max-w-2xl leading-relaxed mb-8 sm:mb-12 mx-auto"
         >
           {`"${copy.hero.quote}"`}
         </p>
@@ -264,7 +264,7 @@ export function HeroSection() {
               {techStack.concat(techStack).map((tech, index) => (
                 <div
                   key={`${tech.name}-${index}`}
-                  className="flex items-center justify-center h-14 w-14 sm:h-16 sm:w-16 rounded-full border border-black/15 bg-white shadow-[0_6px_18px_rgba(0,0,0,0.08)]"
+                  className="flex items-center justify-center h-14 w-14 sm:h-16 sm:w-16 rounded-full border border-black/20 bg-white/95 shadow-[0_10px_24px_rgba(0,0,0,0.14)]"
                   aria-label={tech.name}
                   title={tech.name}
                 >

@@ -258,7 +258,7 @@ export function ContactSection() {
                   value={formData.type}
                   onChange={handleChange}
                   disabled={status === "submitting"}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-gray-400 focus:outline-none focus:border-accent/50 transition-colors disabled:opacity-50 appearance-none"
+                  className="w-full bg-[#111] border border-white/10 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:border-accent/50 transition-colors disabled:opacity-50 appearance-none"
                 >
                   {copy.contact.options.projectTypes.map((label, index) => (
                     <option
@@ -281,7 +281,7 @@ export function ContactSection() {
                     value={formData.timeline}
                     onChange={handleChange}
                     disabled={status === "submitting"}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-gray-400 focus:outline-none focus:border-accent/50 transition-colors disabled:opacity-50 appearance-none"
+                    className="w-full bg-[#111] border border-white/10 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:border-accent/50 transition-colors disabled:opacity-50 appearance-none"
                   >
                     {copy.contact.options.timeline.map((label, index) => (
                       <option

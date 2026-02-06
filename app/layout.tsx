@@ -1,9 +1,12 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import CustomCursor from "./components/ui/CustomCursor";
+import ClientLayout from "./components/layout/ClientLayout";
+import { AnimatedBackground, SmoothScroll } from "./components/layout";
+import { LanguageProvider } from "./components/i18n/LanguageProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,17 +21,27 @@ const geistMono = Geist_Mono({
 const lustDidone = localFont({
   src: "./fonts/LustDidone.otf",
   variable: "--font-lust",
-  weight: "100 900", // Adjust based on font actual weights if known, otherwise typical range
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rocha.dev"),
   title: {
-    default: "Rocha | Full‑Stack Developer Portfolio (Next.js)",
-    template: "%s | Rocha's Portfolio"
+    default: "Rocha | Full-Stack Developer Portfolio",
+    template: "%s | Rocha's Portfolio",
   },
-  description: "Explore Rocha’s full‑stack developer portfolio: Next.js, TypeScript and Python projects. View featured work, open-source repos, and get in touch.",
-  keywords: ["full-stack developer", "Next.js portfolio", "TypeScript projects", "Python developer", "open-source", "web development", "react", "software engineer"],
+  description:
+    "Explore Rocha's full-stack developer portfolio: Next.js, TypeScript and Python projects. View featured work, open-source repos, and get in touch.",
+  keywords: [
+    "full-stack developer",
+    "Next.js portfolio",
+    "TypeScript projects",
+    "Python developer",
+    "open-source",
+    "web development",
+    "react",
+    "software engineer",
+  ],
   alternates: {
     canonical: "/",
   },
@@ -40,15 +53,16 @@ export const metadata: Metadata = {
     apple: ["/tech-favicon.svg"],
   },
   openGraph: {
-    title: "Rocha | Full‑Stack Developer Portfolio (Next.js)",
-    description: "Explore Rocha’s full‑stack developer portfolio featuring Next.js, TypeScript and Python projects.",
+    title: "Rocha | Full-Stack Developer Portfolio",
+    description:
+      "Explore Rocha's full-stack developer portfolio featuring Next.js, TypeScript and Python projects.",
     url: "https://rocha.dev",
     siteName: "Rocha Portfolio",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/og-image.png", // Ensure you add an og-image.png to your public folder
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Rocha - Full Stack Developer",
@@ -57,9 +71,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shafiuzzaman | Full‑Stack Developer Portfolio",
-    description: "Full building fast, reliable software.",
-    creator: "@shafigrate",
+    title: "Henrique Rocha | Full-Stack Developer Portfolio",
+    description: "Building fast, reliable software.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -78,21 +91,25 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Shafiuzzaman",
-  "url": "https://shafisma.me",
-  "sameAs": [
-     "https://github.com/Rochadevj",
-     "https://x.com/shafigrate",
-     "https://www.linkedin.com/in/shafisma/" 
+  name: "Henrique Rocha",
+  url: "https://rocha.dev",
+  sameAs: [
+    "https://github.com/Rochadevj",
+    "https://www.instagram.com/hee_rocha/",
+    "https://www.linkedin.com/in/henrique-rocha-389609287/",
   ],
-  "jobTitle": "Full-Stack Developer",
-  "knowsAbout": ["Next.js", "React", "TypeScript", "Python", "Tailwind CSS", "Web Development"],
-  "description": "Full-stack developer specializing in building fast, reliable web applications with Next.js and TypeScript."
+  jobTitle: "Full-Stack Developer",
+  knowsAbout: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Python",
+    "Tailwind CSS",
+    "Web Development",
+  ],
+  description:
+    "Full-stack developer focused on building fast and reliable web applications with Next.js and TypeScript.",
 };
-
-import ClientLayout from "./components/layout/ClientLayout";
-import { AnimatedBackground, SmoothScroll } from "./components/layout";
-import { LanguageProvider } from "./components/i18n/LanguageProvider";
 
 export default function RootLayout({
   children,

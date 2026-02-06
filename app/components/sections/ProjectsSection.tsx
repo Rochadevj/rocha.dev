@@ -143,7 +143,7 @@ export function ProjectsSection() {
                 {/* Visual Side (Right) */}
                 <div className="lg:col-span-7 relative order-1 lg:order-2">
                   {/* Image Container */}
-                  <div className="relative aspect-[16/10] w-full rounded-3xl border border-white/10 overflow-hidden bg-[#450a0a] ring-1 ring-red-500/30 shadow-[0_0_30px_rgba(239,68,68,0.2)] transition-all duration-500">
+                  <div className="relative aspect-[16/10] w-full rounded-3xl border border-white/10 overflow-hidden bg-[#0d1117] ring-1 ring-white/10 shadow-[0_0_30px_rgba(59,130,246,0.16)] transition-all duration-500">
                       
                       {project.images && project.images.length > 0 ? (
                          <div className="absolute inset-0 bg-neutral-900/50 flex items-center justify-center">

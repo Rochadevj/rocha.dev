@@ -94,14 +94,14 @@ export function Navbar() {
             >
               rocha<span className="text-accent">.</span>
             </Link>
-            <div className="min-w-0 flex-1 flex items-center justify-end gap-2">
-              <div className="min-w-0 flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar pr-1">
+            <div className="min-w-0 flex-1 flex items-center justify-end gap-1.5 sm:gap-2">
+              <div className="min-w-0 max-w-[calc(100vw-7.5rem)] sm:max-w-none flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar pr-0.5">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleLinkClick(e, item)}
-                    className={`relative capitalize text-[11px] sm:text-sm font-medium px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
+                    className={`relative capitalize text-xs sm:text-sm font-medium px-2 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
                       activeSection === item.name
                         ? isLightMode
                           ? "text-white bg-black shadow-lg shadow-black/20"
@@ -120,7 +120,7 @@ export function Navbar() {
                 onClick={toggleLanguage}
                 aria-label={copy.nav.languageToggle}
                 title={copy.nav.languageToggle}
-                className={`shrink-0 text-[11px] sm:text-sm font-semibold px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all duration-300 whitespace-nowrap border ${
+                className={`shrink-0 text-xs sm:text-sm font-semibold px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all duration-300 whitespace-nowrap border ${
                   isLightMode
                     ? "border-black/10 text-black/80 hover:text-black hover:bg-black/5"
                     : "border-white/10 text-white/80 hover:text-white hover:bg-white/10"

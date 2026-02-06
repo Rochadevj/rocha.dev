@@ -23,11 +23,11 @@ export function CTASection() {
                 className="object-contain p-2"
               />
             </div>
-            <h2 className="text-5xl md:text-8xl font-medium text-white tracking-tighter">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium leading-[0.95] text-white tracking-tighter">
               {copy.cta.line1}
             </h2>
           </div>
-          <h2 className="text-5xl md:text-8xl font-medium text-zinc-600 tracking-tighter pl-2 md:pl-24">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium leading-[0.95] text-zinc-600 tracking-tighter pl-2 md:pl-24">
             {copy.cta.line2}
           </h2>
         </div>

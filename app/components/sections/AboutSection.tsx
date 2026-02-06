@@ -20,9 +20,9 @@ export function AboutSection() {
   const mapMarkers = useMemo(
     () => [
       { lat: 51.5074, lng: -0.1278, size: 0.6 }, // London
-      { lat: 23.8103, lng: 90.4125, size: 0.8 }, // Dhaka (User Location)
+      { lat: -30.0346, lng: -51.2177, size: 0.85 }, // Porto Alegre (User Location)
       { lat: 40.7128, lng: -74.006, size: 0.6 }, // New York
-      { lat: 37.7749, lng: -122.4194, size: 0.6 }, // San Francisco
+      { lat: 48.8566, lng: 2.3522, size: 0.6 }, // Paris
     ],
     []
   );
@@ -193,7 +193,7 @@ export function AboutSection() {
 
             {/* Graphic Side (Clock) */}
             <div className="relative w-full md:w-100 h-75 flex items-center justify-center pointer-events-none">
-                <div className="scale-75 md:scale-100 relative">
+                <div className="scale-90 sm:scale-95 md:scale-100 relative">
                    <AnalogClock />
                 </div>
             </div>
