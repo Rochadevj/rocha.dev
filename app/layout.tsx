@@ -34,6 +34,11 @@ export const metadata: Metadata = {
   },
   authors: [{ name: "Rocha", url: "https://rocha.dev" }],
   creator: "Rocha",
+  icons: {
+    icon: [{ url: "/tech-favicon.svg", type: "image/svg+xml" }],
+    shortcut: ["/tech-favicon.svg"],
+    apple: ["/tech-favicon.svg"],
+  },
   openGraph: {
     title: "Rocha | Full‑Stack Developer Portfolio (Next.js)",
     description: "Explore Rocha’s full‑stack developer portfolio featuring Next.js, TypeScript and Python projects.",

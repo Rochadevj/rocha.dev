@@ -90,7 +90,7 @@ export const translations = {
       source: "Código",
       liveDemo: "Demo",
       fallbackRole: "Desenvolvimento Full Stack",
-      footer: "E muitos outros experimentos internos...",
+      footer: "E outros projetos em andamento.",
       items: [
         {
           description:
@@ -316,7 +316,7 @@ export const translations = {
       source: "Source",
       liveDemo: "Live Demo",
       fallbackRole: "Full Stack Development",
-      footer: "And many more internal experiments...",
+      footer: "And other projects in progress.",
       items: [
         {
           description:
