@@ -27,6 +27,7 @@ import {
   SiLinux,
   SiSupabase,
 } from "react-icons/si";
+import { FiDownload } from "react-icons/fi";
 
 export function HeroSection() {
   const { copy, language } = useTranslations();
@@ -42,6 +43,14 @@ export function HeroSection() {
 
   const roles = copy.hero.roles;
   const [roleIndex, setRoleIndex] = useState(0);
+  const resumeHref =
+    language === "pt-BR"
+      ? "/Henrique%20Rocha%20curr%C3%ADculo.pdf"
+      : "/Henrique%20Rocha%20curr%C3%ADculoIN.pdf";
+  const resumeDownloadName =
+    language === "pt-BR"
+      ? "Henrique-Rocha-Curriculo-PT-BR.pdf"
+      : "Henrique-Rocha-CV-EN.pdf";
 
   const techIconByName: Record<string, { icon: React.ReactNode; color: string }> = {
     JavaScript: { icon: <SiJavascript />, color: "#F7DF1E" },
@@ -170,17 +179,17 @@ export function HeroSection() {
       ref={containerRef}
       className="relative min-h-dvh flex items-center justify-center px-4 sm:px-6 pt-24 overflow-hidden bg-[#EBEBEB]"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:16px_16px]" />
-      <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-start text-left">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[16px_16px]" />
+      <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
         <div
           ref={badgeRef}
-          className="inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 rounded-full bg-[#1a1a1a] border border-black/10 mb-6 sm:mb-8 hover:bg-[#222] transition-all group cursor-default"
+          className="inline-flex items-center gap-3.5 px-6 sm:px-7 py-3 rounded-full bg-[#131417] border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_8px_20px_rgba(0,0,0,0.25)] mb-6 sm:mb-8 transition-all group cursor-default"
         >
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/30 blur-[2px]" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+          <span className="relative flex h-3 w-3">
+            <span className="absolute -inset-1 rounded-full bg-emerald-500/30 blur-sm" />
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
           </span>
-          <span className="text-[11px] sm:text-xs font-semibold text-white/90 uppercase tracking-[0.24em] group-hover:text-white">
+          <span className="text-[11px] sm:text-xs font-black text-white uppercase tracking-[0.08em]">
             {copy.hero.badge}
           </span>
         </div>
@@ -189,7 +198,10 @@ export function HeroSection() {
           ref={titleRef}
           className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 sm:mb-6 tracking-tight leading-[0.95] text-black whitespace-nowrap"
         >
-          HENRIQUE ROCHA
+          Henrique{" "}
+          <span className="font-serif italic font-normal text-black/90 pr-0 block sm:inline sm:pr-4">
+            Rocha
+          </span>
         </h1>
 
         <p
@@ -204,7 +216,7 @@ export function HeroSection() {
 
         <p
           ref={quoteRef}
-          className="text-base sm:text-lg text-gray-600 font-medium max-w-2xl leading-relaxed mb-8 sm:mb-12"
+          className="text-base sm:text-lg text-gray-600 font-medium max-w-2xl leading-relaxed mb-8 sm:mb-12 mx-auto"
         >
           {`"${copy.hero.quote}"`}
         </p>
@@ -232,6 +244,15 @@ export function HeroSection() {
             className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-black/5 border border-black/10 rounded-full text-black font-bold text-base sm:text-lg hover:bg-black/10 hover:-translate-y-1 hover:border-black/20 transition-all w-full sm:w-auto backdrop-blur-sm"
           >
             {copy.hero.ctaSecondary}
+          </a>
+          <a
+            href={resumeHref}
+            download={resumeDownloadName}
+            title={copy.hero.ctaResume}
+            className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-black/15 rounded-full text-black/80 font-bold text-base sm:text-lg bg-white/60 w-full sm:w-auto backdrop-blur-sm hover:bg-white/80 hover:-translate-y-1 transition-all"
+          >
+            <FiDownload />
+            {copy.hero.ctaResume}
           </a>
         </div>
 
