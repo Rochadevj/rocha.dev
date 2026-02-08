@@ -136,10 +136,10 @@ export function AboutSection() {
                   {copy.about.whoParagraph1.prefix}
                   <a href="#projects" className="text-white hover:underline decoration-orange-500 underline-offset-4 transition-all">{copy.about.whoParagraph1.linkBuildTools}</a>
                   {copy.about.whoParagraph1.middle}
-                  <a href="https://www.nngroup.com/articles/empathy-user/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors border-b border-gray-700 hover:border-white">{copy.about.whoParagraph1.linkEmpathy}</a>,{" "}
-                  <a href="https://aws.amazon.com/what-is/scalability/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors border-b border-gray-700 hover:border-white">{copy.about.whoParagraph1.linkScalability}</a>,{" "}
+                  <a  target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors border-b border-gray-700 hover:border-white">{copy.about.whoParagraph1.linkEmpathy}</a>,{" "}
+                  <a  target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors border-b border-gray-700 hover:border-white">{copy.about.whoParagraph1.linkScalability}</a>,{" "}
                   {language === "pt-BR" ? "e" : "and"}{" "}
-                  <a href="https://web.dev/learn/performance" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors border-b border-gray-700 hover:border-white">{copy.about.whoParagraph1.linkPerformance}</a>
+                  <a  target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors border-b border-gray-700 hover:border-white">{copy.about.whoParagraph1.linkPerformance}</a>
                   {copy.about.whoParagraph1.suffix}
                 </p>
                 <p className="text-gray-400 leading-relaxed text-sm md:text-base">
@@ -212,7 +212,7 @@ export function AboutSection() {
               <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{copy.about.globalTitle} <br/><span className="text-gray-500">{copy.about.globalTitleEmphasis}</span></h3>
               <p className="text-gray-400 text-sm max-w-sm">
                 {copy.about.globalParagraph.prefix}
-                <a href="https://doist.com/blog/async-communication/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white border-b border-gray-600 hover:border-white transition-colors">{copy.about.globalParagraph.linkAsync}</a>
+                <a  target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white border-b border-gray-600 hover:border-white transition-colors">{copy.about.globalParagraph.linkAsync}</a>
                 {copy.about.globalParagraph.middle}
                 <a href="#contact" className="text-gray-300 hover:text-white border-b border-gray-600 hover:border-white transition-colors">{copy.about.globalParagraph.linkCommunication}</a>
                 {copy.about.globalParagraph.suffix}

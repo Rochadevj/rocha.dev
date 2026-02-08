@@ -127,7 +127,7 @@ export const translations = {
     github: {
       label: "MINHA JORNADA NO CÓDIGO",
       title: "Atividade no GitHub",
-      titleAccent: "e Open Source",
+      titleAccent: "e Aprimoramento Técnico",
     },
     skills: {
       label: "Processo e Ferramentas",
@@ -353,7 +353,7 @@ export const translations = {
     github: {
       label: "MY CODE JOURNEY",
       title: "GitHub Activity",
-      titleAccent: "& Open Source",
+      titleAccent: "& Technical Improvement",
     },
     skills: {
       label: "Process & Tools",
