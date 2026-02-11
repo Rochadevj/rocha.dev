@@ -114,7 +114,7 @@ export const translations = {
           description:
             "Site moderno para um clube de tecnologia com recursos envolventes.",
           outcome: "Hub central para eventos e recursos da comunidade.",
-          role: "Desenvolvedor Líder",
+          role: "Desenvolvedor Fullstack",
         },
         {
           description:
@@ -340,7 +340,7 @@ export const translations = {
           description:
             "A modern website built for an IT club community with engaging features.",
           outcome: "Central hub for club events and member resources.",
-          role: "Lead Developer",
+          role: "Full Stack Developer",
         },
         {
           description:
