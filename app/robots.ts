@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://shafisma.me/sitemap.xml',
+    sitemap: 'https://rocha.dev/sitemap.xml',
   }
 }
