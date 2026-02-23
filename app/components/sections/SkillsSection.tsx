@@ -115,10 +115,20 @@ export function SkillsSection() {
         {/* Process Steps */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
            {copy.skills.steps.map((step) => (
-             <div key={step.title} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
-               <span className="text-4xl font-black text-white/5 mb-4 block group-hover:text-accent/20 transition-colors">{step.icon}</span>
-               <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-               <p className="text-sm text-gray-400 leading-relaxed">{step.desc}</p>
+             <div
+               key={step.title}
+               className="relative overflow-hidden p-6 rounded-2xl bg-white/5 border border-white/10 group transition-[background-color,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/[0.07] hover:border-cyan-300/20 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_0_22px_rgba(34,211,238,0.05)]"
+             >
+               <div
+                 className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
+                 style={{
+                   background:
+                     "radial-gradient(160px circle at 18% 14%, rgba(34,211,238,0.11), rgba(34,211,238,0) 62%), radial-gradient(180px circle at 84% 88%, rgba(236,72,153,0.08), rgba(236,72,153,0) 64%)",
+                 }}
+               />
+               <span className="relative z-10 text-4xl font-black text-white/5 mb-4 block group-hover:text-accent/20 transition-colors duration-500">{step.icon}</span>
+               <h3 className="relative z-10 text-xl font-bold text-white mb-2">{step.title}</h3>
+               <p className="relative z-10 text-sm text-gray-400 leading-relaxed">{step.desc}</p>
              </div>
            ))}
         </div>
