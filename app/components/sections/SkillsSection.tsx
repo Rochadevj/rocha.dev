@@ -152,16 +152,39 @@ export function SkillsSection() {
             return (
               <div
                 key={skill.name}
-                className={`group flex items-center gap-2 sm:gap-2.5 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full sm:rounded-2xl border border-white/5 hover:border-white/20 bg-[#111] hover:bg-[#1a1a1a] transition-all duration-300 cursor-default shadow-lg shadow-black/50`}
+                className="group relative overflow-hidden flex items-center gap-2 sm:gap-2.5 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full sm:rounded-2xl border border-white/8 bg-[#111] cursor-default shadow-lg shadow-black/50 transition-[transform,border-color,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.03] hover:bg-[#111721] hover:border-[#00d9ff]/55 hover:shadow-[0_0_0_1px_rgba(0,217,255,0.28),0_0_20px_rgba(0,217,255,0.16),0_12px_24px_rgba(0,0,0,0.45)]"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-full sm:rounded-2xl opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
+                  style={{
+                    boxShadow:
+                      "inset 0 0 10px rgba(0,217,255,0.16), 0 0 12px rgba(0,217,255,0.12)",
+                  }}
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
+                  style={{
+                    background:
+                      "radial-gradient(130% 90% at 8% 2%, rgba(0,219,255,0.18) 0%, rgba(0,219,255,0.05) 36%, rgba(8,12,22,0) 70%), linear-gradient(145deg, rgba(8,22,36,0.45) 0%, rgba(8,12,22,0.24) 52%, rgba(22,12,46,0.2) 100%)",
+                  }}
+                />
+                <div
+                  className="pointer-events-none absolute bottom-0 left-1/2 h-10 w-[72%] -translate-x-1/2 rounded-full blur-lg opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
+                  style={{
+                    background:
+                      "radial-gradient(62% 100% at 50% 100%, rgba(0,198,255,0.3) 0%, rgba(0,198,255,0.06) 42%, rgba(0,198,255,0) 100%)",
+                  }}
+                />
                 <div 
-                  className={`flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full text-lg sm:text-xl`}
+                  className="relative z-10 flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full text-lg sm:text-xl"
                   style={{ color: colors.color }}
                 >
                   {icon}
                 </div>
-                <span className="text-xs sm:text-base font-medium text-gray-300 group-hover:text-white transition-colors">{skill.name}</span>
+                <span className="relative z-10 text-xs sm:text-base font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
+                  {skill.name}
+                </span>
               </div>
             );
           })}
