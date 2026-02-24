@@ -59,7 +59,7 @@ export function CTASection() {
             {/* Inner Photo Circle */}
             <div className="absolute inset-1 bg-[#0a0a0a] rounded-full z-10 flex items-center justify-center border border-white/5 box-border overflow-hidden">
                 <Image
-                  src="/81716008.jpg"
+                  src="/foto-perfil.png"
                   alt="Henrique Rocha"
                   fill
                   sizes="(min-width: 768px) 256px, 192px"
