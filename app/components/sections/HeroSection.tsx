@@ -32,7 +32,7 @@ import { FiDownload } from "react-icons/fi";
 export function HeroSection() {
   const { copy, language } = useTranslations();
   const containerRef = useRef<HTMLElement>(null);
-  const badgeRef = useRef<HTMLDivElement>(null);
+  const badgeRef = useRef<HTMLButtonElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const roleRef = useRef<HTMLParagraphElement>(null);
   const firstWordRef = useRef<HTMLSpanElement>(null);
@@ -51,6 +51,8 @@ export function HeroSection() {
     language === "pt-BR"
       ? "Henrique-Rocha-Curriculo-PT-BR.pdf"
       : "Henrique-Rocha-CV-EN.pdf";
+  const availabilityBadge =
+    copy.hero.badge || (language === "pt-BR" ? "Disponível para trabalhos" : "Available for work");
 
   const techIconByName: Record<string, { icon: React.ReactNode; color: string }> = {
     JavaScript: { icon: <SiJavascript />, color: "#F7DF1E" },
@@ -181,8 +183,12 @@ export function HeroSection() {
     >
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[16px_16px]" />
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
-        <div
+        <button
           ref={badgeRef}
+          type="button"
+          onClick={() => {
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+          }}
           className="inline-flex items-center gap-3.5 px-6 sm:px-7 py-3 rounded-full bg-[#131417] border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_8px_20px_rgba(0,0,0,0.25)] mb-6 sm:mb-8 transition-all group cursor-default"
         >
           <span className="relative flex h-3 w-3">
@@ -190,9 +196,9 @@ export function HeroSection() {
             <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
           </span>
           <span className="text-[11px] sm:text-xs font-black text-white uppercase tracking-[0.08em]">
-            {copy.hero.badge}
+            {availabilityBadge}
           </span>
-        </div>
+        </button>
 
         <h1
           ref={titleRef}
