@@ -2,9 +2,9 @@
 
 import { SiGithub, SiInstagram, SiLinkedin } from "react-icons/si";
 import { FiMapPin, FiClock } from "react-icons/fi";
-import { useRef, useState, useEffect, useMemo } from "react";
-import { DottedMap } from "@/app/components/ui/dotted-map";
+import { useRef, useState, useEffect } from "react";
 import { AnalogClock } from "@/app/components/ui/AnalogClock";
+import { InteractiveDottedGlobe } from "@/app/components/ui/InteractiveDottedGlobe";
 import gsap from "gsap";
 import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 
@@ -17,15 +17,6 @@ export function AboutSection() {
   const whoCardRef = useRef<HTMLDivElement>(null);
   const globalCardRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
-  const mapMarkers = useMemo(
-    () => [
-      { lat: 51.5074, lng: -0.1278, size: 0.6 }, // London
-      { lat: -30.0346, lng: -51.2177, size: 0.85 }, // Porto Alegre (User Location)
-      { lat: 40.7128, lng: -74.006, size: 0.6 }, // New York
-      { lat: 48.8566, lng: 2.3522, size: 0.6 }, // Paris
-    ],
-    []
-  );
   const softHoverTransition =
     "transition-[border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]";
   const cardHoverProfile =
@@ -35,7 +26,7 @@ export function AboutSection() {
   const cardHoverPhilosophy =
     `${softHoverTransition} hover:border-[#f28c3a]/42 hover:shadow-[0_0_0_1px_rgba(242,140,58,0.14),0_0_28px_rgba(242,140,58,0.08)]`;
   const cardHoverGlobal =
-    `${softHoverTransition} hover:border-[#3fcf9a]/42 hover:shadow-[0_0_0_1px_rgba(63,207,154,0.14),0_0_28px_rgba(63,207,154,0.08)]`;
+    `${softHoverTransition} hover:border-[#8ad7ff]/28 hover:shadow-[0_0_0_1px_rgba(138,215,255,0.1),0_0_28px_rgba(138,215,255,0.08)]`;
 
   useEffect(() => {
     const isPortuguese = language === "pt-BR";
@@ -234,41 +225,68 @@ export function AboutSection() {
           </div>
 
 
-          {/* 4. Global Timezone Card */}
+          {/* 4. Global Timezone Card (Text) */}
           <div
             ref={globalCardRef}
             onPointerMove={(e) => handleDepthMouseMove(globalCardRef, e)}
             onPointerLeave={() => handleDepthLeave(globalCardRef)}
-            className={`md:col-span-3 min-h-62.5 rounded-3xl bg-[#080808] border border-white/10 p-6 md:p-8 overflow-hidden relative flex flex-col md:flex-row items-center gap-6 md:gap-8 cursor-default transition-transform duration-100 will-change-transform ${cardHoverGlobal}`}
+            className={`md:col-span-2 min-h-62.5 rounded-3xl bg-[#080808] border border-white/10 p-6 md:p-8 overflow-hidden relative flex flex-col justify-center gap-6 cursor-default transition-transform duration-100 will-change-transform ${cardHoverGlobal}`}
           >
-            <div className="flex-1 space-y-4 z-10 w-full">
-                            <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">{copy.about.globalLabel}</span>
-              <h3 className="text-2xl sm:text-3xl font-bold leading-tight">{copy.about.globalTitle} <br/><span className="text-gray-500">{copy.about.globalTitleEmphasis}</span></h3>
-              <p className="text-gray-400 text-sm max-w-sm">
+            <div className="space-y-4 z-10 w-full">
+              <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">{copy.about.globalLabel}</span>
+              <h3 className="text-2xl sm:text-3xl font-bold leading-tight">
+                {copy.about.globalTitle} <br />
+                <span className="text-gray-500">{copy.about.globalTitleEmphasis}</span>
+              </h3>
+              <p className="text-gray-400 text-sm max-w-lg">
                 {copy.about.globalParagraph.prefix}
-                <a  target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white border-b border-gray-600 hover:border-white transition-colors">{copy.about.globalParagraph.linkAsync}</a>
+                <a target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white border-b border-gray-600 hover:border-white transition-colors">{copy.about.globalParagraph.linkAsync}</a>
                 {copy.about.globalParagraph.middle}
                 <a href="#contact" className="text-gray-300 hover:text-white border-b border-gray-600 hover:border-white transition-colors">{copy.about.globalParagraph.linkCommunication}</a>
                 {copy.about.globalParagraph.suffix}
               </p>
-              
+
               <div className="flex items-center gap-4 pt-2">
-                 <div className="flex items-center gap-2 text-xs font-bold text-white bg-white/10 px-3 py-1 rounded-full border border-white/5">
-                    <FiClock className="text-orange-500" />
-                    <span>{copy.about.globalBadge}</span>
-                 </div>
+                <div className="flex items-center gap-2 text-xs font-bold text-white bg-white/10 px-3 py-1 rounded-full border border-white/5">
+                  <FiClock className="text-orange-500" />
+                  <span>{copy.about.globalBadge}</span>
+                </div>
               </div>
             </div>
+          </div>
 
-            {/* Dotted Map Visualization */}
-            <div className="flex-1 w-full h-50 relative opacity-50 contrast-125">
-               <div className="absolute inset-0 mask-radial-gradient">
-                 <DottedMap 
-                   dotColor="#555"
-                   markerColor="#F97316"
-                   markers={mapMarkers}
-                 />
-               </div>
+          {/* 5. Brazil Globe Card (Small) */}
+          <div
+            className={`md:col-span-1 min-h-[348px] rounded-3xl bg-[#040507] border border-white/10 overflow-hidden relative ${cardHoverGlobal}`}
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(78%_58%_at_50%_4%,rgba(235,246,255,0.13),rgba(4,5,7,0)_62%)]" />
+            <div className="absolute top-5 left-5 z-20 inline-flex items-center gap-2 text-white/90 text-base font-semibold">
+              <FiMapPin className="w-4 h-4 text-white/90" />
+              <span>{language === "pt-BR" ? "Brasil" : "Brazil"}</span>
+            </div>
+            <div
+              className="absolute inset-x-0 -bottom-22 mx-auto aspect-square h-84 w-full max-w-[800px] lg:-bottom-26 lg:h-96"
+              style={{
+                width: "100%",
+                aspectRatio: "1 / 1",
+                maxWidth: "800px",
+                WebkitMaskImage:
+                  "radial-gradient(circle at 50% 50%, rgb(0, 0, 0) 66%, rgba(0, 0, 0, 0) 82%)",
+                maskImage:
+                  "radial-gradient(circle at 50% 50%, rgb(0, 0, 0) 66%, rgba(0, 0, 0, 0) 82%)",
+              }}
+            >
+              <InteractiveDottedGlobe
+                className="h-full w-full"
+                marker={{ lat: -14.235, lng: -51.925, size: 0.18 }}
+                initialLongitude={-52}
+                autoRotateSpeed={0}
+              />
+            </div>
+            <div className="absolute inset-x-0 bottom-0 h-10 bg-linear-to-t from-[#040507] to-transparent pointer-events-none">
+              <div className="absolute inset-x-0 bottom-4 text-center text-[9px] font-mono uppercase tracking-[0.18em] text-white/35">
+                {language === "pt-BR" ? "arraste para os lados" : "drag sideways"}
+              </div>
             </div>
           </div>
 
