@@ -27,6 +27,8 @@ export function AboutSection() {
     `${softHoverTransition} hover:border-[#f28c3a]/42 hover:shadow-[0_0_0_1px_rgba(242,140,58,0.14),0_0_28px_rgba(242,140,58,0.08)]`;
   const cardHoverGlobal =
     `${softHoverTransition} hover:border-[#8ad7ff]/28 hover:shadow-[0_0_0_1px_rgba(138,215,255,0.1),0_0_28px_rgba(138,215,255,0.08)]`;
+  const aboutTagClass =
+    "px-4 py-1.5 rounded-full border border-[#2341a8]/55 bg-[linear-gradient(135deg,rgba(12,24,44,0.88)_0%,rgba(18,12,40,0.82)_100%)] text-[#5de5fb] text-xs font-semibold tracking-[0.01em] shadow-[inset_0_1px_0_rgba(118,230,255,0.15),0_0_0_1px_rgba(26,85,224,0.18)]";
 
   useEffect(() => {
     const isPortuguese = language === "pt-BR";
@@ -180,7 +182,7 @@ export function AboutSection() {
 
              <div className="flex flex-wrap gap-3 mt-2">
                 {copy.about.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300 font-medium">
+                  <span key={tag} className={aboutTagClass}>
                     {tag}
                   </span>
                 ))}

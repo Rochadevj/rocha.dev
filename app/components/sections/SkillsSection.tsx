@@ -101,7 +101,7 @@ export function SkillsSection() {
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 border border-white/10 bg-white/5 text-gray-400 text-xs font-bold uppercase tracking-widest mb-6 rounded-full">
+          <span className="inline-block px-5 py-2 border border-cyan-400/45 bg-[linear-gradient(120deg,rgba(4,35,49,0.72)_0%,rgba(12,19,45,0.72)_48%,rgba(28,9,49,0.72)_100%)] text-cyan-300 text-xs font-black uppercase tracking-[0.12em] mb-6 rounded-full shadow-[0_0_0_1px_rgba(20,188,255,0.12),0_10px_24px_rgba(0,0,0,0.42)]">
             {copy.skills.label}
           </span>
           <h2 className="text-5xl sm:text-7xl md:text-8xl font-black text-white mb-8 tracking-tighter">

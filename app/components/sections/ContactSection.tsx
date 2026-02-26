@@ -157,12 +157,12 @@ export function ContactSection() {
               ))}
             </ul>
 
-            <div className="bg-white/5 border border-white/10 rounded-xl p-4 inline-flex items-center gap-4">
+            <div className="bg-[linear-gradient(120deg,rgba(4,35,49,0.72)_0%,rgba(12,19,45,0.72)_48%,rgba(28,9,49,0.72)_100%)] border border-cyan-400/45 rounded-xl p-4 inline-flex items-center gap-4 shadow-[0_0_0_1px_rgba(20,188,255,0.12),0_10px_30px_rgba(0,0,0,0.45)]">
               <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-green-500 border-2 border-black"></div>
+                <div className="w-8 h-8 rounded-full bg-[linear-gradient(135deg,#2de7ff_0%,#884dff_100%)] border-2 border-black shadow-[0_0_12px_rgba(74,180,255,0.4)]"></div>
               </div>
               <div>
-                <p className="text-xs text-gray-400 font-bold uppercase tracking-wider">
+                <p className="text-xs text-gray-300/80 font-bold uppercase tracking-wider">
                   {copy.contact.responseTimeLabel}
                 </p>
                 <p className="text-white font-bold">
