@@ -62,17 +62,19 @@ export function CTASection() {
                   src="/foto-perfil.png"
                   alt="Henrique Rocha"
                   fill
-                  sizes="(min-width: 768px) 256px, 192px"
-                  className="object-cover"
+                  sizes="(min-width: 1280px) 320px, (min-width: 768px) 256px, 192px"
+                  quality={100}
+                  priority
+                  className="object-cover object-center contrast-[1.08] saturate-[1.08]"
                   style={{ filter: "invert(0)" }}
                   suppressHydrationWarning
                 />
                 {/* Secondary inner reflection */}
-                <div className="absolute inset-0 rounded-full bg-linear-to-tr from-white/10 to-transparent opacity-30 pointer-events-none" />
+                <div className="absolute inset-0 rounded-full bg-linear-to-tr from-white/8 to-transparent opacity-15 pointer-events-none" />
             </div>
 
              {/* Surface Glare */}
-            <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(255,255,255,0.15)] z-20 pointer-events-none ring-1 ring-white/10" />
+            <div className="absolute inset-0 rounded-full shadow-[inset_0_0_12px_rgba(255,255,255,0.10)] z-20 pointer-events-none ring-1 ring-white/8" />
         </div>
       </div>
     </section>
