@@ -27,7 +27,7 @@ const lustDidone = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://rocha.dev"),
   title: {
-    default: "Rocha | Full-Stack Developer Portfolio",
+    default: "Rocha | Full-Stack Developer ",
     template: "%s | Rocha's Portfolio",
   },
   description:
