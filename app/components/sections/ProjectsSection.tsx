@@ -90,6 +90,8 @@ export function ProjectsSection() {
         <div ref={projectsRef} className="flex flex-col gap-24 md:gap-32">
           {projects.slice(0, 4).map((project, index) => {
             const localized = copy.projects.items[index];
+            const galleryImages = project.images ?? [];
+            const hasGallery = galleryImages.length > 0;
             return (
               <div
                 key={project.name}
@@ -143,16 +145,20 @@ export function ProjectsSection() {
                 {/* Visual Side (Right) */}
                 <div className="lg:col-span-7 relative order-1 lg:order-2">
                   {/* Image Container */}
-                  <div className="relative aspect-[16/10] w-full rounded-3xl border border-white/10 overflow-hidden bg-[#0d1117] ring-1 ring-white/10 shadow-[0_0_30px_rgba(59,130,246,0.16)] transition-all duration-500">
+                  <div
+                    className={`relative w-full overflow-hidden rounded-3xl border border-white/10 bg-[#0d1117] ring-1 ring-white/10 shadow-[0_0_30px_rgba(59,130,246,0.16)] transition-all duration-500 ${
+                      hasGallery ? "aspect-[16/10]" : "aspect-[16/9.1]"
+                    }`}
+                  >
                       
-                      {project.images && project.images.length > 0 ? (
+                      {hasGallery ? (
                          <div className="absolute inset-0 bg-neutral-900/50 flex items-center justify-center">
                              
                              {/* Left Image */}
-                             {project.images[0] && (
+                             {galleryImages[0] && (
                                <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[28%] aspect-[9/19] rounded-[min(1rem,2vw)] overflow-hidden border border-white/10 shadow-2xl z-0 opacity-80 -rotate-6 transition-transform hover:-translate-y-1/2 hover:-rotate-12 duration-500 origin-bottom-right">
                                    <Image 
-                                     src={project.images[0]} 
+                                     src={galleryImages[0]} 
                                      alt={`${project.name} Screen 1`}
                                      fill
                                      sizes="(min-width: 1024px) 18vw, (min-width: 768px) 24vw, 40vw"
@@ -164,10 +170,10 @@ export function ProjectsSection() {
                              )}
 
                              {/* Right Image */}
-                             {project.images[2] && (
+                             {galleryImages[2] && (
                                <div className="absolute right-[10%] top-1/2 -translate-y-1/2 w-[28%] aspect-[9/19] rounded-[min(1rem,2vw)] overflow-hidden border border-white/10 shadow-2xl z-0 opacity-80 rotate-6 transition-transform hover:-translate-y-1/2 hover:rotate-12 duration-500 origin-bottom-left">
                                    <Image 
-                                     src={project.images[2]} 
+                                     src={galleryImages[2]} 
                                      alt={`${project.name} Screen 3`}
                                      fill
                                      sizes="(min-width: 1024px) 18vw, (min-width: 768px) 24vw, 40vw"
@@ -179,10 +185,10 @@ export function ProjectsSection() {
                              )}
 
                              {/* Center Image */}
-                             {project.images[1] && (
+                             {galleryImages[1] && (
                                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-[9/19] rounded-[min(1.5rem,3vw)] overflow-hidden border border-white/10 shadow-2xl z-10 hover:scale-105 transition-transform duration-500">
                                    <Image 
-                                     src={project.images[1]} 
+                                     src={galleryImages[1]} 
                                      alt={`${project.name} Screen 2`}
                                      fill
                                      sizes="(min-width: 1024px) 20vw, (min-width: 768px) 28vw, 45vw"
@@ -194,18 +200,31 @@ export function ProjectsSection() {
                              )}
                          </div>
                       ) : project.image ? (
-                         <div className="absolute inset-0 flex items-center justify-center p-8 lg:p-12">
-                             <div className="relative w-full aspect-[16/8.5] h-auto rounded-[1.5rem] border-[10px] border-neutral-950 bg-neutral-950 shadow-2xl overflow-hidden ring-1 ring-white/5">
-
-                                <div className="relative w-full h-full rounded-xl overflow-hidden bg-neutral-900 border border-white/5">
+                         <div className="absolute inset-0 flex items-center justify-center p-2.5 sm:p-3 lg:p-4">
+                             <div className="absolute inset-x-[10%] top-1/2 h-[68%] -translate-y-1/2 rounded-[2rem] bg-gradient-to-br from-accent/14 via-white/[0.03] to-transparent blur-2xl" />
+                             <div
+                               className="relative w-full max-w-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-[2px] shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
+                               style={{
+                                 aspectRatio: project.imageAspectRatio ?? 16 / 9.1,
+                               }}
+                             >
+                                <div
+                                  className="relative h-full w-full overflow-hidden rounded-[calc(1.5rem-2px)]"
+                                  style={{
+                                    backgroundColor: project.imageBackground ?? "rgba(10, 13, 20, 0.65)",
+                                  }}
+                                >
                                    <Image 
                                       src={project.image} 
                                       alt={project.name}
                                       fill
                                       sizes="(min-width: 1024px) 58vw, 100vw"
-                                      style={{ filter: "invert(0)" }}
+                                      style={{
+                                        filter: "invert(0)",
+                                        transform: `scale(${project.imageZoom ?? 1})`,
+                                      }}
                                       suppressHydrationWarning
-                                      className="object-fill transition-transform duration-700"
+                                      className="object-contain object-center"
                                     />
                                 </div>
                              </div>

@@ -9,6 +9,9 @@ export interface Project {
   tech?: string[];
   metric?: string;
   image?: string;
+  imageBackground?: string;
+  imageZoom?: number;
+  imageAspectRatio?: number;
   weburl?: string;
   images?: string[];
 }
@@ -43,6 +46,9 @@ export const projects: Project[] = [
     tech: ["Javascript", "CSS", "html2pdf"],
     metric: "2 GitHub Stars",
     image: "/clickCV.png",
+    imageBackground: "#d8d8d8",
+    imageZoom: 1.02,
+    imageAspectRatio: 1867 / 963,
   },
   {
     name: "AnáliseAI",
@@ -56,6 +62,9 @@ export const projects: Project[] = [
     tech: ["TypeScript", "N8N", "Docker", "PostgreSQL", "WAHA API"],
     metric: "Real-time Sync",
     image: "/analiseIA.png",
+    imageBackground: "#11172e",
+    imageZoom: 1.015,
+    imageAspectRatio: 1892 / 1079,
   },
   {
     name: "Imobiflow",
@@ -68,7 +77,10 @@ export const projects: Project[] = [
     role: "Full Stack Developer",    
     tech: ["ReactJS", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
     metric: "Real-time Sync",
-    image: "/mmitc.png",
+    image: "/imobiflow.png",
+    imageBackground: "#1b2f49",
+    imageZoom: 1.015,
+    imageAspectRatio: 1898 / 1079,
   },
   {
     name: "Portfolio Website",
