@@ -15,7 +15,7 @@ export const translations = {
       badge: "Disponível para trabalhos",
       roles: [
         { first: "Engenheiro", second: "de Software." },
-        { first: "Desenvolvedor", second: "Full Stack." },
+        { first: "Desenvolvimento", second: "Full Stack." },
       ],
       quote:
         "Eu construo aplicações web e mobile full stack, com foco em performance, escalabilidade e experiência do usuário.",
@@ -96,25 +96,25 @@ export const translations = {
           description:
             "O MovieTV é um aplicativo mobile desenvolvido em React Native (Expo) que permite explorar filmes, buscar recomendações via IA e salvar favoritos. Integra a TMDB API para dados de filmes, Appwrite para backend e OpenRouter AI para buscas inteligentes.",
           outcome: "Exploração inteligente de filmes no dia a dia.",
-          role: "Desenvolvedor Mobile",
+          role: "Desenvolvimento Mobile",
         },
         {
           description:
             "O ClickCV é uma aplicação web interativa que permite criar currículos de forma visual e intuitiva, apenas clicando e ajustando os elementos diretamente na tela. Após a personalização, o usuário pode exportar o currículo em PDF pronto para uso.",
           outcome: "Criação de currículos interativos de forma simples e eficiente.",
-          role: "Desenvolvedor Front-end",
+          role: "Desenvolvimento Front-end",
         },
         {
           description:
             "Solução full stack para análise e registro automatizado de atendimentos via WhatsApp Business, desenvolvida e validada por cliente real. Integra WAHA, n8n, Docker e IA para processamento em tempo real, com dashboard em React e TypeScript para visualização de métricas e fluxos.",
           outcome: "Automação para gerar dados estratégicos.",
-          role: "Desenvolvedor Full Stack",
+          role: "Desenvolvimento Full Stack",
         },
         {
           description:
-            "Site moderno para um clube de tecnologia com recursos envolventes.",
-          outcome: "Hub central para eventos e recursos da comunidade.",
-          role: "Desenvolvedor Fullstack",
+            "Plataforma SaaS de gestão imobiliária multiempresa com vitrine pública de imóveis, painel administrativo e arquitetura multi-tenant.",
+          outcome: "Operação imobiliária centralizada para times e empresas.",
+          role: "Arquitetura e desenvolvimento full stack",
         },
         {
           description:
@@ -338,9 +338,9 @@ export const translations = {
         },
         {
           description:
-            "A modern website built for an IT club community with engaging features.",
-          outcome: "Central hub for club events and member resources.",
-          role: "Full Stack Developer",
+            "A multi-tenant real estate management platform with a public property showcase, administrative dashboard, and company-aware operations.",
+          outcome: "Centralized real estate operations for multi-company teams.",
+          role: "Full-stack Architecture & Development",
         },
         {
           description:
