@@ -224,7 +224,7 @@ export function HeroSection() {
           ref={quoteRef}
           className="text-base sm:text-lg text-gray-700 font-medium max-w-2xl leading-relaxed mb-8 sm:mb-12 mx-auto"
         >
-          {`"${copy.hero.quote}"`}
+          {copy.hero.quote}
         </p>
 
         <div
