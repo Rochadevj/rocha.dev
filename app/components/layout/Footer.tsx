@@ -54,6 +54,7 @@ export function Footer() {
               </a>
             </div>
             <p className="text-sm font-medium text-gray-500 text-center sm:text-left">
+              &copy;{" "}
               {new Date().getFullYear()}{" "}
               <a href="#" className="hover:text-white transition-colors">
                 Rocha
