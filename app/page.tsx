@@ -5,6 +5,7 @@ import {
   HeroSection,
   AboutSection,
   ProjectsSection,
+  AutomationSection,
   SkillsSection,
   ContactSection,
   GithubSection,
@@ -21,6 +22,7 @@ export default function Home() {
         <AboutSection />
         <MarqueeSection />
         <ProjectsSection />
+        <AutomationSection />
         <div className="container mx-auto px-4 sm:px-8 py-24 space-y-24">
 
           <GithubSection />

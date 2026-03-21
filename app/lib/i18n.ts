@@ -124,6 +124,134 @@ export const translations = {
         },
       ],
     },
+    automation: {
+      label: "AUTOMAÇÃO, FLUXOS & IA",
+      title: "Interesse em sistemas",
+      titleAccent: "orquestrados",
+      description:
+        "Tenho bastante interesse por automação, integrações e produtos que conectam lógica, eventos e IA. Esta seção mostra um pouco de como penso em fluxos, decisões e ações encadeadas.",
+      canvasTitle: "Fluxo explorável",
+      canvasHint:
+        "Arraste os blocos, troque o cenário e execute o fluxo para ver a lógica em movimento.",
+      logTitle: "Eventos do fluxo",
+      emptyLog: "Nenhum evento ainda. Execute um cenário para ver o fluxo acontecer.",
+      noteTitle: "Por que isso está aqui?",
+      note:
+        "Porque meu interesse não está só na interface final, mas também na lógica por trás dela. Gosto de pensar em automações que conectam contexto, regras e ações sem deixar o sistema opaco.",
+      controls: {
+        play: "Executar fluxo",
+        reset: "Resetar layout",
+      },
+      status: {
+        idle: "Pronto para interação",
+        running: "Executando cenário",
+        done: "Cenário concluído",
+      },
+      chips: [
+        {
+          title: "Webhooks",
+          description: "Entrada de eventos e sinais em tempo real.",
+        },
+        {
+          title: "APIs",
+          description: "Orquestração entre serviços e plataformas.",
+        },
+        {
+          title: "IA aplicada",
+          description: "Classificação, resumo e apoio à decisão.",
+        },
+        {
+          title: "n8n mindset",
+          description: "Fluxos claros, visuais e orientados por lógica.",
+        },
+      ],
+      presets: [
+        {
+          name: "WhatsApp Ops",
+          summary: "Organiza conversas e aciona o próximo passo",
+          nodes: {
+            trigger: {
+              title: "Nova conversa",
+              subtitle: "Mensagem chega pelo canal",
+            },
+            processor: {
+              title: "Ler contexto",
+              subtitle: "IA resume intenção e urgência",
+            },
+            router: {
+              title: "Definir trilha",
+              subtitle: "Suporte, vendas ou financeiro",
+            },
+            action: {
+              title: "Registrar e responder",
+              subtitle: "Atualiza sistema e dispara retorno",
+            },
+          },
+          logs: [
+            "Nova conversa recebida no canal",
+            "IA resumiu contexto e urgência",
+            "Fluxo encaminhado para a trilha correta",
+            "Histórico salvo e resposta enviada",
+          ],
+        },
+        {
+          name: "Suporte",
+          summary: "Organiza tickets e aciona respostas",
+          nodes: {
+            trigger: {
+              title: "Novo ticket",
+              subtitle: "Mensagem capturada no canal",
+            },
+            processor: {
+              title: "Classificar tópico",
+              subtitle: "IA identifica urgência e tema",
+            },
+            router: {
+              title: "Encaminhar destino",
+              subtitle: "Base, humano ou financeiro",
+            },
+            action: {
+              title: "Responder e registrar",
+              subtitle: "Retorna e salva o histórico",
+            },
+          },
+          logs: [
+            "Ticket recebido do WhatsApp",
+            "Assunto classificado como cobrança",
+            "Fluxo enviado para fila financeira",
+            "Resposta automática registrada",
+          ],
+        },
+        {
+          name: "Conteúdo",
+          summary: "Transforma uma pauta em distribuição",
+          nodes: {
+            trigger: {
+              title: "Nova pauta",
+              subtitle: "Briefing criado pelo time",
+            },
+            processor: {
+              title: "Expandir com IA",
+              subtitle: "Sugere ângulos e formatos",
+            },
+            router: {
+              title: "Definir saída",
+              subtitle: "Blog, email ou social",
+            },
+            action: {
+              title: "Publicar rascunhos",
+              subtitle: "Entrega assets para revisão",
+            },
+          },
+          logs: [
+            "Pauta recebida no painel editorial",
+            "IA gerou estrutura e variações",
+            "Canal ideal definido como email + social",
+            "Rascunhos enviados para revisão",
+          ],
+        },
+      ],
+    },
     github: {
       label: "MINHA JORNADA NO CÓDIGO",
       title: "Atividade no GitHub",
@@ -347,6 +475,134 @@ export const translations = {
             "A fully responsive and visually appealing portfolio website to showcase projects and skills.",
           outcome: "",
           role: "",
+        },
+      ],
+    },
+    automation: {
+      label: "AUTOMATION, FLOWS & AI",
+      title: "Interest in",
+      titleAccent: "orchestrated systems",
+      description:
+        "I am genuinely interested in automation, integrations, and products that connect logic, events, and AI. This section shows a bit of how I think through flows, decisions, and chained actions.",
+      canvasTitle: "Explorable flow",
+      canvasHint:
+        "Drag the blocks, switch scenarios, and run the flow to see the logic in motion.",
+      logTitle: "Flow events",
+      emptyLog: "No events yet. Run a scenario to watch the flow happen.",
+      noteTitle: "Why is this here?",
+      note:
+        "Because my interest is not limited to the final interface. I also enjoy thinking about the logic behind it: automations that connect context, rules, and actions without turning the system into a black box.",
+      controls: {
+        play: "Run flow",
+        reset: "Reset layout",
+      },
+      status: {
+        idle: "Ready for interaction",
+        running: "Running scenario",
+        done: "Scenario completed",
+      },
+      chips: [
+        {
+          title: "Webhooks",
+          description: "Real-time event intake and system signals.",
+        },
+        {
+          title: "APIs",
+          description: "Orchestration between services and platforms.",
+        },
+        {
+          title: "Applied AI",
+          description: "Classification, summarization, and decision support.",
+        },
+        {
+          title: "n8n mindset",
+          description: "Clear, visual flows driven by logic.",
+        },
+      ],
+      presets: [
+        {
+          name: "WhatsApp Ops",
+          summary: "Organizes conversations and triggers the next step",
+          nodes: {
+            trigger: {
+              title: "New conversation",
+              subtitle: "Message arrives through the channel",
+            },
+            processor: {
+              title: "Read context",
+              subtitle: "AI summarizes intent and urgency",
+            },
+            router: {
+              title: "Choose path",
+              subtitle: "Support, sales, or finance",
+            },
+            action: {
+              title: "Register and reply",
+              subtitle: "Updates the system and sends feedback",
+            },
+          },
+          logs: [
+            "New conversation received in the channel",
+            "AI summarized context and urgency",
+            "Flow routed to the correct path",
+            "History saved and response sent",
+          ],
+        },
+        {
+          name: "Support",
+          summary: "Organizes tickets and triggers responses",
+          nodes: {
+            trigger: {
+              title: "New ticket",
+              subtitle: "Message captured from the channel",
+            },
+            processor: {
+              title: "Classify topic",
+              subtitle: "AI detects urgency and theme",
+            },
+            router: {
+              title: "Route destination",
+              subtitle: "Knowledge base, human, or finance",
+            },
+            action: {
+              title: "Reply and register",
+              subtitle: "Sends a response and saves history",
+            },
+          },
+          logs: [
+            "Ticket received from WhatsApp",
+            "Issue classified as billing",
+            "Flow routed to the finance queue",
+            "Automatic reply registered",
+          ],
+        },
+        {
+          name: "Content",
+          summary: "Turns a brief into distribution",
+          nodes: {
+            trigger: {
+              title: "New brief",
+              subtitle: "Team creates a new content idea",
+            },
+            processor: {
+              title: "Expand with AI",
+              subtitle: "Suggests angles and formats",
+            },
+            router: {
+              title: "Define output",
+              subtitle: "Blog, email, or social",
+            },
+            action: {
+              title: "Publish drafts",
+              subtitle: "Delivers assets for review",
+            },
+          },
+          logs: [
+            "Brief received in the editorial board",
+            "AI generated structure and variations",
+            "Best channel chosen as email + social",
+            "Drafts sent for review",
+          ],
         },
       ],
     },
