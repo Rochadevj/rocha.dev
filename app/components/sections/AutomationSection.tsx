@@ -106,12 +106,14 @@ export function AutomationSection() {
   const timeoutsRef = useRef<number[]>([]);
   const dragStateRef = useRef<{
     key: NodeKey;
+    pointerId: number;
     offsetX: number;
     offsetY: number;
   } | null>(null);
 
   const [activePresetIndex, setActivePresetIndex] = useState(0);
   const [positions, setPositions] = useState<NodePositions>(createInitialPositions);
+  const [draggingKey, setDraggingKey] = useState<NodeKey | null>(null);
   const [runState, setRunState] = useState<"idle" | "running" | "done">("idle");
   const [completedLogs, setCompletedLogs] = useState(0);
 
@@ -171,18 +173,31 @@ export function AutomationSection() {
     event: React.PointerEvent<HTMLDivElement>
   ) => {
     if (!canvasRef.current) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.currentTarget.setPointerCapture(event.pointerId);
+
     const rect = canvasRef.current.getBoundingClientRect();
     dragStateRef.current = {
       key,
+      pointerId: event.pointerId,
       offsetX: event.clientX - rect.left - positions[key].x,
       offsetY: event.clientY - rect.top - positions[key].y,
     };
+    setDraggingKey(key);
   };
 
   useEffect(() => {
     const handlePointerMove = (event: PointerEvent) => {
       const dragState = dragStateRef.current;
-      if (!dragState || !canvasRef.current) return;
+      if (
+        !dragState ||
+        dragState.pointerId !== event.pointerId ||
+        !canvasRef.current
+      ) {
+        return;
+      }
 
       const rect = canvasRef.current.getBoundingClientRect();
       const nextX = event.clientX - rect.left - dragState.offsetX;
@@ -206,18 +221,43 @@ export function AutomationSection() {
       }));
     };
 
-    const handlePointerUp = () => {
+    const handlePointerUp = (event: PointerEvent) => {
+      if (
+        dragStateRef.current &&
+        dragStateRef.current.pointerId !== event.pointerId
+      ) {
+        return;
+      }
+
       dragStateRef.current = null;
+      setDraggingKey(null);
     };
 
     window.addEventListener("pointermove", handlePointerMove);
     window.addEventListener("pointerup", handlePointerUp);
+    window.addEventListener("pointercancel", handlePointerUp);
 
     return () => {
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("pointerup", handlePointerUp);
+      window.removeEventListener("pointercancel", handlePointerUp);
     };
   }, []);
+
+  useEffect(() => {
+    if (!draggingKey) return;
+
+    const previousUserSelect = document.body.style.userSelect;
+    const previousCursor = document.body.style.cursor;
+
+    document.body.style.userSelect = "none";
+    document.body.style.cursor = "grabbing";
+
+    return () => {
+      document.body.style.userSelect = previousUserSelect;
+      document.body.style.cursor = previousCursor;
+    };
+  }, [draggingKey]);
 
   useEffect(() => {
     const syncCanvasLayout = () => {
@@ -401,7 +441,12 @@ export function AutomationSection() {
                     <div
                       key={key}
                       onPointerDown={(event) => handlePointerDown(key, event)}
-                      className={`absolute w-[168px] cursor-grab touch-none select-none rounded-[1.25rem] border bg-[#0b1420]/95 p-4 shadow-[0_18px_38px_rgba(0,0,0,0.28)] transition-shadow hover:shadow-[0_22px_44px_rgba(0,0,0,0.34)] ${
+                      onDragStart={(event) => event.preventDefault()}
+                      className={`absolute w-[168px] touch-none select-none rounded-[1.25rem] border bg-[#0b1420]/95 p-4 shadow-[0_18px_38px_rgba(0,0,0,0.28)] ${
+                        draggingKey === key
+                          ? "cursor-grabbing"
+                          : "cursor-grab transition-shadow hover:shadow-[0_22px_44px_rgba(0,0,0,0.34)]"
+                      } ${
                         visual.borderClass
                       }`}
                       style={{
