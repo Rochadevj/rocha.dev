@@ -232,8 +232,10 @@ export function AboutSection() {
             ref={globalCardRef}
             onPointerMove={(e) => handleDepthMouseMove(globalCardRef, e)}
             onPointerLeave={() => handleDepthLeave(globalCardRef)}
-            className={`md:col-span-2 min-h-62.5 rounded-3xl bg-[#080808] border border-white/10 p-6 md:p-8 overflow-hidden relative flex flex-col justify-center gap-6 cursor-default transition-transform duration-100 will-change-transform ${cardHoverGlobal}`}
+            className={`md:col-span-2 min-h-62.5 rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(7,10,16,0.98)_0%,rgba(8,18,30,0.96)_48%,rgba(18,14,34,0.94)_100%)] p-6 md:p-8 overflow-hidden relative flex flex-col justify-center gap-6 cursor-default transition-transform duration-100 will-change-transform ${cardHoverGlobal}`}
           >
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(98,196,255,0.12),transparent_30%),radial-gradient(circle_at_24%_38%,rgba(139,92,246,0.08),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(42,189,167,0.08),transparent_34%)]" />
+            <div className="pointer-events-none absolute inset-0 opacity-[0.18] bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:28px_28px]" />
             <div className="space-y-4 z-10 w-full">
               <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">{copy.about.globalLabel}</span>
               <h3 className="text-2xl sm:text-3xl font-bold leading-tight">
