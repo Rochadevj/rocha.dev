@@ -191,7 +191,7 @@ export function ContactSection() {
         {/* Right Column: Short Form */}
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(7,10,16,0.98)_0%,rgba(8,18,30,0.95)_50%,rgba(18,14,34,0.92)_100%)] p-6 sm:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.24)]">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(98,196,255,0.12),transparent_28%),radial-gradient(circle_at_20%_28%,rgba(139,92,246,0.08),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(42,189,167,0.07),transparent_34%)]" />
-          <div className="pointer-events-none absolute inset-0 opacity-[0.16] bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:26px_26px]" />
+          <div className="pointer-events-none absolute inset-0 opacity-[0.16] bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[26px_26px]" />
 
           <h3 className="relative z-10 text-2xl font-bold text-white mb-6">
             {copy.contact.formTitle}
