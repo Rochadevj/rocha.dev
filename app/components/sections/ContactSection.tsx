@@ -189,15 +189,16 @@ export function ContactSection() {
         </div>
 
         {/* Right Column: Short Form */}
-        <div className="bg-[#111] border border-white/10 rounded-3xl p-6 sm:p-10 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10" />
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(7,10,16,0.98)_0%,rgba(8,18,30,0.95)_50%,rgba(18,14,34,0.92)_100%)] p-6 sm:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.24)]">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(98,196,255,0.12),transparent_28%),radial-gradient(circle_at_20%_28%,rgba(139,92,246,0.08),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(42,189,167,0.07),transparent_34%)]" />
+          <div className="pointer-events-none absolute inset-0 opacity-[0.16] bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:26px_26px]" />
 
-          <h3 className="text-2xl font-bold text-white mb-6">
+          <h3 className="relative z-10 text-2xl font-bold text-white mb-6">
             {copy.contact.formTitle}
           </h3>
 
           {status === "success" ? (
-            <div className="h-full flex flex-col items-center justify-center py-12 text-center animate-in fade-in duration-500">
+            <div className="relative z-10 h-full flex flex-col items-center justify-center py-12 text-center animate-in fade-in duration-500">
               <div className="w-16 h-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mb-6 border border-green-500/20">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
@@ -215,7 +216,7 @@ export function ContactSection() {
               </button>
             </div>
           ) : (
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="relative z-10 space-y-4" onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-500 uppercase">
