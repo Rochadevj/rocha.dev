@@ -25,6 +25,17 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+const COOKIE_ATTRIBUTES = [
+  "path=/",
+  `max-age=${COOKIE_MAX_AGE}`,
+  "samesite=lax",
+  ...(process.env.NODE_ENV === "production" ? ["secure"] : []),
+].join("; ");
+
+function persistLanguagePreference(language: Language) {
+  window.localStorage.setItem(LANGUAGE_COOKIE_KEY, language);
+  document.cookie = `${LANGUAGE_COOKIE_KEY}=${language}; ${COOKIE_ATTRIBUTES}`;
+}
 
 export function LanguageProvider({
   children,
@@ -37,8 +48,7 @@ export function LanguageProvider({
 
   useEffect(() => {
     document.documentElement.lang = language;
-    window.localStorage.setItem(LANGUAGE_COOKIE_KEY, language);
-    document.cookie = `${LANGUAGE_COOKIE_KEY}=${language}; path=/; max-age=${COOKIE_MAX_AGE}; samesite=lax`;
+    persistLanguagePreference(language);
   }, [language]);
 
   useEffect(() => {
@@ -50,8 +60,7 @@ export function LanguageProvider({
       if (next === language) return;
 
       document.documentElement.lang = next;
-      window.localStorage.setItem(LANGUAGE_COOKIE_KEY, next);
-      document.cookie = `${LANGUAGE_COOKIE_KEY}=${next}; path=/; max-age=${COOKIE_MAX_AGE}; samesite=lax`;
+      persistLanguagePreference(next);
       startTransition(() => {
         setLanguageState(next);
       });
