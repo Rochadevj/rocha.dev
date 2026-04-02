@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 import { SiInstagram, SiLinkedin } from "react-icons/si";
+import { FiMail } from "react-icons/fi";
 
 export function Footer() {
   const { copy } = useTranslations();
@@ -52,11 +54,19 @@ export function Footer() {
                 <span className="sr-only">LinkedIn</span>
                 <SiLinkedin className="w-5 h-5" />
               </a>
+              <a
+                href="mailto:henriquerocha1357@gmail.com"
+                aria-label="Send email"
+                className="text-gray-500 hover:text-white transition-colors"
+              >
+                <span className="sr-only">Email</span>
+                <FiMail className="w-5 h-5" />
+              </a>
             </div>
             <p className="text-sm font-medium text-gray-500 text-center sm:text-left">
               &copy;{" "}
               {new Date().getFullYear()}{" "}
-              <a
+              <Link
                 href="/"
                 className="group inline-flex items-center gap-0.5 font-mono font-semibold tracking-tight transition-colors"
               >
@@ -65,7 +75,7 @@ export function Footer() {
                   Rocha
                 </span>
                 <span className="text-cyan-300">&gt;</span>
-              </a>
+              </Link>
               . {copy.footer.builtWith}{" "}
               <a
                 href="https://nextjs.org"
