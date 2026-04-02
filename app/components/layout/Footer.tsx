@@ -56,8 +56,15 @@ export function Footer() {
             <p className="text-sm font-medium text-gray-500 text-center sm:text-left">
               &copy;{" "}
               {new Date().getFullYear()}{" "}
-              <a href="#" className="hover:text-white transition-colors">
-                Rocha
+              <a
+                href="/"
+                className="group inline-flex items-center gap-0.5 font-mono font-semibold tracking-tight transition-colors"
+              >
+                <span className="text-cyan-300">&lt;/</span>
+                <span className="text-white/90 transition-colors group-hover:text-cyan-100">
+                  Rocha
+                </span>
+                <span className="text-cyan-300">&gt;</span>
               </a>
               . {copy.footer.builtWith}{" "}
               <a
