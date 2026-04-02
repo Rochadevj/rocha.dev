@@ -2,6 +2,7 @@
 
 import {
   createContext,
+  startTransition,
   useCallback,
   useContext,
   useEffect,
@@ -10,7 +11,7 @@ import {
   type ReactNode,
 } from "react";
 import {
-  defaultLanguage,
+  LANGUAGE_COOKIE_KEY,
   translations,
   type Language,
   type Translation,
@@ -23,33 +24,40 @@ type LanguageContextValue = {
 };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
-const STORAGE_KEY = "portfolio-language";
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 
 export function LanguageProvider({
   children,
+  initialLanguage,
 }: {
   children: ReactNode;
+  initialLanguage: Language;
 }) {
-  const [language, setLanguageState] = useState<Language>(defaultLanguage);
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored === "pt-BR" || stored === "en") {
-      const timeoutId = window.setTimeout(() => {
-        setLanguageState(stored);
-      }, 0);
-      return () => window.clearTimeout(timeoutId);
-    }
-  }, []);
+  const [language, setLanguageState] = useState<Language>(initialLanguage);
 
   useEffect(() => {
     document.documentElement.lang = language;
-    window.localStorage.setItem(STORAGE_KEY, language);
+    window.localStorage.setItem(LANGUAGE_COOKIE_KEY, language);
+    document.cookie = `${LANGUAGE_COOKIE_KEY}=${language}; path=/; max-age=${COOKIE_MAX_AGE}; samesite=lax`;
   }, [language]);
 
-  const setLanguage = useCallback((next: Language) => {
-    setLanguageState(next);
-  }, []);
+  useEffect(() => {
+    setLanguageState(initialLanguage);
+  }, [initialLanguage]);
+
+  const setLanguage = useCallback(
+    (next: Language) => {
+      if (next === language) return;
+
+      document.documentElement.lang = next;
+      window.localStorage.setItem(LANGUAGE_COOKIE_KEY, next);
+      document.cookie = `${LANGUAGE_COOKIE_KEY}=${next}; path=/; max-age=${COOKIE_MAX_AGE}; samesite=lax`;
+      startTransition(() => {
+        setLanguageState(next);
+      });
+    },
+    [language]
+  );
 
   const copy = translations[language];
 

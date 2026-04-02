@@ -1,6 +1,23 @@
 ﻿export type Language = "pt-BR" | "en";
 
 export const defaultLanguage: Language = "pt-BR";
+export const LANGUAGE_COOKIE_KEY = "portfolio-language";
+
+export function isLanguage(value: string | null | undefined): value is Language {
+  return value === "pt-BR" || value === "en";
+}
+
+export function getLanguageFromAcceptLanguage(
+  acceptLanguage: string | null | undefined
+): Language {
+  if (!acceptLanguage) return defaultLanguage;
+
+  const normalized = acceptLanguage.toLowerCase();
+  if (normalized.includes("en")) return "en";
+  if (normalized.includes("pt")) return "pt-BR";
+
+  return defaultLanguage;
+}
 
 export const translations = {
   "pt-BR": {
