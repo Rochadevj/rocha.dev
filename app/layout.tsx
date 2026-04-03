@@ -6,6 +6,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import CustomCursor from "./components/ui/CustomCursor";
 import ClientLayout from "./components/layout/ClientLayout";
+import ConsoleEasterEgg from "./components/layout/ConsoleEasterEgg";
 import { AnimatedBackground, SmoothScroll } from "./components/layout";
 import { LanguageProvider } from "./components/i18n/LanguageProvider";
 import {
@@ -199,6 +200,7 @@ export default async function RootLayout({
         />
         <LanguageProvider initialLanguage={language}>
           <ClientLayout>
+            <ConsoleEasterEgg />
             <SmoothScroll />
             <AnimatedBackground />
             <CustomCursor />
