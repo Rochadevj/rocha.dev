@@ -363,6 +363,11 @@ export const translations = {
       errorGeneric: "Algo deu errado. Tente novamente.",
       errorNetwork:
         "Falha ao enviar mensagem. Tente novamente ou envie um email direto.",
+      errorTooFast:
+        "Envio rápido demais. Aguarde alguns segundos e tente novamente.",
+      errorCooldown:
+        "Aguarde um minuto antes de enviar outra mensagem.",
+      botFieldLabel: "Deixe este campo vazio",
       footer: "Vou responder em até 48 horas.",
     },
     cta: {
@@ -722,6 +727,11 @@ export const translations = {
       errorGeneric: "Something went wrong. Please try again.",
       errorNetwork:
         "Failed to send message. Please try again or email directly.",
+      errorTooFast:
+        "Submitted too quickly. Please wait a few seconds and try again.",
+      errorCooldown:
+        "Please wait a minute before sending another message.",
+      botFieldLabel: "Leave this field empty",
       footer: "I'll get back to you within 48 hours.",
     },
     cta: {

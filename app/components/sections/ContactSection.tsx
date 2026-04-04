@@ -1,7 +1,7 @@
 "use client";
 
 import { GithubIcon, InstagramIcon, LinkedinIcon } from "../icons";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 
@@ -32,7 +32,12 @@ type FormData = {
   type: string;
   timeline: string;
   details: string;
+  company: string;
 };
+
+const CONTACT_SUBMIT_COOLDOWN_MS = 60 * 1000;
+const MIN_FORM_FILL_TIME_MS = 3500;
+const LAST_SUBMIT_STORAGE_KEY = "portfolio-contact-last-submit";
 
 export function ContactSection() {
   const { copy } = useTranslations();
@@ -49,7 +54,9 @@ export function ContactSection() {
     type: "general",
     timeline: timelineKeys[1],
     details: "",
+    company: "",
   });
+  const formStartedAtRef = useRef(0);
   const shouldShowTimeline = !hideTimelineFor.has(formData.type);
   const detailsLabel = shouldShowTimeline
     ? copy.contact.labels.details
@@ -63,20 +70,86 @@ export function ContactSection() {
   >("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
+  useEffect(() => {
+    formStartedAtRef.current = Date.now();
+  }, []);
+
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      email: "",
+      type: "general",
+      timeline: timelineKeys[1],
+      details: "",
+      company: "",
+    });
+    formStartedAtRef.current = Date.now();
+  };
+
+  const getLastSubmittedAt = () => {
+    try {
+      const rawValue = window.localStorage.getItem(LAST_SUBMIT_STORAGE_KEY);
+      const parsedValue = Number(rawValue);
+      return Number.isFinite(parsedValue) ? parsedValue : 0;
+    } catch {
+      return 0;
+    }
+  };
+
+  const rememberSubmission = (timestamp: number) => {
+    try {
+      window.localStorage.setItem(LAST_SUBMIT_STORAGE_KEY, String(timestamp));
+    } catch {
+      // Ignore storage failures and keep the form usable.
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
     setErrorMessage("");
 
     try {
+      const submittedAt = Date.now();
+
+      if (formData.company.trim()) {
+        setStatus("success");
+        resetForm();
+        return;
+      }
+
+      if (submittedAt - formStartedAtRef.current < MIN_FORM_FILL_TIME_MS) {
+        setStatus("error");
+        setErrorMessage(copy.contact.errorTooFast);
+        return;
+      }
+
+      const lastSubmittedAt = getLastSubmittedAt();
+      if (
+        lastSubmittedAt &&
+        submittedAt - lastSubmittedAt < CONTACT_SUBMIT_COOLDOWN_MS
+      ) {
+        setStatus("error");
+        setErrorMessage(copy.contact.errorCooldown);
+        return;
+      }
+
       const typeIndex = projectTypeKeys.indexOf(formData.type);
       const timelineIndex = timelineKeys.indexOf(formData.timeline);
+      const visibleFormData = {
+        name: formData.name,
+        email: formData.email,
+        type: formData.type,
+        timeline: formData.timeline,
+        details: formData.details,
+      };
       const payload = {
-        ...formData,
-        type: copy.contact.options.projectTypes[typeIndex] ?? formData.type,
+        ...visibleFormData,
+        type: copy.contact.options.projectTypes[typeIndex] ?? visibleFormData.type,
         ...(shouldShowTimeline && {
           timeline:
-            copy.contact.options.timeline[timelineIndex] ?? formData.timeline,
+            copy.contact.options.timeline[timelineIndex] ??
+            visibleFormData.timeline,
         }),
       };
 
@@ -90,14 +163,9 @@ export function ContactSection() {
       });
 
       if (response.ok) {
+        rememberSubmission(submittedAt);
         setStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          type: "general",
-          timeline: timelineKeys[1],
-          details: "",
-        });
+        resetForm();
       } else {
         setStatus("error");
         const data = (await response.json()) as {
@@ -217,6 +285,19 @@ export function ContactSection() {
             </div>
           ) : (
             <form className="relative z-10 space-y-4" onSubmit={handleSubmit}>
+              <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+                <label htmlFor="company">{copy.contact.botFieldLabel}</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  value={formData.company}
+                  onChange={handleChange}
+                  autoComplete="off"
+                  tabIndex={-1}
+                />
+              </div>
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-500 uppercase">
