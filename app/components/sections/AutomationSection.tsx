@@ -308,7 +308,7 @@ export function AutomationSection() {
 
   return (
     <section id="automation" className="relative py-20 sm:py-28 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[0.58fr_1.42fr] gap-10 xl:gap-10 items-start">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[0.64fr_1.36fr] gap-10 xl:gap-12 items-start">
         <div className="space-y-7">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-300/8 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-100">
@@ -349,7 +349,7 @@ export function AutomationSection() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#07111c]/92 p-3 sm:p-4 shadow-[0_24px_70px_rgba(0,0,0,0.28)]">
+        <div className="relative w-full overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#07111c]/92 p-3 sm:p-4 shadow-[0_24px_70px_rgba(0,0,0,0.28)] xl:justify-self-end xl:max-w-[52rem]">
           <div className="relative flex flex-col gap-4">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
