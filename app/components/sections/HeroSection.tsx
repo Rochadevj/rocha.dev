@@ -179,9 +179,10 @@ export function HeroSection() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-dvh flex items-center justify-center px-4 sm:px-6 pt-24 overflow-hidden bg-[#EBEBEB]"
+      className="relative min-h-dvh flex items-center justify-center overflow-hidden bg-[#EBEBEB] px-4 pt-24 sm:px-6"
     >
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[16px_16px]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(180deg,rgba(235,235,235,0)_0%,rgba(226,230,234,0.7)_55%,rgba(214,220,225,0.94)_100%)]" />
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
         <button
           ref={badgeRef}
