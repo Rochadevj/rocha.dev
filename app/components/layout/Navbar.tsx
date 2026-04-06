@@ -94,6 +94,12 @@ export function Navbar() {
             >
               rocha<span className="text-accent">.</span>
             </Link>
+            <span
+              aria-hidden="true"
+              className={`hidden h-5 w-px shrink-0 rounded-full sm:block ${
+                isLightMode ? "bg-black/12" : "bg-white/14"
+              }`}
+            />
             <div className="min-w-0 flex-1 flex items-center justify-end gap-1.5 sm:gap-2">
               <div className="min-w-0 max-w-[calc(100vw-7.5rem)] sm:max-w-none flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar pr-0.5">
                 {navItems.map((item) => (
