@@ -103,7 +103,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav className="fixed top-0 left-0 right-0 z-[70]">
       <div className="mx-2 mt-2 sm:mx-4 sm:mt-4">
         <div 
           className={`max-w-5xl mx-auto rounded-[1.75rem] px-3 py-3 sm:rounded-full sm:px-6 sm:py-3 transition-all duration-300 ${
@@ -112,7 +112,7 @@ export function Navbar() {
               : "glass hover:bg-black/80"
           }`}
         >
-          <div className="relative z-50 flex items-center justify-between gap-3 sm:hidden">
+          <div className="flex items-center justify-between gap-3 sm:hidden">
             <Link
               href="/"
               onClick={handleLogoClick}
@@ -127,6 +127,7 @@ export function Navbar() {
               onClick={() => setIsMobileMenuOpen((current) => !current)}
               aria-label={isMobileMenuOpen ? closeMenuLabel : openMenuLabel}
               aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-nav-drawer"
               className={`relative inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
                 isLightMode
                   ? "border-black/10 bg-white/40 text-black hover:bg-white/75"
@@ -140,7 +141,7 @@ export function Navbar() {
                 <span
                   className={`block h-px w-full rounded-full transition-all duration-300 ${
                     isLightMode ? "bg-black" : "bg-white"
-                  } ${isMobileMenuOpen ? "translate-y-[8px] rotate-45" : ""}`}
+                  } ${isMobileMenuOpen ? "translate-y-[7px] rotate-45" : ""}`}
                 />
                 <span
                   className={`block h-px w-full rounded-full transition-all duration-300 ${
@@ -150,63 +151,10 @@ export function Navbar() {
                 <span
                   className={`block h-px w-full rounded-full transition-all duration-300 ${
                     isLightMode ? "bg-black" : "bg-white"
-                  } ${isMobileMenuOpen ? "-translate-y-[8px] -rotate-45" : ""}`}
+                  } ${isMobileMenuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
                 />
               </span>
             </button>
-          </div>
-
-          <div
-            className={`fixed inset-0 z-40 sm:hidden ${isMobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
-            aria-hidden={!isMobileMenuOpen}
-          >
-            <button
-              type="button"
-              aria-label={closeMenuLabel}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`absolute inset-0 bg-[#02050b]/55 backdrop-blur-[2px] transition-opacity duration-300 ${
-                isMobileMenuOpen ? "opacity-100" : "opacity-0"
-              }`}
-            />
-            <div
-              className={`absolute inset-y-0 right-0 flex w-[min(84vw,320px)] flex-col border-l border-white/8 bg-[linear-gradient(180deg,#0b1220_0%,#08101b_100%)] px-7 pb-7 pt-24 shadow-[-24px_0_60px_rgba(0,0,0,0.45)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-              }`}
-            >
-              <div className="flex flex-col">
-                {navItems.map((item) => {
-                  const isActive = activeSection === item.name;
-
-                  return (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      onClick={(e) => handleLinkClick(e, item)}
-                      className={`border-b border-white/10 py-6 text-[1.7rem] font-semibold tracking-tight capitalize transition-colors ${
-                        isActive ? "text-white" : "text-white/88 hover:text-white"
-                      }`}
-                    >
-                      {sectionLabels[item.name] ?? item.name}
-                    </Link>
-                  );
-                })}
-              </div>
-
-              <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/10 pt-6">
-                <button
-                  type="button"
-                  onClick={toggleLanguage}
-                  aria-label={copy.nav.languageToggle}
-                  title={copy.nav.languageToggle}
-                  className="inline-flex items-center rounded-full border border-white/12 bg-white/6 px-4 py-2 text-sm font-semibold text-white/88 transition-colors hover:bg-white/10 hover:text-white"
-                >
-                  {language === "pt-BR" ? "EN" : "PT"}
-                </button>
-                <span className="text-[0.72rem] font-medium tracking-[0.18em] text-white/28">
-                  ~/henriquerocha.me
-                </span>
-              </div>
-            </div>
           </div>
 
           <div className="hidden items-center gap-3 sm:flex">
@@ -262,6 +210,62 @@ export function Navbar() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div
+        className={`fixed inset-0 z-[60] transition-[visibility] duration-300 sm:hidden ${
+          isMobileMenuOpen ? "visible" : "invisible"
+        }`}
+        aria-hidden={!isMobileMenuOpen}
+      >
+        <button
+          type="button"
+          aria-label={closeMenuLabel}
+          onClick={() => setIsMobileMenuOpen(false)}
+          className={`absolute inset-x-0 bottom-0 top-[4.9rem] bg-[#02050b]/58 backdrop-blur-[3px] transition-opacity duration-300 ${
+            isMobileMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <aside
+          id="mobile-nav-drawer"
+          className={`absolute bottom-2 right-2 top-[4.9rem] flex w-[min(64vw,352px)] min-w-[252px] max-w-[84vw] flex-col overflow-y-auto rounded-[1.75rem] border border-white/8 bg-[linear-gradient(180deg,#09111d_0%,#08101a_100%)] px-6 pb-8 pt-6 shadow-[-28px_0_64px_rgba(0,0,0,0.48)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-[104%]"
+          }`}
+        >
+          <div className="flex flex-col">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.name;
+
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => handleLinkClick(e, item)}
+                  className={`border-b border-white/10 py-6 text-[1.65rem] font-semibold tracking-tight capitalize transition-colors ${
+                    isActive ? "text-white" : "text-white/88 hover:text-white"
+                  }`}
+                >
+                  {sectionLabels[item.name] ?? item.name}
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/10 pt-6">
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              aria-label={copy.nav.languageToggle}
+              title={copy.nav.languageToggle}
+              className="inline-flex items-center rounded-full border border-white/12 bg-white/6 px-4 py-2 text-sm font-semibold text-white/88 transition-colors hover:bg-white/10 hover:text-white"
+            >
+              {language === "pt-BR" ? "EN" : "PT"}
+            </button>
+            <span className="text-[0.72rem] font-medium tracking-[0.18em] text-white/28">
+              ~/henriquerocha.me
+            </span>
+          </div>
+        </aside>
       </div>
     </nav>
   );
