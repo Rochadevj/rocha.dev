@@ -333,23 +333,23 @@ export function AutomationSection() {
             {copy.automation.chips.map((chip) => (
               <div
                 key={chip.title}
-                className="rounded-2xl border border-white/10 bg-white/3 px-4 py-4"
+                className="rounded-2xl border border-white/8 bg-black/15 px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)]"
               >
-                <p className="text-sm font-semibold text-white">{chip.title}</p>
-                <p className="mt-1 text-xs leading-relaxed text-gray-500">
+                <p className="text-sm font-medium text-white/90">{chip.title}</p>
+                <p className="mt-1 text-xs leading-relaxed text-gray-500/90">
                   {chip.description}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/3 px-4 py-4 text-sm text-gray-400">
-            <MousePointer2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-300" />
+          <div className="flex items-start gap-3 rounded-2xl border border-white/8 bg-black/15 px-4 py-4 text-sm text-gray-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)]">
+            <MousePointer2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-300/85" />
             <p>{copy.automation.canvasHint}</p>
           </div>
         </div>
 
-        <div className="relative w-full overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#07111c]/92 p-3 sm:p-4 shadow-[0_24px_70px_rgba(0,0,0,0.28)] xl:justify-self-end xl:max-w-[52rem]">
+        <div className="relative w-full overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#07111c]/92 p-3 sm:p-4 shadow-[0_24px_70px_rgba(0,0,0,0.28)] xl:justify-self-end xl:max-w-208">
           <div className="relative flex flex-col gap-4">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
@@ -363,7 +363,7 @@ export function AutomationSection() {
                 <button
                   type="button"
                   onClick={runFlow}
-                  className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-300/8 px-4 py-2 text-sm font-semibold text-cyan-100 transition-colors hover:bg-cyan-300/[0.14]"
+                  className="inline-flex items-center gap-2 rounded-full border border-cyan-300/14 bg-cyan-300/6 px-4 py-2 text-sm font-medium text-cyan-50 transition-colors hover:bg-cyan-300/10"
                 >
                   <Play className="h-4 w-4" />
                   {copy.automation.controls.play}
@@ -371,7 +371,7 @@ export function AutomationSection() {
                 <button
                   type="button"
                   onClick={resetBuilder}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4 px-4 py-2 text-sm font-semibold text-white/80 transition-colors hover:bg-white/8"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/3 px-4 py-2 text-sm font-medium text-white/72 transition-colors hover:bg-white/5 hover:text-white/88"
                 >
                   <RotateCcw className="h-4 w-4" />
                   {copy.automation.controls.reset}
@@ -387,8 +387,8 @@ export function AutomationSection() {
                   onClick={() => selectPreset(index)}
                   className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                     activePresetIndex === index
-                      ? "border-cyan-300/28 bg-cyan-300/10 text-cyan-100"
-                      : "border-white/10 bg-white/3 text-white/70 hover:bg-white/6"
+                      ? "border-cyan-300/20 bg-cyan-300/7 text-cyan-50"
+                      : "border-white/8 bg-white/3 text-white/65 hover:bg-white/5 hover:text-white/82"
                   }`}
                 >
                   {preset.name}
@@ -497,7 +497,7 @@ export function AutomationSection() {
             </div>
 
             <div className="grid gap-3 md:grid-cols-[1fr_1.2fr]">
-              <div className="rounded-2xl border border-white/10 bg-white/3 p-4">
+              <div className="rounded-2xl border border-white/8 bg-black/15 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)]">
                 <p className="text-xs uppercase tracking-[0.18em] text-white/35">
                   {copy.automation.logTitle}
                 </p>
@@ -506,25 +506,25 @@ export function AutomationSection() {
                     activeLogs.map((log) => (
                       <div
                         key={log}
-                        className="flex items-start gap-2 rounded-xl border border-white/8 bg-black/20 px-3 py-2 text-sm text-white/80"
+                        className="flex items-start gap-2 rounded-xl border border-white/6 bg-white/3 px-3 py-2 text-sm text-white/72"
                       >
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-300" />
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-300/90" />
                         <span>{log}</span>
                       </div>
                     ))
                   ) : (
-                    <div className="rounded-xl border border-dashed border-white/10 px-3 py-4 text-sm text-white/45">
+                    <div className="rounded-xl border border-dashed border-white/8 px-3 py-4 text-sm text-white/40">
                       {copy.automation.emptyLog}
                     </div>
                   )}
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/3 p-4">
+              <div className="rounded-2xl border border-white/8 bg-black/15 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)]">
                 <p className="text-xs uppercase tracking-[0.18em] text-white/35">
                   {copy.automation.noteTitle}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-gray-400">
+                <p className="mt-3 text-sm leading-relaxed text-gray-500">
                   {copy.automation.note}
                 </p>
               </div>
