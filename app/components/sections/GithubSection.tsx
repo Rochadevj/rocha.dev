@@ -21,7 +21,7 @@ export function GithubSection() {
 
   return (
     <section className="relative px-4 py-20 sm:px-6 sm:py-24">
-      <div className="mx-auto flex max-w-[76rem] flex-col gap-12">
+      <div className="mx-auto flex max-w-304 flex-col gap-12">
         <div className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-300/8 px-5 py-2 text-xs font-black uppercase tracking-[0.16em] text-cyan-100 shadow-[0_0_0_1px_rgba(34,211,238,0.06)]">
             {copy.github.label}
@@ -34,7 +34,7 @@ export function GithubSection() {
           </h2>
         </div>
 
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(7,12,20,0.98)_0%,rgba(9,18,31,0.96)_46%,rgba(18,14,34,0.92)_100%)] p-4 shadow-[0_24px_70px_rgba(0,0,0,0.24)] sm:p-6 lg:p-7">
+        <div className="relative overflow-hidden rounded-4xl border border-white/10 bg-[linear-gradient(135deg,rgba(7,12,20,0.98)_0%,rgba(9,18,31,0.96)_46%,rgba(18,14,34,0.92)_100%)] p-4 shadow-[0_24px_70px_rgba(0,0,0,0.24)] sm:p-6 lg:p-7">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(98,196,255,0.12),transparent_28%),radial-gradient(circle_at_18%_24%,rgba(34,211,238,0.08),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(42,189,167,0.08),transparent_34%)]" />
           <div className="pointer-events-none absolute inset-0 opacity-[0.16] bg-[linear-gradient(to_right,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[28px_28px]" />
 
@@ -80,7 +80,7 @@ export function GithubSection() {
                 className="relative z-10 overflow-x-auto no-scrollbar"
                 aria-busy={!isMounted}
               >
-                <div className="flex min-w-[760px] justify-center">
+                <div className="flex min-w-190 justify-center">
                   {isMounted ? (
                     <GitHubCalendar
                       username="Rochadevj"
@@ -93,7 +93,7 @@ export function GithubSection() {
                       }}
                     />
                   ) : (
-                    <div className="h-40 w-full rounded-[1rem] border border-white/8 bg-white/[0.03]" />
+                    <div className="h-40 w-full rounded-2xl border border-white/8 bg-white/3" />
                   )}
                 </div>
               </div>
