@@ -116,7 +116,8 @@ export function AboutSection() {
 
   return (
     <section id="about" className="relative overflow-hidden px-4 py-20 text-white sm:px-6">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(235,235,235,0.92)_0%,rgba(224,230,234,0.64)_16%,rgba(164,177,187,0.14)_46%,rgba(10,12,16,0)_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 sm:hidden bg-[radial-gradient(70%_70%_at_50%_0%,rgba(104,164,214,0.12),rgba(5,5,5,0)_72%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 hidden h-32 sm:block bg-[linear-gradient(180deg,rgba(235,235,235,0.92)_0%,rgba(224,230,234,0.64)_16%,rgba(164,177,187,0.14)_46%,rgba(10,12,16,0)_100%)]" />
       <div className="pointer-events-none absolute inset-x-[12%] top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(175,192,202,0.22),transparent)]" />
       <div className="max-w-7xl mx-auto space-y-8">
         <h2 className="sr-only">{copy.about.srOnly}</h2>
