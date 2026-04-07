@@ -310,21 +310,21 @@ export function AutomationSection() {
     <section id="automation" className="relative py-20 sm:py-28 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[0.64fr_1.36fr] gap-10 xl:gap-12 items-start">
         <div className="space-y-7">
-          <div>
+          <div className="flex justify-center xl:justify-start">
             <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-300/8 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-100">
               <Sparkles className="h-3.5 w-3.5" />
               {copy.automation.label}
             </span>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 text-center xl:text-left">
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white">
               {copy.automation.title}{" "}
               <span className="font-serif italic text-cyan-200">
                 {copy.automation.titleAccent}
               </span>
             </h2>
-            <p className="max-w-xl text-gray-400 text-base sm:text-lg leading-relaxed">
+            <p className="mx-auto max-w-xl text-gray-400 text-base sm:text-lg leading-relaxed xl:mx-0">
               {copy.automation.description}
             </p>
           </div>
@@ -351,7 +351,7 @@ export function AutomationSection() {
 
         <div className="relative w-full overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#07111c]/92 p-3 sm:p-4 shadow-[0_24px_70px_rgba(0,0,0,0.28)] xl:justify-self-end xl:max-w-208">
           <div className="relative flex flex-col gap-4">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-4 text-center sm:text-left sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-white/35">
                   {copy.automation.canvasTitle}
@@ -359,7 +359,7 @@ export function AutomationSection() {
                 <p className="mt-1 text-sm text-white/70">{statusLabel}</p>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center gap-2 sm:justify-end">
                 <button
                   type="button"
                   onClick={runFlow}
@@ -397,9 +397,10 @@ export function AutomationSection() {
             </div>
 
             <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#050a12] p-2.5 sm:p-3">
+              <div className="-mx-1 overflow-x-auto px-1 no-scrollbar xl:mx-0 xl:px-0">
               <div
                 ref={canvasRef}
-                className="relative h-99 w-full overflow-hidden rounded-[1.4rem] border border-white/8 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.14),transparent_22%),radial-gradient(circle_at_bottom_left,rgba(16,185,129,0.10),transparent_26%),linear-gradient(180deg,rgba(7,12,20,0.98),rgba(4,8,14,0.98))] no-scrollbar"
+                className="relative h-[420px] w-155 overflow-hidden rounded-[1.4rem] border border-white/8 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.14),transparent_22%),radial-gradient(circle_at_bottom_left,rgba(16,185,129,0.10),transparent_26%),linear-gradient(180deg,rgba(7,12,20,0.98),rgba(4,8,14,0.98))] no-scrollbar sm:h-99 sm:w-full"
               >
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-size-[28px_28px] opacity-40" />
                 <div className="pointer-events-none absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-white/40">
@@ -493,6 +494,7 @@ export function AutomationSection() {
                     </div>
                   );
                 })}
+              </div>
               </div>
             </div>
 
