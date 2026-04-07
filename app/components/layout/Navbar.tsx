@@ -103,7 +103,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[70]">
+    <nav className="fixed top-0 left-0 right-0 z-70">
       <div className="mx-2 mt-2 sm:mx-4 sm:mt-4">
         <div 
           className={`max-w-5xl mx-auto rounded-[1.75rem] px-3 py-3 sm:rounded-full sm:px-6 sm:py-3 transition-all duration-300 ${
@@ -112,7 +112,7 @@ export function Navbar() {
               : "glass hover:bg-black/80"
           }`}
         >
-          <div className="flex items-center justify-between gap-3 sm:hidden">
+          <div className="relative z-80 flex items-center justify-between gap-3 sm:hidden">
             <Link
               href="/"
               onClick={handleLogoClick}
@@ -141,7 +141,7 @@ export function Navbar() {
                 <span
                   className={`block h-px w-full rounded-full transition-all duration-300 ${
                     isLightMode ? "bg-black" : "bg-white"
-                  } ${isMobileMenuOpen ? "translate-y-[7px] rotate-45" : ""}`}
+                  } ${isMobileMenuOpen ? "translate-y-1.75 rotate-45" : ""}`}
                 />
                 <span
                   className={`block h-px w-full rounded-full transition-all duration-300 ${
@@ -151,7 +151,7 @@ export function Navbar() {
                 <span
                   className={`block h-px w-full rounded-full transition-all duration-300 ${
                     isLightMode ? "bg-black" : "bg-white"
-                  } ${isMobileMenuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
+                  } ${isMobileMenuOpen ? "-translate-y-1.75 -rotate-45" : ""}`}
                 />
               </span>
             </button>
@@ -213,7 +213,7 @@ export function Navbar() {
       </div>
 
       <div
-        className={`fixed inset-0 z-[60] transition-[visibility] duration-300 sm:hidden ${
+        className={`pointer-events-none fixed inset-0 z-60 transition-[visibility] duration-300 sm:hidden ${
           isMobileMenuOpen ? "visible" : "invisible"
         }`}
         aria-hidden={!isMobileMenuOpen}
@@ -222,13 +222,13 @@ export function Navbar() {
           type="button"
           aria-label={closeMenuLabel}
           onClick={() => setIsMobileMenuOpen(false)}
-          className={`absolute inset-x-0 bottom-0 top-[4.9rem] bg-[#02050b]/58 backdrop-blur-[3px] transition-opacity duration-300 ${
+          className={`pointer-events-auto absolute inset-x-0 bottom-0 top-[4.9rem] bg-[#02050b]/58 backdrop-blur-[3px] transition-opacity duration-300 ${
             isMobileMenuOpen ? "opacity-100" : "opacity-0"
           }`}
         />
         <aside
           id="mobile-nav-drawer"
-          className={`absolute bottom-2 right-2 top-[4.9rem] flex w-[min(64vw,352px)] min-w-[252px] max-w-[84vw] flex-col overflow-y-auto rounded-[1.75rem] border border-white/8 bg-[linear-gradient(180deg,#09111d_0%,#08101a_100%)] px-6 pb-8 pt-6 shadow-[-28px_0_64px_rgba(0,0,0,0.48)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          className={`pointer-events-auto absolute bottom-2 right-2 top-[4.9rem] flex w-[min(64vw,352px)] min-w-63 max-w-[84vw] flex-col overflow-y-auto rounded-[1.75rem] border border-white/8 bg-[linear-gradient(180deg,#09111d_0%,#08101a_100%)] px-6 pb-8 pt-6 shadow-[-28px_0_64px_rgba(0,0,0,0.48)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-[104%]"
           }`}
         >
