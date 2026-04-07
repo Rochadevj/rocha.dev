@@ -5,6 +5,15 @@ import Lenis from "lenis";
 
 export function SmoothScroll() {
   useEffect(() => {
+    const prefersNativeTouchScroll =
+      window.matchMedia("(pointer: coarse)").matches ||
+      window.matchMedia("(hover: none)").matches ||
+      navigator.maxTouchPoints > 0;
+
+    if (prefersNativeTouchScroll) {
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

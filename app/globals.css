@@ -20,15 +20,16 @@
 }
 
 html {
-  /* scroll-behavior: smooth;  Removed for Lenis */
-  /* background-color: var(--background); Removed to allow AnimatedBackground to show */
+  background-color: #050505;
+  overscroll-behavior-y: none;
 }
 
 body {
-  /* background: var(--background); Removed to allow AnimatedBackground to show */
+  background: transparent;
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
 }
 
 /* Custom scrollbar */
