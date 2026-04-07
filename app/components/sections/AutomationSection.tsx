@@ -7,6 +7,7 @@ import {
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import {
+  ArrowLeft,
   Bot,
   Cable,
   Expand,
@@ -345,115 +346,120 @@ export function AutomationSection() {
     language === "pt-BR" ? "Expandir fluxo" : "Expand flow";
   const closeFlowLabel =
     language === "pt-BR" ? "Fechar fluxo" : "Close flow";
+  const backFlowLabel = language === "pt-BR" ? "Voltar" : "Back";
 
   const renderFlowCanvas = ({
     interactive,
     bindRef = false,
     canvasClassName,
+    scrollClassName = "",
   }: {
     interactive: boolean;
     bindRef?: boolean;
     canvasClassName: string;
+    scrollClassName?: string;
   }) => (
     <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#050a12] p-2.5 sm:p-3">
-      <div
-        ref={bindRef ? canvasRef : undefined}
-        className={`relative w-full overflow-hidden rounded-[1.4rem] border border-white/8 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.14),transparent_22%),radial-gradient(circle_at_bottom_left,rgba(16,185,129,0.10),transparent_26%),linear-gradient(180deg,rgba(7,12,20,0.98),rgba(4,8,14,0.98))] no-scrollbar ${canvasClassName}`}
-      >
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-size-[28px_28px] opacity-40" />
-        <div className="pointer-events-none absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-white/40">
-          <Cable className="h-3.5 w-3.5" />
-          {activePreset.summary}
-        </div>
+      <div className={scrollClassName}>
+        <div
+          ref={bindRef ? canvasRef : undefined}
+          className={`relative w-full overflow-hidden rounded-[1.4rem] border border-white/8 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.14),transparent_22%),radial-gradient(circle_at_bottom_left,rgba(16,185,129,0.10),transparent_26%),linear-gradient(180deg,rgba(7,12,20,0.98),rgba(4,8,14,0.98))] no-scrollbar ${canvasClassName}`}
+        >
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-size-[28px_28px] opacity-40" />
+          <div className="pointer-events-none absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-white/40">
+            <Cable className="h-3.5 w-3.5" />
+            {activePreset.summary}
+          </div>
 
-        <svg className="pointer-events-none absolute inset-0 h-full w-full">
-          {edges.map((edge, index) => {
-            const from = positions[edge.from];
-            const to = positions[edge.to];
-            const startX = from.x + NODE_WIDTH;
-            const startY = from.y + NODE_HEIGHT / 2;
-            const endX = to.x;
-            const endY = to.y + NODE_HEIGHT / 2;
-            const controlOffset = Math.max(60, (endX - startX) * 0.48);
-            const path = `M ${startX} ${startY} C ${startX + controlOffset} ${startY}, ${endX - controlOffset} ${endY}, ${endX} ${endY}`;
-            const isActive = index < activeEdgeCount;
+          <svg className="pointer-events-none absolute inset-0 h-full w-full">
+            {edges.map((edge, index) => {
+              const from = positions[edge.from];
+              const to = positions[edge.to];
+              const startX = from.x + NODE_WIDTH;
+              const startY = from.y + NODE_HEIGHT / 2;
+              const endX = to.x;
+              const endY = to.y + NODE_HEIGHT / 2;
+              const controlOffset = Math.max(60, (endX - startX) * 0.48);
+              const path = `M ${startX} ${startY} C ${startX + controlOffset} ${startY}, ${endX - controlOffset} ${endY}, ${endX} ${endY}`;
+              const isActive = index < activeEdgeCount;
+
+              return (
+                <g key={`${edge.from}-${edge.to}`}>
+                  <path
+                    d={path}
+                    fill="none"
+                    stroke={isActive ? "rgba(103, 232, 249, 0.95)" : "rgba(255,255,255,0.12)"}
+                    strokeWidth={isActive ? 2.5 : 1.5}
+                    strokeDasharray={isActive ? "0" : "6 8"}
+                    strokeLinecap="round"
+                  />
+                </g>
+              );
+            })}
+          </svg>
+
+          {(Object.keys(positions) as NodeKey[]).map((key) => {
+            const node = activePreset.nodes[key];
+            const visual = nodeVisuals[key];
+            const Icon = visual.icon;
+            const isCompleted =
+              (key === "trigger" && completedLogs > 0) ||
+              (key === "processor" && completedLogs > 1) ||
+              (key === "router" && completedLogs > 2) ||
+              (key === "action" && completedLogs > 3);
 
             return (
-              <g key={`${edge.from}-${edge.to}`}>
-                <path
-                  d={path}
-                  fill="none"
-                  stroke={isActive ? "rgba(103, 232, 249, 0.95)" : "rgba(255,255,255,0.12)"}
-                  strokeWidth={isActive ? 2.5 : 1.5}
-                  strokeDasharray={isActive ? "0" : "6 8"}
-                  strokeLinecap="round"
+              <div
+                key={key}
+                onPointerDown={
+                  interactive ? (event) => handlePointerDown(key, event) : undefined
+                }
+                onDragStart={interactive ? (event) => event.preventDefault() : undefined}
+                className={`absolute w-42 select-none rounded-[1.25rem] border bg-[#0b1420]/95 p-4 shadow-[0_18px_38px_rgba(0,0,0,0.28)] ${
+                  interactive
+                    ? draggingKey === key
+                      ? "touch-none cursor-grabbing"
+                      : "touch-none cursor-grab transition-shadow hover:shadow-[0_22px_44px_rgba(0,0,0,0.34)]"
+                    : "pointer-events-none"
+                } ${visual.borderClass}`}
+                style={{
+                  left: positions[key].x,
+                  top: positions[key].y,
+                }}
+              >
+                <div
+                  className={`pointer-events-none absolute inset-0 rounded-[1.25rem] bg-linear-to-br ${visual.glowClass} opacity-65`}
                 />
-              </g>
+                <div className="relative z-10 flex items-start justify-between gap-3">
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-xl ${visual.iconClass}`}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span
+                    className={`mt-1 h-2.5 w-2.5 rounded-full ${
+                      isCompleted
+                        ? "bg-emerald-300 shadow-[0_0_10px_rgba(110,231,183,0.75)]"
+                        : "bg-white/20"
+                    }`}
+                  />
+                </div>
+
+                <div className="relative z-10 mt-4">
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-white/35">
+                    {visual.eyebrow}
+                  </p>
+                  <h3 className="mt-1 text-sm font-semibold text-white">
+                    {node.title}
+                  </h3>
+                  <p className="mt-1 text-xs leading-relaxed text-white/55">
+                    {node.subtitle}
+                  </p>
+                </div>
+              </div>
             );
           })}
-        </svg>
-
-        {(Object.keys(positions) as NodeKey[]).map((key) => {
-          const node = activePreset.nodes[key];
-          const visual = nodeVisuals[key];
-          const Icon = visual.icon;
-          const isCompleted =
-            (key === "trigger" && completedLogs > 0) ||
-            (key === "processor" && completedLogs > 1) ||
-            (key === "router" && completedLogs > 2) ||
-            (key === "action" && completedLogs > 3);
-
-          return (
-            <div
-              key={key}
-              onPointerDown={
-                interactive ? (event) => handlePointerDown(key, event) : undefined
-              }
-              onDragStart={interactive ? (event) => event.preventDefault() : undefined}
-              className={`absolute w-42 select-none rounded-[1.25rem] border bg-[#0b1420]/95 p-4 shadow-[0_18px_38px_rgba(0,0,0,0.28)] ${
-                interactive
-                  ? draggingKey === key
-                    ? "touch-none cursor-grabbing"
-                    : "touch-none cursor-grab transition-shadow hover:shadow-[0_22px_44px_rgba(0,0,0,0.34)]"
-                  : "pointer-events-none"
-              } ${visual.borderClass}`}
-              style={{
-                left: positions[key].x,
-                top: positions[key].y,
-              }}
-            >
-              <div
-                className={`pointer-events-none absolute inset-0 rounded-[1.25rem] bg-linear-to-br ${visual.glowClass} opacity-65`}
-              />
-              <div className="relative z-10 flex items-start justify-between gap-3">
-                <div
-                  className={`flex h-10 w-10 items-center justify-center rounded-xl ${visual.iconClass}`}
-                >
-                  <Icon className="h-5 w-5" />
-                </div>
-                <span
-                  className={`mt-1 h-2.5 w-2.5 rounded-full ${
-                    isCompleted
-                      ? "bg-emerald-300 shadow-[0_0_10px_rgba(110,231,183,0.75)]"
-                      : "bg-white/20"
-                  }`}
-                />
-              </div>
-
-              <div className="relative z-10 mt-4">
-                <p className="text-[10px] uppercase tracking-[0.22em] text-white/35">
-                  {visual.eyebrow}
-                </p>
-                <h3 className="mt-1 text-sm font-semibold text-white">
-                  {node.title}
-                </h3>
-                <p className="mt-1 text-xs leading-relaxed text-white/55">
-                  {node.subtitle}
-                </p>
-              </div>
-            </div>
-          );
-        })}
+        </div>
       </div>
     </div>
   );
@@ -663,7 +669,7 @@ export function AutomationSection() {
 
       {isMobileFlowOpen ? (
         <div className="fixed inset-0 z-90 bg-[#02060d]/72 backdrop-blur-md sm:hidden">
-          <div className="flex h-full flex-col p-4">
+          <div className="flex h-full flex-col p-3">
             <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#07111c]/96 p-4 shadow-[0_28px_80px_rgba(0,0,0,0.42)]">
               <div className="flex items-start justify-between gap-4">
                 <div>
@@ -673,14 +679,25 @@ export function AutomationSection() {
                   <p className="mt-1 text-sm text-white/70">{statusLabel}</p>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => setIsMobileFlowOpen(false)}
-                  aria-label={closeFlowLabel}
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white transition-colors hover:bg-white/10"
-                >
-                  <X className="h-5 w-5" />
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsMobileFlowOpen(false)}
+                    aria-label={backFlowLabel}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/10"
+                  >
+                    <ArrowLeft className="h-4 w-4" />
+                    {backFlowLabel}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setIsMobileFlowOpen(false)}
+                    aria-label={closeFlowLabel}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white transition-colors hover:bg-white/10"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
               </div>
 
               <div className="mt-4 flex items-center gap-2">
@@ -723,7 +740,8 @@ export function AutomationSection() {
                 {renderFlowCanvas({
                   interactive: true,
                   bindRef: true,
-                  canvasClassName: "h-[56vh]",
+                  canvasClassName: "h-[58vh] min-w-190",
+                  scrollClassName: "overflow-x-auto no-scrollbar",
                 })}
 
                 <div className="rounded-2xl border border-white/8 bg-black/15 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)]">
