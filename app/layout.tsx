@@ -4,7 +4,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-import CustomCursor from "./components/ui/CustomCursor";
 import ClientLayout from "./components/layout/ClientLayout";
 import ConsoleEasterEgg from "./components/layout/ConsoleEasterEgg";
 import { AnimatedBackground, SmoothScroll } from "./components/layout";
@@ -192,7 +191,7 @@ export default async function RootLayout({
   return (
     <html lang={language} style={{ filter: "invert(0)" }} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${lustDidone.variable} antialiased cursor-none bg-transparent text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${lustDidone.variable} antialiased bg-transparent text-white`}
       >
         <script
           type="application/ld+json"
@@ -203,7 +202,6 @@ export default async function RootLayout({
             <ConsoleEasterEgg />
             <SmoothScroll />
             <AnimatedBackground />
-            <CustomCursor />
             {children}
             <Analytics />
           </ClientLayout>
