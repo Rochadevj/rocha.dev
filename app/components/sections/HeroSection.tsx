@@ -27,7 +27,6 @@ import {
   SiLinux,
   SiSupabase,
 } from "react-icons/si";
-import { FiDownload } from "react-icons/fi";
 
 export function HeroSection() {
   const { copy, language } = useTranslations();
@@ -43,14 +42,6 @@ export function HeroSection() {
 
   const roles = copy.hero.roles;
   const [roleIndex, setRoleIndex] = useState(0);
-  const resumeHref =
-    language === "pt-BR"
-      ? "/Henrique%20Rocha%20curr%C3%ADculo.pdf"
-      : "/Henrique%20Rocha%20curr%C3%ADculoIN.pdf";
-  const resumeDownloadName =
-    language === "pt-BR"
-      ? "Henrique-Rocha-Curriculo-PT-BR.pdf"
-      : "Henrique-Rocha-CV-EN.pdf";
   const availabilityBadge =
     copy.hero.badge || (language === "pt-BR" ? "Disponível para trabalhos" : "Available for work");
 
@@ -145,17 +136,31 @@ export function HeroSection() {
   );
 
   useEffect(() => {
+    let frameId: number | null = null;
+
+    const getRoleTargets = () =>
+      [firstWordRef.current, secondWordRef.current].filter(
+        (target): target is HTMLSpanElement => target !== null
+      );
+
     const animateRole = () => {
-      gsap.to([firstWordRef.current, secondWordRef.current], {
+      const targets = getRoleTargets();
+      if (targets.length === 0) return;
+
+      gsap.to(targets, {
         opacity: 0,
         y: 20,
         duration: 0.25,
         ease: "power2.in",
         onComplete: () => {
           setRoleIndex((prev) => (prev + 1) % roles.length);
-          requestAnimationFrame(() => {
+
+          frameId = window.requestAnimationFrame(() => {
+            const nextTargets = getRoleTargets();
+            if (nextTargets.length === 0) return;
+
             gsap.fromTo(
-              [firstWordRef.current, secondWordRef.current],
+              nextTargets,
               { opacity: 0, y: -20 },
               { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }
             );
@@ -165,7 +170,13 @@ export function HeroSection() {
     };
 
     const intervalId = window.setInterval(animateRole, 2400);
-    return () => window.clearInterval(intervalId);
+    return () => {
+      window.clearInterval(intervalId);
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+      gsap.killTweensOf(getRoleTargets());
+    };
   }, [roles.length]);
 
   useEffect(() => {
@@ -252,15 +263,6 @@ export function HeroSection() {
             className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-black/5 border border-black/10 rounded-full text-black font-bold text-base sm:text-lg hover:bg-black/10 hover:-translate-y-1 hover:border-black/20 transition-all w-full sm:w-auto backdrop-blur-sm"
           >
             {copy.hero.ctaSecondary}
-          </a>
-          <a
-            href={resumeHref}
-            download={resumeDownloadName}
-            title={copy.hero.ctaResume}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-black/15 rounded-full text-black/80 font-bold text-base sm:text-lg bg-white/60 w-full sm:w-auto backdrop-blur-sm hover:bg-white/80 hover:-translate-y-1 transition-all"
-          >
-            <FiDownload />
-            {copy.hero.ctaResume}
           </a>
         </div>
 

@@ -17,6 +17,7 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isCvPage = pathname === "/cv";
   const { language, setLanguage, copy } = useTranslations();
 
   useEffect(() => {
@@ -87,7 +88,7 @@ export function Navbar() {
     setActiveSection("hero");
   };
 
-  const isLightMode = activeSection === "hero" || (isHome && activeSection === "");
+  const isLightMode = isCvPage || activeSection === "hero" || (isHome && activeSection === "");
   const sectionLabels: Record<string, string> = {
     about: copy.nav.about,
     projects: copy.nav.projects,
@@ -193,6 +194,15 @@ export function Navbar() {
                     {sectionLabels[item.name] ?? item.name}
                   </Link>
                 ))}
+                <Link
+                  href="/cv"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`relative shrink-0 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 whitespace-nowrap border border-transparent bg-accent text-white shadow-[0_12px_28px_rgba(59,130,246,0.26)] hover:bg-blue-500 ${
+                    isCvPage ? "ring-2 ring-blue-300/40" : ""
+                  }`}
+                >
+                  {copy.nav.cv}
+                </Link>
               </div>
               <button
                 type="button"
@@ -233,6 +243,17 @@ export function Navbar() {
           }`}
         >
           <div className="flex flex-col">
+            <Link
+              href="/cv"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`mb-4 rounded-[1.35rem] px-5 py-4 text-[1.25rem] font-semibold tracking-tight transition-colors ${
+                isCvPage
+                  ? "bg-accent text-white shadow-[0_14px_32px_rgba(59,130,246,0.28)]"
+                  : "bg-accent text-white shadow-[0_14px_32px_rgba(59,130,246,0.22)] hover:bg-blue-500"
+              }`}
+            >
+              {copy.nav.cv}
+            </Link>
             {navItems.map((item) => {
               const isActive = activeSection === item.name;
 
