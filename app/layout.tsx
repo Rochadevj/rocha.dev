@@ -105,17 +105,14 @@ export async function generateMetadata(): Promise<Metadata> {
   const metadataCopy = metadataByLanguage[language];
 
   return {
-    metadataBase: new URL("https://rocha.dev"),
+    metadataBase: new URL("https://henriquerocha.me"),
     title: {
       default: metadataCopy.titleDefault,
       template: metadataCopy.titleTemplate,
     },
     description: metadataCopy.description,
     keywords: metadataCopy.keywords,
-    alternates: {
-      canonical: "/",
-    },
-    authors: [{ name: "Rocha", url: "https://rocha.dev" }],
+    authors: [{ name: "Rocha", url: "https://henriquerocha.me" }],
     creator: "Rocha",
     icons: {
       icon: [{ url: "/tech-favicon.svg", type: "image/svg+xml" }],
@@ -125,7 +122,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: metadataCopy.titleDefault,
       description: metadataCopy.description,
-      url: "https://rocha.dev",
+      url: "https://henriquerocha.me",
       siteName: metadataCopy.siteName,
       locale: metadataCopy.openGraphLocale,
       type: "website",
@@ -169,7 +166,7 @@ export default async function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Henrique Rocha",
-    url: "https://rocha.dev",
+    url: "https://henriquerocha.me",
     sameAs: [
       "https://github.com/Rochadevj",
       "https://www.instagram.com/hee_rocha/",

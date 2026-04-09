@@ -26,6 +26,7 @@ export const translations = {
       projects: "projetos",
       skills: "habilidades",
       contact: "contato",
+      cv: "CV",
       languageToggle: "Alternar idioma",
     },
     hero: {
@@ -38,8 +39,8 @@ export const translations = {
         "Eu construo aplicações web e mobile full stack, com foco em performance, escalabilidade e experiência do usuário.",
       ctaPrimary: "Iniciar um projeto",
       ctaSecondary: "Ver projetos",
-      ctaResume: "Download CV",
-      ctaResumeSoon: "Currículo em breve",
+      ctaResume: "Ver CV",
+      ctaResumeSoon: "Página de CV em breve",
     },
     about: {
       srOnly: "Sobre mim",
@@ -385,6 +386,7 @@ export const translations = {
       projects: "projects",
       skills: "skills",
       contact: "contact",
+      cv: "CV",
       languageToggle: "Switch language",
     },
     hero: {
@@ -399,8 +401,8 @@ export const translations = {
         "I build full-stack web and mobile applications with a focus on performance, scalability, and user experience.",
       ctaPrimary: "Start a project",
       ctaSecondary: "View projects",
-      ctaResume: "Download CV",
-      ctaResumeSoon: "Resume file coming soon",
+      ctaResume: "View CV",
+      ctaResumeSoon: "CV page coming soon",
     },
     about: {
       srOnly: "About Me",
