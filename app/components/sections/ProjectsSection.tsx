@@ -69,25 +69,25 @@ export function ProjectsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="projects" className="relative py-32 px-4 selection:bg-accent/30">
+    <section ref={sectionRef} id="projects" className="relative px-4 py-20 selection:bg-accent/30 sm:py-32">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
-        <div ref={titleRef} className="text-center mb-24">
+        <div ref={titleRef} className="mb-14 text-center sm:mb-24">
           <div className="flex flex-col items-center justify-center gap-2">
             <span className="text-accent text-sm font-bold tracking-[0.2em] uppercase">
               {copy.projects.label}
             </span>
-            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase relative z-10">
+            <h2 className="relative z-10 text-4xl font-black uppercase tracking-tighter text-white sm:text-6xl md:text-7xl">
               {copy.projects.titlePrimary}{" "}
               <span className="font-serif italic font-thin text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-secondary to-accent-tertiary normal-case">
                 {copy.projects.titleAccent}
               </span>
             </h2>
           </div>
-          <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-secondary mt-6 mx-auto rounded-full" />
+          <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-accent to-accent-secondary sm:mt-6 sm:w-24" />
         </div>
         {/* Projects Stack */}
-        <div ref={projectsRef} className="flex flex-col gap-24 md:gap-32">
+        <div ref={projectsRef} className="flex flex-col gap-16 sm:gap-24 md:gap-32">
           {projects.slice(0, 4).map((project, index) => {
             const localized = copy.projects.items[index];
             const galleryImages = project.images ?? [];
@@ -99,19 +99,19 @@ export function ProjectsSection() {
               >
                 
                 {/* Info Side (Left) */}
-                <div className="lg:col-span-5 flex flex-col gap-6 order-2 lg:order-1 text-left">
+                <div className="order-2 flex flex-col gap-5 text-left lg:col-span-5 lg:order-1 sm:gap-6">
                    {/* Project Title with Dash */}
                    <div className="flex items-center gap-4">
                       <div className="w-8 h-1 bg-accent rounded-full" />
-                      <h3 className="text-4xl md:text-5xl font-bold text-white">{project.name}</h3>
+                      <h3 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">{project.name}</h3>
                    </div>
 
-                   <p className="text-gray-400 text-lg leading-relaxed">
+                   <p className="text-base leading-relaxed text-gray-400 sm:text-lg">
                       {localized?.description ?? project.description}
                    </p>
 
                    {/* Features / Outcome List */}
-                   <div className="flex flex-col gap-3 my-4">
+                   <div className="my-2 flex flex-col gap-3 sm:my-4">
                       {(localized?.outcome ?? project.outcome) && (
                         <div className="flex items-start gap-3">
                            <Star className="w-5 h-5 text-accent shrink-0 mt-1" />
@@ -127,7 +127,7 @@ export function ProjectsSection() {
                    </div>
 
                    {/* Tech Stack Buttons */}
-                   <div className="flex flex-wrap gap-3 mt-2">
+                   <div className="mt-2 flex flex-wrap gap-2.5 sm:gap-3">
                       {project.tech?.map((tech) => (
                         <div 
                           key={tech} 
@@ -237,7 +237,7 @@ export function ProjectsSection() {
                   </div>
 
                   {/* External Links below image for mobile/easy access */}
-                   <div className="flex gap-4 mt-6 justify-end">
+                   <div className="mt-4 flex justify-end gap-4 sm:mt-6">
                       <a 
                         href={project.url}
                         target="_blank" 
@@ -265,7 +265,7 @@ export function ProjectsSection() {
         </div>
         
         {/* Foot note */}
-        <div className="mt-32 text-center">
+        <div className="mt-20 text-center sm:mt-32">
             <p className="text-gray-500">
                {copy.projects.footer}
             </p>

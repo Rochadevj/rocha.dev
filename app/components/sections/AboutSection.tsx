@@ -115,20 +115,20 @@ export function AboutSection() {
   };
 
   return (
-    <section id="about" className="relative overflow-hidden px-4 py-20 text-white sm:px-6">
+    <section id="about" className="relative overflow-hidden px-4 py-16 text-white sm:px-6 sm:py-20 lg:py-24">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 sm:hidden bg-[radial-gradient(70%_70%_at_50%_0%,rgba(104,164,214,0.12),rgba(5,5,5,0)_72%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 hidden h-32 sm:block bg-[linear-gradient(180deg,rgba(235,235,235,0.92)_0%,rgba(224,230,234,0.64)_16%,rgba(164,177,187,0.14)_46%,rgba(10,12,16,0)_100%)]" />
       <div className="pointer-events-none absolute inset-x-[12%] top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(175,192,202,0.22),transparent)]" />
-      <div className="max-w-7xl mx-auto space-y-8">
+      <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8">
         <h2 className="sr-only">{copy.about.srOnly}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
+        <div className="grid auto-rows-min grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
           
           {/* 1. Profile Card */}
           <div
             ref={profileCardRef}
             onPointerMove={handleProfileCardMove}
             onPointerLeave={handleProfileCardLeave}
-            className={`md:col-span-1 min-h-87.5 md:min-h-100 rounded-3xl bg-[#111] border border-white/10 p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group cursor-default transition-transform duration-100 will-change-transform ${cardHoverProfile}`}
+            className={`md:col-span-1 min-h-72 md:min-h-100 rounded-3xl bg-[#111] border border-white/10 p-5 md:p-8 flex flex-col justify-between relative overflow-hidden group cursor-default transition-transform duration-100 will-change-transform ${cardHoverProfile}`}
           >
             <div
               className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
@@ -138,8 +138,8 @@ export function AboutSection() {
               }}
             />
             <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-serif italic mb-2 tracking-wide">Henrique <span className="text-gray-400 not-italic font-sans font-bold">Rocha</span></h3>
-              <div className="flex items-center gap-2 text-gray-400 text-xs md:text-sm mb-4 md:mb-6">
+              <h3 className="mb-2 text-3xl font-serif italic tracking-wide sm:text-4xl">Henrique <span className="text-gray-400 not-italic font-sans font-bold">Rocha</span></h3>
+              <div className="mb-4 flex items-center gap-2 text-xs text-gray-400 sm:mb-6 sm:text-sm">
                 <FiMapPin className="w-3 h-3 md:w-4 md:h-4" />
                 <span>{copy.about.location} - {currentTime}</span>
               </div>
@@ -158,7 +158,7 @@ export function AboutSection() {
             ref={whoCardRef}
             onPointerMove={(e) => handleDepthMouseMove(whoCardRef, e)}
             onPointerLeave={() => handleDepthLeave(whoCardRef)}
-            className={`md:col-span-2 rounded-3xl bg-[#0a0a0a] border border-white/10 p-6 md:p-10 flex flex-col justify-center gap-6 cursor-default transition-transform duration-100 will-change-transform ${cardHoverWho}`}
+            className={`md:col-span-2 rounded-3xl bg-[#0a0a0a] border border-white/10 p-5 md:p-10 flex flex-col justify-center gap-5 md:gap-6 cursor-default transition-transform duration-100 will-change-transform ${cardHoverWho}`}
           >
              <div className="space-y-4">
                 <h3 className="text-2xl font-bold text-white">{copy.about.whoTitle}</h3>
@@ -198,7 +198,7 @@ export function AboutSection() {
             ref={philosophyRef}
             onMouseMove={handlePhilosophyMouseMove}
             onMouseLeave={handlePhilosophyLeave}
-            className={`md:col-span-3 min-h-75 md:min-h-87.5 rounded-3xl bg-[#111] border border-white/10 p-6 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 cursor-auto md:cursor-none ${cardHoverPhilosophy}`}
+            className={`md:col-span-3 min-h-80 md:min-h-87.5 rounded-3xl bg-[#111] border border-white/10 p-5 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 cursor-auto md:cursor-none ${cardHoverPhilosophy}`}
           >
             {/* Text Side */}
             <div className="relative z-10 flex-1 space-y-6">
@@ -207,7 +207,7 @@ export function AboutSection() {
                     <span className="w-3 h-3 md:w-4 md:h-4 rounded-full border border-gray-600 flex items-center justify-center">*</span>
                     {copy.about.philosophyLabel}
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-bold leading-tight"><a href="https://lawsofux.com/" target="_blank" rel="noopener noreferrer" className="hover:underline decoration-purple-500 underline-offset-4 transition-all">{copy.about.philosophyTitleLink}</a> <span className="font-(family-name:--font-lust) italic text-cyan-400">{copy.about.philosophyTitleEmphasis}</span></h2>
+                  <h2 className="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl"><a href="https://lawsofux.com/" target="_blank" rel="noopener noreferrer" className="hover:underline decoration-purple-500 underline-offset-4 transition-all">{copy.about.philosophyTitleLink}</a> <span className="font-(family-name:--font-lust) italic text-cyan-400">{copy.about.philosophyTitleEmphasis}</span></h2>
                </div>
                
                <p className="text-gray-400 text-sm md:text-base max-w-lg">
@@ -222,7 +222,7 @@ export function AboutSection() {
             </div>
 
             {/* Graphic Side (Clock) */}
-            <div className="relative w-full md:w-100 h-75 flex items-center justify-center pointer-events-none">
+            <div className="relative h-56 w-full pointer-events-none flex items-center justify-center sm:h-64 md:h-75 md:w-100">
                 <div className="scale-90 sm:scale-95 md:scale-100 relative">
                    <AnalogClock />
                 </div>
@@ -235,7 +235,7 @@ export function AboutSection() {
             ref={globalCardRef}
             onPointerMove={(e) => handleDepthMouseMove(globalCardRef, e)}
             onPointerLeave={() => handleDepthLeave(globalCardRef)}
-            className={`md:col-span-2 min-h-62.5 rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(7,10,16,0.98)_0%,rgba(8,18,30,0.96)_48%,rgba(18,14,34,0.94)_100%)] p-6 md:p-8 overflow-hidden relative flex flex-col justify-center gap-6 cursor-default transition-transform duration-100 will-change-transform ${cardHoverGlobal}`}
+            className={`md:col-span-2 min-h-56 rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(7,10,16,0.98)_0%,rgba(8,18,30,0.96)_48%,rgba(18,14,34,0.94)_100%)] p-5 md:min-h-62.5 md:p-8 overflow-hidden relative flex flex-col justify-center gap-5 md:gap-6 cursor-default transition-transform duration-100 will-change-transform ${cardHoverGlobal}`}
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(98,196,255,0.12),transparent_30%),radial-gradient(circle_at_24%_38%,rgba(139,92,246,0.08),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(42,189,167,0.08),transparent_34%)]" />
             <div className="pointer-events-none absolute inset-0 opacity-[0.18] bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[28px_28px]" />
@@ -264,7 +264,7 @@ export function AboutSection() {
 
           {/* 5. Brazil Globe Card (Small) */}
           <div
-            className={`md:col-span-1 min-h-87 rounded-3xl bg-[#040507] border border-white/10 overflow-hidden relative ${cardHoverGlobal}`}
+            className={`md:col-span-1 min-h-72 md:min-h-87 rounded-3xl bg-[#040507] border border-white/10 overflow-hidden relative ${cardHoverGlobal}`}
           >
             <div className="absolute inset-0 bg-[radial-gradient(78%_58%_at_50%_4%,rgba(235,246,255,0.13),rgba(4,5,7,0)_62%)]" />
             <div className="absolute top-5 left-5 z-20 inline-flex items-center gap-2 text-white/90 text-base font-semibold">
@@ -272,7 +272,7 @@ export function AboutSection() {
               <span>{language === "pt-BR" ? "Brasil" : "Brazil"}</span>
             </div>
             <div
-              className="absolute inset-x-0 -bottom-22 mx-auto aspect-square h-84 w-full max-w-200 lg:-bottom-26 lg:h-96"
+              className="absolute inset-x-0 -bottom-18 mx-auto aspect-square h-72 w-full max-w-180 sm:-bottom-22 sm:h-84 sm:max-w-200 lg:-bottom-26 lg:h-96"
               style={{
                 width: "100%",
                 aspectRatio: "1 / 1",

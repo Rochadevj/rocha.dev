@@ -190,7 +190,7 @@ export function HeroSection() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-dvh flex items-center justify-center overflow-hidden bg-[#EBEBEB] px-4 pt-24 sm:px-6"
+      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#EBEBEB] px-4 pt-20 sm:min-h-dvh sm:px-6 sm:pt-24"
     >
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[16px_16px]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 sm:hidden bg-[linear-gradient(180deg,rgba(235,235,235,0)_0%,rgba(235,235,235,0.08)_58%,rgba(235,235,235,0.22)_100%)]" />
@@ -202,7 +202,7 @@ export function HeroSection() {
           onClick={() => {
             document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="inline-flex items-center gap-3.5 px-6 sm:px-7 py-3 rounded-full bg-[#131417] border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_8px_20px_rgba(0,0,0,0.25)] mb-6 sm:mb-8 transition-all group cursor-default"
+          className="group mb-5 inline-flex cursor-default items-center gap-3.5 rounded-full border border-white/10 bg-[#131417] px-5 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_8px_20px_rgba(0,0,0,0.25)] transition-all sm:mb-8 sm:px-7 sm:py-3"
         >
           <span className="relative flex h-3 w-3">
             <span className="absolute -inset-1 rounded-full bg-emerald-500/30 blur-sm" />
@@ -225,7 +225,7 @@ export function HeroSection() {
 
         <p
           ref={roleRef}
-          className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-green-600 mb-6 flex items-baseline gap-3"
+          className="mb-5 flex flex-wrap items-baseline justify-center gap-2 text-xl font-semibold tracking-tight text-green-600 sm:mb-6 sm:gap-3 sm:text-4xl md:text-5xl"
         >
           <span ref={firstWordRef}>{roles[roleIndex]?.first}</span>
           <span ref={secondWordRef} className="text-black">
@@ -235,14 +235,14 @@ export function HeroSection() {
 
         <p
           ref={quoteRef}
-          className="text-base sm:text-lg text-gray-700 font-medium max-w-2xl leading-relaxed mb-8 sm:mb-12 mx-auto"
+          className="mx-auto mb-7 max-w-xl text-[0.95rem] font-medium leading-relaxed text-gray-700 sm:mb-12 sm:max-w-2xl sm:text-lg"
         >
           {copy.hero.quote}
         </p>
 
         <div
           ref={ctaRef}
-          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full sm:w-auto"
+          className="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:gap-6"
         >
           <a
             href="#contact"
@@ -250,7 +250,7 @@ export function HeroSection() {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="items-center justify-center inline-flex shadow-lg shadow-black/20 w-full sm:w-auto py-3 sm:py-4 px-8 text-base sm:text-lg bg-black text-white rounded-full font-bold hover:bg-gray-800 transition-all"
+            className="inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-3 text-base font-bold text-white shadow-lg shadow-black/20 transition-all hover:bg-gray-800 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
           >
             {copy.hero.ctaPrimary}
           </a>
@@ -260,13 +260,13 @@ export function HeroSection() {
               e.preventDefault();
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-black/5 border border-black/10 rounded-full text-black font-bold text-base sm:text-lg hover:bg-black/10 hover:-translate-y-1 hover:border-black/20 transition-all w-full sm:w-auto backdrop-blur-sm"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-black/10 bg-black/5 px-6 py-3 text-base font-bold text-black transition-all hover:-translate-y-1 hover:border-black/20 hover:bg-black/10 sm:w-auto sm:px-8 sm:text-lg"
           >
             {copy.hero.ctaSecondary}
           </a>
         </div>
 
-        <div ref={marqueeRef} className="relative w-full mt-10 sm:mt-14 overflow-hidden">
+        <div ref={marqueeRef} className="relative mt-8 w-full overflow-hidden sm:mt-14">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-[#EBEBEB] to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-[#EBEBEB] to-transparent" />
           <div className="marquee">
@@ -274,12 +274,12 @@ export function HeroSection() {
               {techStack.concat(techStack).map((tech, index) => (
                 <div
                   key={`${tech.name}-${index}`}
-                  className="flex items-center justify-center h-14 w-14 sm:h-16 sm:w-16 rounded-full border border-black/20 bg-white/95 shadow-[0_10px_24px_rgba(0,0,0,0.14)]"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-black/20 bg-white/95 shadow-[0_10px_24px_rgba(0,0,0,0.14)] sm:h-16 sm:w-16"
                   aria-label={tech.name}
                   title={tech.name}
                 >
                   <span
-                    className="text-xl sm:text-2xl"
+                    className="text-lg sm:text-2xl"
                     style={{ color: tech.color ?? "#111111" }}
                   >
                     {tech.icon}

@@ -6,13 +6,13 @@ import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 export function CTASection() {
   const { copy } = useTranslations();
   return (
-    <section className="relative py-24 px-4 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+    <section className="relative overflow-hidden px-4 py-16 sm:py-24">
+      <div className="max-w-7xl mx-auto flex flex-col items-center justify-between gap-8 md:flex-row md:gap-12">
         
         {/* Left Side: Avatar + Text */}
         <div className="flex flex-col gap-2 md:gap-4 z-10">
-          <div className="flex items-center gap-4 md:gap-6">
-            <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-white/10 bg-linear-to-br from-cyan-400/20 via-blue-500/20 to-indigo-500/20">
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+            <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white/10 bg-linear-to-br from-cyan-400/20 via-blue-500/20 to-indigo-500/20 sm:h-12 sm:w-12 md:h-16 md:w-16">
               <Image
                 src="/techstacks/react.svg"
                 alt="Technology Icon"
@@ -23,17 +23,17 @@ export function CTASection() {
                 className="object-contain p-2"
               />
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium leading-[0.95] text-white tracking-tighter">
+            <h2 className="text-3xl font-medium leading-[0.95] tracking-tighter text-white sm:text-5xl md:text-7xl lg:text-8xl">
               {copy.cta.line1}
             </h2>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium leading-[0.95] text-zinc-600 tracking-tighter pl-2 md:pl-24">
+          <h2 className="pl-2 text-3xl font-medium leading-[0.95] tracking-tighter text-zinc-600 sm:text-5xl md:pl-24 md:text-7xl lg:text-8xl">
             {copy.cta.line2}
           </h2>
         </div>
 
         {/* Right Side: Photo Orb */}
-        <div className="relative w-48 h-48 md:w-64 md:h-64 shrink-0 mt-8 md:mt-0 flex items-center justify-center">
+        <div className="relative mt-6 flex h-40 w-40 shrink-0 items-center justify-center sm:mt-8 sm:h-48 sm:w-48 md:mt-0 md:h-64 md:w-64">
             {/* Ambient Background Glow */}
             <div className="absolute inset-0 bg-blue-600/20 blur-[80px] rounded-full" />
             

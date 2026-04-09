@@ -195,24 +195,24 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-20 sm:py-32 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+    <section id="contact" className="relative px-4 py-16 sm:px-6 sm:py-32">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-24">
         {/* Left Column: Text & Intent */}
         <div>
-          <span className="inline-block px-4 py-2 border border-accent/20 bg-accent/10 text-accent text-xs sm:text-sm font-bold uppercase tracking-wider mb-6 rounded-full">
+          <span className="mb-5 inline-block rounded-full border border-accent/20 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-accent sm:mb-6 sm:text-sm">
             {copy.contact.badge}
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-8 tracking-tight">
+          <h2 className="mb-6 text-4xl font-black tracking-tight text-white sm:mb-8 sm:text-5xl md:text-6xl">
             {copy.contact.title}{" "}
             <span className="text-gray-500">{copy.contact.titleEmphasis}</span>
           </h2>
 
-          <div className="space-y-8 mb-12">
-            <p className="text-gray-400 font-medium text-lg leading-relaxed">
+          <div className="mb-8 space-y-6 sm:mb-12 sm:space-y-8">
+            <p className="text-base font-medium leading-relaxed text-gray-400 sm:text-lg">
               {copy.contact.intro}
             </p>
 
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {copy.contact.list.map((item, index) => (
                 <li key={item.title} className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-accent text-sm mt-0.5">
@@ -225,7 +225,7 @@ export function ContactSection() {
               ))}
             </ul>
 
-            <div className="bg-[linear-gradient(120deg,rgba(4,35,49,0.72)_0%,rgba(12,19,45,0.72)_48%,rgba(28,9,49,0.72)_100%)] border border-cyan-400/45 rounded-xl p-4 inline-flex items-center gap-4 shadow-[0_0_0_1px_rgba(20,188,255,0.12),0_10px_30px_rgba(0,0,0,0.45)]">
+            <div className="inline-flex items-center gap-4 rounded-xl border border-cyan-400/45 bg-[linear-gradient(120deg,rgba(4,35,49,0.72)_0%,rgba(12,19,45,0.72)_48%,rgba(28,9,49,0.72)_100%)] p-3.5 shadow-[0_0_0_1px_rgba(20,188,255,0.12),0_10px_30px_rgba(0,0,0,0.45)] sm:p-4">
               <div className="flex -space-x-2">
                 <div className="w-8 h-8 rounded-full bg-[linear-gradient(135deg,#2de7ff_0%,#884dff_100%)] border-2 border-black shadow-[0_0_12px_rgba(74,180,255,0.4)]"></div>
               </div>
@@ -248,7 +248,7 @@ export function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.name}
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/20 hover:border-white/30 transition-all text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all hover:border-white/30 hover:bg-white/20 sm:h-12 sm:w-12"
               >
                 <link.icon className="w-5 h-5" />
               </a>
@@ -257,23 +257,23 @@ export function ContactSection() {
         </div>
 
         {/* Right Column: Short Form */}
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(7,10,16,0.98)_0%,rgba(8,18,30,0.95)_50%,rgba(18,14,34,0.92)_100%)] p-6 sm:p-10 shadow-[0_24px_70px_rgba(0,0,0,0.24)]">
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(7,10,16,0.98)_0%,rgba(8,18,30,0.95)_50%,rgba(18,14,34,0.92)_100%)] p-5 shadow-[0_24px_70px_rgba(0,0,0,0.24)] sm:p-10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(98,196,255,0.12),transparent_28%),radial-gradient(circle_at_20%_28%,rgba(139,92,246,0.08),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(42,189,167,0.07),transparent_34%)]" />
           <div className="pointer-events-none absolute inset-0 opacity-[0.16] bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[26px_26px]" />
 
-          <h3 className="relative z-10 text-2xl font-bold text-white mb-6">
+          <h3 className="relative z-10 mb-5 text-2xl font-bold text-white sm:mb-6">
             {copy.contact.formTitle}
           </h3>
 
           {status === "success" ? (
             <div className="relative z-10 h-full flex flex-col items-center justify-center py-12 text-center animate-in fade-in duration-500">
-              <div className="w-16 h-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mb-6 border border-green-500/20">
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-green-500/20 bg-green-500/10 text-green-500">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <h4 className="text-2xl font-bold text-white mb-2">
                 {copy.contact.successTitle}
               </h4>
-              <p className="text-gray-400 max-w-xs mx-auto mb-8">
+              <p className="mx-auto mb-8 max-w-xs text-gray-400">
                 {copy.contact.successMessage}
               </p>
               <button
@@ -284,7 +284,7 @@ export function ContactSection() {
               </button>
             </div>
           ) : (
-            <form className="relative z-10 space-y-4" onSubmit={handleSubmit}>
+            <form className="relative z-10 space-y-3.5 sm:space-y-4" onSubmit={handleSubmit}>
               <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
                 <label htmlFor="company">{copy.contact.botFieldLabel}</label>
                 <input
@@ -298,7 +298,7 @@ export function ContactSection() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-500 uppercase">
                     {copy.contact.labels.name}
@@ -384,7 +384,7 @@ export function ContactSection() {
                 <textarea
                   name="details"
                   required
-                  rows={4}
+                  rows={3}
                   value={formData.details}
                   onChange={handleChange}
                   placeholder={detailsPlaceholder}
@@ -403,7 +403,7 @@ export function ContactSection() {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="w-full py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-white py-3.5 font-bold text-black transition-all hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {status === "submitting" ? (
                   <>

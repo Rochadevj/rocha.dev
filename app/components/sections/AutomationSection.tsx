@@ -465,9 +465,9 @@ export function AutomationSection() {
   );
 
   return (
-    <section id="automation" className="relative py-20 sm:py-28 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[0.64fr_1.36fr] gap-10 xl:gap-12 items-start">
-        <div className="space-y-7">
+    <section id="automation" className="relative px-4 py-16 sm:px-6 sm:py-28">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[0.64fr_1.36fr] gap-8 sm:gap-10 xl:gap-12 items-start">
+        <div className="space-y-6 sm:space-y-7">
           <div className="flex justify-center xl:justify-start">
             <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-300/8 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-100">
               <Sparkles className="h-3.5 w-3.5" />
@@ -487,11 +487,11 @@ export function AutomationSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
             {copy.automation.chips.map((chip) => (
               <div
                 key={chip.title}
-                className="rounded-2xl border border-white/8 bg-black/15 px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)]"
+                className="rounded-2xl border border-white/8 bg-black/15 px-3.5 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] sm:px-4 sm:py-4"
               >
                 <p className="text-sm font-medium text-white/90">{chip.title}</p>
                 <p className="mt-1 text-xs leading-relaxed text-gray-500/90">
@@ -507,7 +507,7 @@ export function AutomationSection() {
           </div>
         </div>
 
-        <div className="sm:hidden relative w-full overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#07111c]/92 p-4 shadow-[0_24px_70px_rgba(0,0,0,0.28)]">
+        <div className="sm:hidden relative w-full overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#07111c]/92 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.28)]">
           <div className="space-y-4">
             <div className="flex items-start justify-between gap-4">
               <div>

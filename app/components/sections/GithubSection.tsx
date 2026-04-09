@@ -20,13 +20,13 @@ export function GithubSection() {
   }, []);
 
   return (
-    <section className="relative px-4 py-20 sm:px-6 sm:py-24">
-      <div className="mx-auto flex max-w-304 flex-col gap-12">
+    <section className="relative px-4 py-16 sm:px-6 sm:py-24">
+      <div className="mx-auto flex max-w-304 flex-col gap-8 sm:gap-12">
         <div className="text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-300/8 px-5 py-2 text-xs font-black uppercase tracking-[0.16em] text-cyan-100 shadow-[0_0_0_1px_rgba(34,211,238,0.06)]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-cyan-300/8 px-4 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-cyan-100 shadow-[0_0_0_1px_rgba(34,211,238,0.06)] sm:px-5 sm:py-2">
             {copy.github.label}
           </span>
-          <h2 className="mt-6 text-5xl font-black tracking-tighter text-white sm:text-6xl md:text-7xl">
+          <h2 className="mt-4 text-4xl font-black tracking-tighter text-white sm:mt-6 sm:text-6xl md:text-7xl">
             {copy.github.title}{" "}
             <span className="bg-linear-to-r from-cyan-200 via-cyan-300 to-emerald-300 bg-clip-text font-serif italic text-transparent">
               {copy.github.titleAccent}

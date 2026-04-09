@@ -48,18 +48,18 @@ export function MarqueeSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-12 sm:py-24 overflow-hidden">
+    <section ref={containerRef} className="overflow-hidden py-8 sm:py-24">
       <div className="w-full border-y border-white/10 bg-black/20 backdrop-blur-sm -rotate-2 scale-110">
         <div ref={sliderRef} className="flex whitespace-nowrap will-change-transform">
           {Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="flex items-center gap-8 px-4">
               <span
-                className="text-6xl sm:text-8xl md:text-9xl font-black uppercase tracking-tighter text-white/[0.02]"
+                className="text-5xl font-black uppercase tracking-tighter text-white/[0.02] sm:text-8xl md:text-9xl"
                 style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.24)" }}
               >
                 Projects
               </span>
-              <span className="text-4xl sm:text-6xl text-accent">
+              <span className="text-3xl text-accent sm:text-6xl">
                 {"\u2605"}
               </span>
             </div>

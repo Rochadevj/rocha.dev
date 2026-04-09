@@ -23,7 +23,7 @@ export default function Home() {
         <MarqueeSection />
         <ProjectsSection />
         <AutomationSection />
-        <div className="container mx-auto px-4 sm:px-8 py-24 space-y-24">
+        <div className="container mx-auto px-4 py-16 space-y-16 sm:px-8 sm:py-24 sm:space-y-24">
 
           <GithubSection />
           <SkillsSection />

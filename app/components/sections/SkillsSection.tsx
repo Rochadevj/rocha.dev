@@ -97,14 +97,14 @@ const skillColors: Record<string, { bg: string; text: string; color: string }> =
 export function SkillsSection() {
   const { copy } = useTranslations();
   return (
-    <section id="skills" className="relative py-20 sm:py-32 px-4 sm:px-6">
+    <section id="skills" className="relative px-4 py-16 sm:px-6 sm:py-32">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-5 py-2 border border-cyan-400/45 bg-[linear-gradient(120deg,rgba(4,35,49,0.72)_0%,rgba(12,19,45,0.72)_48%,rgba(28,9,49,0.72)_100%)] text-cyan-300 text-xs font-black uppercase tracking-[0.12em] mb-6 rounded-full shadow-[0_0_0_1px_rgba(20,188,255,0.12),0_10px_24px_rgba(0,0,0,0.42)]">
+        <div className="mb-12 text-center sm:mb-16">
+          <span className="mb-4 inline-block rounded-full border border-cyan-400/45 bg-[linear-gradient(120deg,rgba(4,35,49,0.72)_0%,rgba(12,19,45,0.72)_48%,rgba(28,9,49,0.72)_100%)] px-4 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-cyan-300 shadow-[0_0_0_1px_rgba(20,188,255,0.12),0_10px_24px_rgba(0,0,0,0.42)] sm:mb-6 sm:px-5 sm:py-2">
             {copy.skills.label}
           </span>
-          <h2 className="text-5xl sm:text-7xl md:text-8xl font-black text-white mb-8 tracking-tighter">
+          <h2 className="mb-6 text-4xl font-black tracking-tighter text-white sm:mb-8 sm:text-7xl md:text-8xl">
             {copy.skills.title}{" "}
             <span className="font-serif italic bg-linear-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text pr-2">
               {copy.skills.titleAccent}
@@ -113,11 +113,11 @@ export function SkillsSection() {
         </div>
 
         {/* Process Steps */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="mb-14 grid grid-cols-1 gap-4 sm:mb-20 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
            {copy.skills.steps.map((step) => (
              <div
                key={step.title}
-               className="relative overflow-hidden p-6 rounded-2xl bg-white/5 border border-white/10 group transition-[background-color,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/[0.07] hover:border-cyan-300/20 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_0_22px_rgba(34,211,238,0.05)]"
+               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5 transition-[background-color,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-cyan-300/20 hover:bg-white/[0.07] hover:shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_0_22px_rgba(34,211,238,0.05)] sm:p-6"
              >
                <div
                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
@@ -133,7 +133,7 @@ export function SkillsSection() {
            ))}
         </div>
 
-        <div className="text-center mb-12">
+        <div className="mb-10 text-center sm:mb-12">
             <h3 className="text-2xl font-bold text-white mb-6">{copy.skills.toolboxTitle}</h3>
              <div className="flex flex-wrap justify-center gap-4 text-xs font-mono text-gray-500 mb-8">
                <span>{copy.skills.toolboxCategories.frontend}</span> <span className="text-gray-700">/</span>
