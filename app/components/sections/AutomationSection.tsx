@@ -670,7 +670,7 @@ export function AutomationSection() {
       {isMobileFlowOpen ? (
         <div className="fixed inset-0 z-90 bg-[#02060d]/72 backdrop-blur-md sm:hidden">
           <div className="flex h-full flex-col p-3">
-            <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#07111c]/96 p-4 shadow-[0_28px_80px_rgba(0,0,0,0.42)]">
+            <div className="relative flex h-full flex-col overflow-hidden rounded-4xl border border-white/10 bg-[#07111c]/96 p-4 shadow-[0_28px_80px_rgba(0,0,0,0.42)]">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-white/35">
