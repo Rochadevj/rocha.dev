@@ -126,7 +126,7 @@ export const cvContent: Record<Language, CvContent> = {
       {
         period: "Jul 2025 · Atual",
         role: "Estagiário de Programação",
-        company: "Segur",
+        company: "Segure Segurança do Trabalho",
         bullets: [
           "Desenvolvimento de soluções completas com React.js no front-end e PHP com CodeIgniter no back-end.",
           "Modelagem, consulta e manutenção de dados em MySQL.",
@@ -282,7 +282,7 @@ export const cvContent: Record<Language, CvContent> = {
       {
         period: "Jul 2025 · Present",
         role: "Programming Intern",
-        company: "Segur",
+        company: "Segure Segurança do Trabalho",
         bullets: [
           "Built full-stack solutions with React.js on the front-end and PHP with CodeIgniter on the back-end.",
           "Handled data modeling, querying, and maintenance with MySQL.",
