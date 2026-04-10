@@ -669,78 +669,84 @@ export function AutomationSection() {
 
       {isMobileFlowOpen ? (
         <div className="fixed inset-0 z-90 bg-[#02060d]/72 backdrop-blur-md sm:hidden">
-          <div className="flex h-full flex-col p-3">
-            <div className="relative flex h-full flex-col overflow-hidden rounded-4xl border border-white/10 bg-[#07111c]/96 p-4 shadow-[0_28px_80px_rgba(0,0,0,0.42)]">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-white/35">
-                    {copy.automation.canvasTitle}
-                  </p>
-                  <p className="mt-1 text-sm text-white/70">{statusLabel}</p>
+          <div className="flex h-full flex-col p-2.5">
+            <div className="relative flex h-full flex-col overflow-hidden rounded-4xl border border-white/10 bg-[#07111c]/96 shadow-[0_28px_80px_rgba(0,0,0,0.42)]">
+              <div className="sticky top-0 z-20 border-b border-white/8 bg-[#07111c]/96 px-4 pb-4 pt-4 backdrop-blur-md">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/35">
+                      {copy.automation.canvasTitle}
+                    </p>
+                    <p className="mt-1 text-sm text-white/70">{statusLabel}</p>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setIsMobileFlowOpen(false)}
+                      aria-label={backFlowLabel}
+                      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/10"
+                    >
+                      <ArrowLeft className="h-4 w-4" />
+                      {backFlowLabel}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setIsMobileFlowOpen(false)}
+                      aria-label={closeFlowLabel}
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white transition-colors hover:bg-white/10"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="mt-4 grid grid-cols-2 gap-2">
                   <button
                     type="button"
-                    onClick={() => setIsMobileFlowOpen(false)}
-                    aria-label={backFlowLabel}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/10"
+                    onClick={runFlow}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-300/14 bg-cyan-300/6 px-4 py-2.5 text-sm font-medium text-cyan-50 transition-colors hover:bg-cyan-300/10"
                   >
-                    <ArrowLeft className="h-4 w-4" />
-                    {backFlowLabel}
+                    <Play className="h-4 w-4" />
+                    {copy.automation.controls.play}
                   </button>
                   <button
                     type="button"
-                    onClick={() => setIsMobileFlowOpen(false)}
-                    aria-label={closeFlowLabel}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white transition-colors hover:bg-white/10"
+                    onClick={resetBuilder}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/8 bg-white/3 px-4 py-2.5 text-sm font-medium text-white/72 transition-colors hover:bg-white/5 hover:text-white/88"
                   >
-                    <X className="h-5 w-5" />
+                    <RotateCcw className="h-4 w-4" />
+                    {copy.automation.controls.reset}
                   </button>
+                </div>
+
+                <div className="mt-4 grid grid-cols-2 gap-2">
+                  {copy.automation.presets.map((preset, index) => (
+                    <button
+                      key={preset.name}
+                      type="button"
+                      onClick={() => selectPreset(index)}
+                      className={`rounded-2xl border px-4 py-2.5 text-sm font-medium transition-colors ${
+                        activePresetIndex === index
+                          ? "border-cyan-300/20 bg-cyan-300/7 text-cyan-50"
+                          : "border-white/8 bg-white/3 text-white/65 hover:bg-white/5 hover:text-white/82"
+                      }`}
+                    >
+                      {preset.name}
+                    </button>
+                  ))}
                 </div>
               </div>
 
-              <div className="mt-4 flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={runFlow}
-                  className="inline-flex items-center gap-2 rounded-full border border-cyan-300/14 bg-cyan-300/6 px-4 py-2 text-sm font-medium text-cyan-50 transition-colors hover:bg-cyan-300/10"
-                >
-                  <Play className="h-4 w-4" />
-                  {copy.automation.controls.play}
-                </button>
-                <button
-                  type="button"
-                  onClick={resetBuilder}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/3 px-4 py-2 text-sm font-medium text-white/72 transition-colors hover:bg-white/5 hover:text-white/88"
-                >
-                  <RotateCcw className="h-4 w-4" />
-                  {copy.automation.controls.reset}
-                </button>
-              </div>
+              <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-4 pt-4 pr-3 no-scrollbar space-y-4">
+                <div className="rounded-2xl border border-white/8 bg-black/15 p-3 text-sm text-gray-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)]">
+                  {copy.automation.canvasHint}
+                </div>
 
-              <div className="mt-4 flex gap-2 overflow-x-auto no-scrollbar pb-1">
-                {copy.automation.presets.map((preset, index) => (
-                  <button
-                    key={preset.name}
-                    type="button"
-                    onClick={() => selectPreset(index)}
-                    className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                      activePresetIndex === index
-                        ? "border-cyan-300/20 bg-cyan-300/7 text-cyan-50"
-                        : "border-white/8 bg-white/3 text-white/65 hover:bg-white/5 hover:text-white/82"
-                    }`}
-                  >
-                    {preset.name}
-                  </button>
-                ))}
-              </div>
-
-              <div className="mt-4 min-h-0 flex-1 overflow-y-auto pr-1 no-scrollbar space-y-4">
                 {renderFlowCanvas({
                   interactive: true,
                   bindRef: true,
-                  canvasClassName: "h-[58vh] min-w-190",
+                  canvasClassName: "h-[56vh] min-w-[48rem]",
                   scrollClassName: "overflow-x-auto no-scrollbar",
                 })}
 
@@ -775,6 +781,17 @@ export function AutomationSection() {
                     {copy.automation.note}
                   </p>
                 </div>
+              </div>
+
+              <div className="border-t border-white/8 bg-[#07111c]/96 px-4 pb-4 pt-3">
+                <button
+                  type="button"
+                  onClick={() => setIsMobileFlowOpen(false)}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/10 bg-white/6 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  {backFlowLabel}
+                </button>
               </div>
             </div>
           </div>
