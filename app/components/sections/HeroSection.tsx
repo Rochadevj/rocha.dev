@@ -42,8 +42,11 @@ export function HeroSection() {
 
   const roles = copy.hero.roles;
   const [roleIndex, setRoleIndex] = useState(0);
+  const [showAboutHint, setShowAboutHint] = useState(false);
   const availabilityBadge =
     copy.hero.badge || (language === "pt-BR" ? "Disponível para trabalhos" : "Available for work");
+
+  const aboutHintLabel = language === "pt-BR" ? "Sobre" : "About";
 
   const techIconByName: Record<string, { icon: React.ReactNode; color: string }> = {
     JavaScript: { icon: <SiJavascript />, color: "#F7DF1E" },
@@ -186,6 +189,44 @@ export function HeroSection() {
     return () => window.clearTimeout(timeoutId);
   }, [language]);
 
+  useEffect(() => {
+    let frameId: number | null = null;
+
+    const updateAboutHint = () => {
+      const hero = containerRef.current;
+      if (!hero) return;
+
+      const rect = hero.getBoundingClientRect();
+      const heroHeight = Math.max(hero.offsetHeight, window.innerHeight, 1);
+      const scrolledInsideHero = Math.max(0, -rect.top);
+      const progress = scrolledInsideHero / heroHeight;
+      const shouldShow =
+        scrolledInsideHero > 56 &&
+        rect.bottom > window.innerHeight * 0.18 &&
+        progress < 0.78;
+
+      setShowAboutHint(shouldShow);
+      frameId = null;
+    };
+
+    const requestUpdate = () => {
+      if (frameId !== null) return;
+      frameId = window.requestAnimationFrame(updateAboutHint);
+    };
+
+    requestUpdate();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+    };
+  }, []);
+
   return (
     <section
       id="hero"
@@ -290,6 +331,24 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+
+      <button
+        type="button"
+        onClick={() => {
+          document.getElementById("about")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }}
+        aria-label={aboutHintLabel}
+        className={`fixed bottom-4 left-1/2 z-30 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-black/10 bg-white/80 px-3 py-2 text-[11px] font-semibold tracking-[0.08em] text-black/75 uppercase shadow-[0_10px_28px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all duration-300 sm:bottom-6 sm:px-4 sm:py-2.5 ${
+          showAboutHint
+            ? "pointer-events-auto translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-3 opacity-0"
+        }`}
+      >
+        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-xs text-white sm:h-6 sm:w-6">
+          ↓
+        </span>
+        <span>{aboutHintLabel}</span>
+      </button>
     </section>
   );
 }
