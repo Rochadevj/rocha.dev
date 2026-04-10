@@ -50,8 +50,18 @@ type CvContent = {
   summary: string;
   actions: {
     download: string;
+    downloadAts: string;
     contact: string;
     portfolio: string;
+  };
+  ats: {
+    fileName: string;
+    summaryTitle: string;
+    achievementsTitle: string;
+    skillsTitle: string;
+    experienceTitle: string;
+    educationTitle: string;
+    languagesTitle: string;
   };
   quickFacts: Array<{
     label: string;
@@ -89,8 +99,18 @@ export const cvContent: Record<Language, CvContent> = {
       "Construo aplicações web, mobile e fluxos com automação, com foco em performance, clareza de UX e entrega consistente. Hoje atuo entre front-end, back-end e integrações, com experiência prática em React, TypeScript, PHP, Supabase, Docker e n8n.",
     actions: {
       download: "Baixar PDF",
+      downloadAts: "Versão em texto ATS-friendly",
       contact: "Falar comigo",
       portfolio: "Voltar ao portfólio",
+    },
+    ats: {
+      fileName: "Henrique-Rocha-CV-ATS-PT-BR.txt",
+      summaryTitle: "RESUMO",
+      achievementsTitle: "DESTAQUES",
+      skillsTitle: "COMPETÊNCIAS",
+      experienceTitle: "EXPERIÊNCIA",
+      educationTitle: "FORMAÇÃO",
+      languagesTitle: "IDIOMAS",
     },
     quickFacts: [
       { label: "Base", value: "Porto Alegre, RS" },
@@ -103,7 +123,7 @@ export const cvContent: Record<Language, CvContent> = {
       {
         value: "2",
         label: "frentes ativas",
-        detail: "atuação em empresa e projetos independentes",
+        detail: "Atuação em empresa e projetos independentes",
       },
       {
         value: "3",
@@ -118,7 +138,7 @@ export const cvContent: Record<Language, CvContent> = {
       {
         value: "B2",
         label: "inglês",
-        detail: "leitura técnica e colaboração profissional",
+        detail: "Leitura técnica e colaboração profissional",
       },
     ],
     experienceTitle: "Experiência",
@@ -136,7 +156,7 @@ export const cvContent: Record<Language, CvContent> = {
       {
         period: "Jul 2025 · Jan 2026",
         role: "Residente em TI · Desenvolvedor Full Stack",
-        company: "Programa de Residência em TI",
+        company: "Fulbra/Softex",
         bullets: [
           "Atuação em uma solução automatizada para análise e registro de atendimentos via WhatsApp Business.",
           "Integração de WAHA, n8n, Docker e IA para processamento em tempo real.",
@@ -245,12 +265,22 @@ export const cvContent: Record<Language, CvContent> = {
       "I build web, mobile, and automation-driven products with a focus on performance, UX clarity, and consistent delivery. My work spans front-end, back-end, and integrations, with hands-on experience in React, TypeScript, PHP, Supabase, Docker, and n8n.",
     actions: {
       download: "Download PDF",
+      downloadAts: "ATS-friendly text version",
       contact: "Get in touch",
       portfolio: "Back to portfolio",
     },
+    ats: {
+      fileName: "Henrique-Rocha-CV-ATS-EN.txt",
+      summaryTitle: "SUMMARY",
+      achievementsTitle: "KEY ACHIEVEMENTS",
+      skillsTitle: "CORE SKILLS",
+      experienceTitle: "EXPERIENCE",
+      educationTitle: "EDUCATION",
+      languagesTitle: "LANGUAGES",
+    },
     quickFacts: [
       { label: "Base", value: "Porto Alegre, Brazil" },
-      { label: "Format", value: "Remote / Hybrid" },
+      { label: "Format", value: "Remote / Hybrid / On-site" },
       { label: "Focus", value: "Web, mobile, automation" },
       { label: "Availability", value: "Company + freelance" },
     ],
@@ -259,7 +289,7 @@ export const cvContent: Record<Language, CvContent> = {
       {
         value: "2",
         label: "active tracks",
-        detail: "company work plus independent client delivery",
+        detail: "Company work plus independent client delivery",
       },
       {
         value: "3",
@@ -274,7 +304,7 @@ export const cvContent: Record<Language, CvContent> = {
       {
         value: "B2",
         label: "English",
-        detail: "technical reading and professional collaboration",
+        detail: "Technical reading and professional collaboration",
       },
     ],
     experienceTitle: "Experience",
@@ -292,7 +322,7 @@ export const cvContent: Record<Language, CvContent> = {
       {
         period: "Jul 2025 · Jan 2026",
         role: "IT Resident · Full-Stack Developer",
-        company: "IT Residency Program",
+        company: "Fulbra/Softex",
         bullets: [
           "Worked on an automated solution for analysing and logging WhatsApp Business customer interactions.",
           "Integrated WAHA, n8n, Docker, and AI for real-time processing.",
