@@ -5,6 +5,7 @@ import {
   ArrowDownToLine,
   ArrowUpRight,
   BriefcaseBusiness,
+  FileText,
   Github,
   GraduationCap,
   Languages,
@@ -21,6 +22,7 @@ import { cvContent } from "./resume-content";
 
 export default function CvPage() {
   const { language } = useTranslations();
+  const isPortuguese = language === "pt-BR";
   const content = cvContent[language as Language];
   const resumeHref =
     language === "pt-BR"
@@ -30,6 +32,7 @@ export default function CvPage() {
     language === "pt-BR"
       ? "Henrique-Rocha-Curriculo-PT-BR.pdf"
       : "Henrique-Rocha-CV-EN.pdf";
+  const atsHref = `/cv/ats?lang=${encodeURIComponent(language)}`;
   const locationLabel =
     language === "pt-BR"
       ? "Porto Alegre, Rio Grande do Sul, Brasil"
@@ -53,9 +56,9 @@ export default function CvPage() {
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/38">
                   {content.roleLabel}
                 </p>
-                <h1 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+                <h1 className="mt-3 text-[2.15rem] font-black tracking-tight text-white min-[430px]:text-[2.35rem] sm:text-6xl lg:text-7xl">
                   Henrique{" "}
-                  <span className="block font-(family-name:--font-lust) italic font-normal text-cyan-100/95 sm:inline">
+                  <span className="inline font-(family-name:--font-lust) italic font-normal text-cyan-100/95">
                     Rocha
                   </span>
                 </h1>
@@ -134,18 +137,37 @@ export default function CvPage() {
                 </a>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div
+                className={`mt-6 gap-3 ${
+                  isPortuguese
+                    ? "grid grid-cols-1 sm:grid-cols-2"
+                    : "flex flex-wrap"
+                }`}
+              >
                 <a
                   href={resumeHref}
                   download={resumeDownloadName}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 shadow-[0_18px_38px_rgba(103,232,249,0.28)] transition-transform hover:-translate-y-0.5 hover:bg-cyan-200 sm:w-auto"
+                  className={`inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 shadow-[0_18px_38px_rgba(103,232,249,0.28)] transition-transform hover:-translate-y-0.5 hover:bg-cyan-200 ${
+                    isPortuguese ? "w-full" : "w-full sm:w-auto"
+                  }`}
                 >
                   <ArrowDownToLine className="h-4 w-4" />
                   {content.actions.download}
                 </a>
+                <a
+                  href={atsHref}
+                  className={`inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/6 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10 ${
+                    isPortuguese ? "w-full sm:col-span-2" : "w-full sm:w-auto"
+                  }`}
+                >
+                  <FileText className="h-4 w-4" />
+                  {content.actions.downloadAts}
+                </a>
                 <Link
                   href="/#contact"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/10 bg-white/6 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
+                  className={`inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/6 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10 ${
+                    isPortuguese ? "w-full sm:row-start-1 sm:col-start-2" : "w-full sm:w-auto"
+                  }`}
                 >
                   {content.actions.contact}
                   <ArrowUpRight className="h-4 w-4" />
@@ -168,15 +190,22 @@ export default function CvPage() {
               {content.metrics.map((metric) => (
                 <div
                   key={metric.label}
-                  className="rounded-[1.4rem] border border-white/8 bg-white/3 px-5 py-5"
+                  className="group relative overflow-hidden rounded-[1.4rem] border border-white/8 bg-white/3 px-5 py-5 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-cyan-300/20 hover:bg-white/[0.07] hover:shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_0_22px_rgba(34,211,238,0.05)]"
                 >
-                  <p className="text-3xl font-black tracking-tight text-white">
+                  <div
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
+                    style={{
+                      background:
+                        "radial-gradient(160px circle at 18% 14%, rgba(34,211,238,0.11), rgba(34,211,238,0) 62%), radial-gradient(180px circle at 84% 88%, rgba(16,185,129,0.08), rgba(16,185,129,0) 64%)",
+                    }}
+                  />
+                  <p className="relative z-10 text-3xl font-black tracking-tight text-white transition-colors duration-500 group-hover:text-cyan-50">
                     {metric.value}
                   </p>
-                  <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-white/62">
+                  <p className="relative z-10 mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-white/62 transition-colors duration-500 group-hover:text-white/78">
                     {metric.label}
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed text-white/50">
+                  <p className="relative z-10 mt-2 text-sm leading-relaxed text-white/50 transition-colors duration-500 group-hover:text-white/58">
                     {metric.detail}
                   </p>
                 </div>
@@ -199,20 +228,29 @@ export default function CvPage() {
                 {content.experience.map((item) => (
                   <article
                     key={`${item.company}-${item.role}`}
-                    className="rounded-[1.7rem] border border-white/10 bg-white/4 p-5"
+                    className="group relative overflow-hidden rounded-[1.7rem] border border-white/10 bg-white/4 p-5 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-cyan-300/16 hover:bg-white/5.5 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.06),0_0_18px_rgba(34,211,238,0.04)]"
                   >
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-100/75">
+                    <div
+                      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
+                      style={{
+                        background:
+                          "radial-gradient(180px circle at 12% 12%, rgba(34,211,238,0.08), rgba(34,211,238,0) 60%)",
+                      }}
+                    />
+                    <p className="relative z-10 text-xs font-bold uppercase tracking-[0.18em] text-cyan-100/75">
                       {item.period}
                     </p>
-                    <h3 className="mt-2 text-xl font-semibold text-white">
+                    <h3 className="relative z-10 mt-2 text-xl font-semibold text-white">
                       {item.role}
                     </h3>
-                    <p className="mt-1 text-sm text-white/56">{item.company}</p>
+                    <p className="relative z-10 mt-1 text-sm font-medium text-cyan-100/78">
+                      {item.company}
+                    </p>
                     <ul className="mt-4 space-y-2">
                       {item.bullets.map((bullet) => (
                         <li
                           key={bullet}
-                          className="flex items-start gap-3 text-sm leading-relaxed text-white/64"
+                          className="relative z-10 flex items-start gap-3 text-sm leading-relaxed text-white/64"
                         >
                           <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-200" />
                           <span>{bullet}</span>
@@ -238,16 +276,23 @@ export default function CvPage() {
                   {content.education.map((item) => (
                     <div
                       key={`${item.school}-${item.title}`}
-                      className="rounded-3xl border border-white/10 bg-white/4 p-4"
+                      className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/4 p-4 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-cyan-300/16 hover:bg-white/5.5 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.06),0_0_18px_rgba(34,211,238,0.04)]"
                     >
-                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-cyan-100/75">
+                      <div
+                        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
+                        style={{
+                          background:
+                            "radial-gradient(180px circle at 12% 12%, rgba(34,211,238,0.08), rgba(34,211,238,0) 60%)",
+                        }}
+                      />
+                      <p className="relative z-10 text-xs font-bold uppercase tracking-[0.16em] text-cyan-100/75">
                         {item.period}
                       </p>
-                      <h3 className="mt-2 text-base font-semibold text-white">
+                      <h3 className="relative z-10 mt-2 text-base font-semibold text-white">
                         {item.title}
                       </h3>
-                      <p className="mt-1 text-sm text-white/58">{item.school}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-white/50">
+                      <p className="relative z-10 mt-1 text-sm text-white/58">{item.school}</p>
+                      <p className="relative z-10 mt-2 text-sm leading-relaxed text-white/50">
                         {item.detail}
                       </p>
                     </div>
@@ -268,10 +313,17 @@ export default function CvPage() {
                   {content.languages.map((item) => (
                     <div
                       key={item.name}
-                      className="flex items-center justify-between rounded-[1.4rem] border border-white/10 bg-white/4 px-4 py-3"
+                      className="group relative overflow-hidden flex items-center justify-between rounded-[1.4rem] border border-white/10 bg-white/4 px-4 py-3 transition-[background-color,border-color,box-shadow,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-cyan-300/16 hover:bg-white/5.5 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.06),0_0_18px_rgba(34,211,238,0.04)]"
                     >
-                      <span className="text-sm font-medium text-white/86">{item.name}</span>
-                      <span className="text-sm text-white/50">{item.level}</span>
+                      <div
+                        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
+                        style={{
+                          background:
+                            "radial-gradient(160px circle at 12% 12%, rgba(34,211,238,0.08), rgba(34,211,238,0) 60%)",
+                        }}
+                      />
+                      <span className="relative z-10 text-sm font-medium text-white/86">{item.name}</span>
+                      <span className="relative z-10 text-sm text-white/50">{item.level}</span>
                     </div>
                   ))}
                 </div>
