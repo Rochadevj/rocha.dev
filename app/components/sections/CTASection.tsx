@@ -6,11 +6,11 @@ import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 export function CTASection() {
   const { copy } = useTranslations();
   return (
-    <section className="relative overflow-hidden px-4 py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto flex flex-col items-center justify-between gap-8 md:flex-row md:gap-12">
+    <section className="relative overflow-hidden px-4 py-10 sm:py-24">
+      <div className="max-w-7xl mx-auto flex flex-col items-center justify-between gap-5 sm:gap-8 md:flex-row md:gap-12">
         
         {/* Left Side: Avatar + Text */}
-        <div className="flex flex-col gap-2 md:gap-4 z-10">
+        <div className="z-10 flex flex-col gap-1.5 sm:gap-2 md:gap-4">
           <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
             <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white/10 bg-linear-to-br from-cyan-400/20 via-blue-500/20 to-indigo-500/20 sm:h-12 sm:w-12 md:h-16 md:w-16">
               <Image
@@ -33,7 +33,7 @@ export function CTASection() {
         </div>
 
         {/* Right Side: Photo Orb */}
-        <div className="relative mt-6 flex h-40 w-40 shrink-0 items-center justify-center sm:mt-8 sm:h-48 sm:w-48 md:mt-0 md:h-64 md:w-64">
+        <div className="relative mt-4 flex h-36 w-36 shrink-0 items-center justify-center sm:mt-8 sm:h-48 sm:w-48 md:mt-0 md:h-64 md:w-64">
             {/* Ambient Background Glow */}
             <div className="absolute inset-0 bg-blue-600/20 blur-[80px] rounded-full" />
             

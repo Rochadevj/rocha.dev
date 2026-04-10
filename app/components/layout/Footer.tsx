@@ -63,38 +63,46 @@ export function Footer() {
                 <FiMail className="w-5 h-5" />
               </a>
             </div>
-            <p className="text-sm font-medium text-gray-500 text-center sm:text-left">
-              &copy;{" "}
-              {new Date().getFullYear()}{" "}
-              <Link
-                href="/"
-                className="group inline-flex items-center gap-0.5 font-mono font-semibold tracking-tight transition-colors"
-              >
-                <span className="text-cyan-300">&lt;/</span>
-                <span className="text-white/90 transition-colors group-hover:text-cyan-100">
-                  Rocha
-                </span>
-                <span className="text-cyan-300">&gt;</span>
-              </Link>
-              . {copy.footer.builtWith}{" "}
-              <a
-                href="https://nextjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-              >
-                Next.js
-              </a>{" "}
-              &{" "}
-              <a
-                href="https://tailwindcss.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-              >
-                Tailwind CSS
-              </a>
-            </p>
+            <div className="text-sm font-medium text-gray-500 text-center sm:text-left leading-relaxed">
+              <p className="sm:hidden">
+                &copy; {new Date().getFullYear()} Rocha
+              </p>
+              <p className="hidden sm:block">
+                &copy;{" "}
+                {new Date().getFullYear()}{" "}
+                <Link
+                  href="/"
+                  className="group inline-flex items-center gap-0.5 font-mono font-semibold tracking-tight transition-colors"
+                >
+                  <span className="text-cyan-300">&lt;/</span>
+                  <span className="text-white/90 transition-colors group-hover:text-cyan-100">
+                    Rocha
+                  </span>
+                  <span className="text-cyan-300">&gt;</span>
+                </Link>
+                .
+              </p>
+              <p>
+                {copy.footer.builtWith}{" "}
+                <a
+                  href="https://nextjs.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Next.js
+                </a>{" "}
+                &{" "}
+                <a
+                  href="https://tailwindcss.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Tailwind CSS
+                </a>
+              </p>
+            </div>
             <div className="flex items-center gap-1 text-sm font-medium text-gray-500">
               <span>{copy.footer.madeWith}</span>
               <svg
