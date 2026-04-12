@@ -79,12 +79,12 @@ export function ProjectsSection() {
             </span>
             <h2 className="relative z-10 text-4xl font-black uppercase tracking-tighter text-white sm:text-6xl md:text-7xl">
               {copy.projects.titlePrimary}{" "}
-              <span className="font-serif italic font-thin text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-secondary to-accent-tertiary normal-case">
+              <span className="font-serif italic font-thin text-transparent bg-clip-text bg-linear-to-r from-accent via-accent-secondary to-accent-tertiary normal-case">
                 {copy.projects.titleAccent}
               </span>
             </h2>
           </div>
-          <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-accent to-accent-secondary sm:mt-6 sm:w-24" />
+          <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-linear-to-r from-accent to-accent-secondary sm:mt-6 sm:w-24" />
         </div>
         {/* Projects Stack */}
         <div ref={projectsRef} className="flex flex-col gap-16 sm:gap-24 md:gap-32">
@@ -147,7 +147,7 @@ export function ProjectsSection() {
                   {/* Image Container */}
                   <div
                     className={`relative w-full overflow-hidden rounded-3xl border border-white/10 bg-[#0d1117] ring-1 ring-white/10 shadow-[0_0_30px_rgba(59,130,246,0.16)] transition-all duration-500 ${
-                      hasGallery ? "aspect-[16/10]" : "aspect-[16/9.1]"
+                      hasGallery ? "aspect-16/10" : "aspect-[16/9.1]"
                     }`}
                   >
                       
@@ -156,7 +156,7 @@ export function ProjectsSection() {
                              
                              {/* Left Image */}
                              {galleryImages[0] && (
-                               <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[28%] aspect-[9/19] rounded-[min(1rem,2vw)] overflow-hidden border border-white/10 shadow-2xl z-0 opacity-80 -rotate-6 transition-transform hover:-translate-y-1/2 hover:-rotate-12 duration-500 origin-bottom-right">
+                               <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[28%] aspect-9/19 rounded-[min(1rem,2vw)] overflow-hidden border border-white/10 shadow-2xl z-0 opacity-80 -rotate-6 transition-transform hover:-translate-y-1/2 hover:-rotate-12 duration-500 origin-bottom-right">
                                    <Image 
                                      src={galleryImages[0]} 
                                      alt={`${project.name} Screen 1`}
@@ -171,7 +171,7 @@ export function ProjectsSection() {
 
                              {/* Right Image */}
                              {galleryImages[2] && (
-                               <div className="absolute right-[10%] top-1/2 -translate-y-1/2 w-[28%] aspect-[9/19] rounded-[min(1rem,2vw)] overflow-hidden border border-white/10 shadow-2xl z-0 opacity-80 rotate-6 transition-transform hover:-translate-y-1/2 hover:rotate-12 duration-500 origin-bottom-left">
+                               <div className="absolute right-[10%] top-1/2 -translate-y-1/2 w-[28%] aspect-9/19 rounded-[min(1rem,2vw)] overflow-hidden border border-white/10 shadow-2xl z-0 opacity-80 rotate-6 transition-transform hover:-translate-y-1/2 hover:rotate-12 duration-500 origin-bottom-left">
                                    <Image 
                                      src={galleryImages[2]} 
                                      alt={`${project.name} Screen 3`}
@@ -186,7 +186,7 @@ export function ProjectsSection() {
 
                              {/* Center Image */}
                              {galleryImages[1] && (
-                               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-[9/19] rounded-[min(1.5rem,3vw)] overflow-hidden border border-white/10 shadow-2xl z-10 hover:scale-105 transition-transform duration-500">
+                               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] aspect-9/19 rounded-[min(1.5rem,3vw)] overflow-hidden border border-white/10 shadow-2xl z-10 hover:scale-105 transition-transform duration-500">
                                    <Image 
                                      src={galleryImages[1]} 
                                      alt={`${project.name} Screen 2`}
@@ -201,9 +201,9 @@ export function ProjectsSection() {
                          </div>
                       ) : project.image ? (
                          <div className="absolute inset-0 flex items-center justify-center p-2.5 sm:p-3 lg:p-4">
-                             <div className="absolute inset-x-[10%] top-1/2 h-[68%] -translate-y-1/2 rounded-[2rem] bg-gradient-to-br from-accent/14 via-white/[0.03] to-transparent blur-2xl" />
+                             <div className="absolute inset-x-[10%] top-1/2 h-[68%] -translate-y-1/2 rounded-4xl bg-linear-to-br from-accent/14 via-white/3 to-transparent blur-2xl" />
                              <div
-                               className="relative w-full max-w-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-[2px] shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
+                               className="relative w-full max-w-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-0.5 shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
                                style={{
                                  aspectRatio: project.imageAspectRatio ?? 16 / 9.1,
                                }}
