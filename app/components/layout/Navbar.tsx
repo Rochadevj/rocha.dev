@@ -31,7 +31,7 @@ export function Navbar() {
           }
         });
       },
-      { threshold: 0.2, rootMargin: "-20% 0px -35% 0px" }
+      { threshold: 0.05, rootMargin: "-20% 0px -35% 0px" }
     );
 
     // Observe Hero explicitly
@@ -76,6 +76,7 @@ export function Navbar() {
     if (isHome && item.href.startsWith("/#")) {
       e.preventDefault();
       const sectionId = item.href.replace("/#", "");
+      setActiveSection(sectionId);
       document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     }
   };
