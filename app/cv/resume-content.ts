@@ -116,7 +116,7 @@ export const cvContent: Record<Language, CvContent> = {
       { label: "Base", value: "Porto Alegre, RS" },
       { label: "Formato", value: "Remoto / Híbrido / Presencial" },
       { label: "Foco", value: "Web, mobile e automação" },
-      { label: "Disponibilidade", value: "Empresa + freelance" },
+      { label: "Disponibilidade", value: "Atuação profissional + freelance" },
     ],
     metricsTitle: "Panorama",
     metrics: [
@@ -280,9 +280,9 @@ export const cvContent: Record<Language, CvContent> = {
     },
     quickFacts: [
       { label: "Base", value: "Porto Alegre, Brazil" },
-      { label: "Format", value: "Remote / Hybrid / On-site" },
+      { label: "Format", value: "Remote" },
       { label: "Focus", value: "Web, mobile, automation" },
-      { label: "Availability", value: "Company + freelance" },
+      { label: "Availability", value: "Open to work + freelance" },
     ],
     metricsTitle: "Snapshot",
     metrics: [
