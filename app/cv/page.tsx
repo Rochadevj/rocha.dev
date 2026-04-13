@@ -67,7 +67,7 @@ export default function CvPage() {
                 </p>
               </div>
 
-              <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/66 sm:text-lg">
+              <p className="mt-6 max-w-3xl whitespace-pre-line text-base leading-relaxed text-white/66 sm:text-lg">
                 {content.summary}
               </p>
 

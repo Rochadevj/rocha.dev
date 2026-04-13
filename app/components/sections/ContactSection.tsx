@@ -340,7 +340,7 @@ export function ContactSection() {
                   value={formData.type}
                   onChange={handleChange}
                   disabled={status === "submitting"}
-                  className="w-full bg-[#111] border border-white/10 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:border-accent/50 transition-colors disabled:opacity-50 appearance-none"
+                  className="w-full appearance-none rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white transition-colors hover:bg-white/10 hover:border-cyan-300/30 focus:outline-none focus:border-cyan-300/50 focus:ring-2 focus:ring-cyan-300/15 disabled:opacity-50 [&>option]:bg-slate-900 [&>option]:text-white"
                 >
                   {copy.contact.options.projectTypes.map((label, index) => (
                     <option
@@ -363,7 +363,7 @@ export function ContactSection() {
                     value={formData.timeline}
                     onChange={handleChange}
                     disabled={status === "submitting"}
-                    className="w-full bg-[#111] border border-white/10 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:border-accent/50 transition-colors disabled:opacity-50 appearance-none"
+                    className="w-full appearance-none rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white transition-colors hover:bg-white/10 hover:border-cyan-300/30 focus:outline-none focus:border-cyan-300/50 focus:ring-2 focus:ring-cyan-300/15 disabled:opacity-50 [&>option]:bg-slate-900 [&>option]:text-white"
                   >
                     {copy.contact.options.timeline.map((label, index) => (
                       <option
