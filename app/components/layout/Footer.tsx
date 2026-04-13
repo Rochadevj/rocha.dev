@@ -63,7 +63,7 @@ export function Footer() {
                 <FiMail className="w-5 h-5" />
               </a>
             </div>
-            <div className="text-sm font-medium text-gray-500 text-center sm:text-left leading-relaxed">
+            <div className="text-sm font-medium text-gray-500 text-center sm:text-left leading-relaxed sm:flex sm:items-center sm:gap-1 sm:whitespace-nowrap">
               <p className="sm:hidden">
                 &copy; {new Date().getFullYear()} Rocha
               </p>
@@ -82,7 +82,7 @@ export function Footer() {
                 </Link>
                 .
               </p>
-              <p>
+              <p className="sm:whitespace-nowrap">
                 {copy.footer.builtWith}{" "}
                 <a
                   href="https://nextjs.org"
