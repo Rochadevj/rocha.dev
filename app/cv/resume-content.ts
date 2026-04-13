@@ -96,7 +96,7 @@ export const cvContent: Record<Language, CvContent> = {
     roleLabel: "FUNÇÃO",
     role: "Desenvolvedor Full Stack",
     summary:
-      "Construo aplicações web, mobile e fluxos com automação, com foco em performance, clareza de UX e entrega consistente. Hoje atuo entre front-end, back-end e integrações, com experiência prática em React, TypeScript, PHP, Supabase, Docker e n8n.",
+      "Construo aplicações web, mobile e fluxos com automação, com foco em performance, clareza de UX e entrega consistente.\nHoje atuo entre front-end, back-end e integrações, com experiência prática em React, TypeScript, PHP, Supabase, Docker e n8n.",
     actions: {
       download: "Baixar PDF",
       downloadAts: "Versão em texto ATS-friendly",
@@ -262,7 +262,7 @@ export const cvContent: Record<Language, CvContent> = {
     roleLabel: "ROLE",
     role: "Full-Stack Developer",
     summary:
-      "I build web, mobile, and automation-driven products with a focus on performance, UX clarity, and consistent delivery. My work spans front-end, back-end, and integrations, with hands-on experience in React, TypeScript, PHP, Supabase, Docker, and n8n.",
+      "I build web, mobile, and automation-driven products with a focus on performance, UX clarity, and consistent delivery.\nMy work spans front-end, back-end, and integrations, with hands-on experience in React, TypeScript, PHP, Supabase, Docker, and n8n.",
     actions: {
       download: "Download PDF",
       downloadAts: "ATS-friendly text version",
