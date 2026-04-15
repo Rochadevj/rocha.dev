@@ -491,7 +491,7 @@ export function AutomationSection() {
             {copy.automation.chips.map((chip) => (
               <div
                 key={chip.title}
-                className="rounded-2xl border border-white/8 bg-black/15 px-3.5 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] sm:px-4 sm:py-4"
+                className="rounded-2xl border border-white/8 bg-black/15 px-3.5 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] transition-all duration-200 hover:-translate-y-0.5 hover:border-white/14 hover:bg-black/20 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_8px_22px_rgba(0,0,0,0.16)] sm:px-4 sm:py-4"
               >
                 <p className="text-sm font-medium text-white/90">{chip.title}</p>
                 <p className="mt-1 text-xs leading-relaxed text-gray-500/90">
