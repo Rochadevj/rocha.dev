@@ -198,7 +198,7 @@ export function AboutSection() {
             ref={philosophyRef}
             onMouseMove={handlePhilosophyMouseMove}
             onMouseLeave={handlePhilosophyLeave}
-            className={`md:col-span-3 min-h-80 md:min-h-87.5 rounded-3xl bg-[#111] border border-white/10 p-5 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 cursor-auto md:cursor-none ${cardHoverPhilosophy}`}
+            className={`md:col-span-3 min-h-80 md:min-h-87.5 rounded-3xl bg-[#111] border border-white/10 p-5 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 cursor-auto ${cardHoverPhilosophy}`}
           >
             {/* Text Side */}
             <div className="relative z-10 flex-1 space-y-6">
