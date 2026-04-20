@@ -2,7 +2,13 @@
 
 import { GithubIcon, InstagramIcon, LinkedinIcon } from "../icons";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import {
+  Send,
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
+  ChevronDown,
+} from "lucide-react";
 import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 
 const socialLinks = [
@@ -51,13 +57,15 @@ export function ContactSection() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    type: "general",
+    type: "",
     timeline: timelineKeys[1],
     details: "",
     company: "",
   });
   const formStartedAtRef = useRef(0);
-  const shouldShowTimeline = !hideTimelineFor.has(formData.type);
+  const isProjectTypeEmpty = !formData.type;
+  const shouldShowTimeline =
+    !isProjectTypeEmpty && !hideTimelineFor.has(formData.type);
   const detailsLabel = shouldShowTimeline
     ? copy.contact.labels.details
     : copy.contact.labels.detailsGeneral;
@@ -78,7 +86,7 @@ export function ContactSection() {
     setFormData({
       name: "",
       email: "",
-      type: "general",
+      type: "",
       timeline: timelineKeys[1],
       details: "",
       company: "",
@@ -332,25 +340,57 @@ export function ContactSection() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-500 uppercase">
-                  {copy.contact.labels.projectType}
-                </label>
-                <select
-                  name="type"
-                  value={formData.type}
-                  onChange={handleChange}
-                  disabled={status === "submitting"}
-                  className="w-full appearance-none rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white transition-colors hover:bg-white/10 hover:border-cyan-300/30 focus:outline-none focus:border-cyan-300/50 focus:ring-2 focus:ring-cyan-300/15 disabled:opacity-50 [&>option]:bg-slate-900 [&>option]:text-white"
-                >
-                  {copy.contact.options.projectTypes.map((label, index) => (
-                    <option
-                      key={projectTypeKeys[index]}
-                      value={projectTypeKeys[index]}
-                    >
-                      {label}
+                <div className="flex items-center justify-between gap-3">
+                  <label
+                    htmlFor="project-type"
+                    className={`text-xs font-bold uppercase transition-colors ${
+                      isProjectTypeEmpty ? "text-cyan-200" : "text-gray-500"
+                    }`}
+                  >
+                    {copy.contact.labels.projectType}
+                  </label>
+                  {isProjectTypeEmpty && (
+                    <span className="rounded-full border border-cyan-300/35 bg-cyan-300/12 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-100 shadow-[0_0_18px_rgba(34,211,238,0.14)]">
+                      {copy.contact.labels.projectTypePrompt}
+                    </span>
+                  )}
+                </div>
+                <div className="relative">
+                  <select
+                    id="project-type"
+                    name="type"
+                    required
+                    value={formData.type}
+                    onChange={handleChange}
+                    disabled={status === "submitting"}
+                    className={`w-full appearance-none rounded-lg border px-4 py-3 pr-12 transition-all focus:outline-none disabled:opacity-50 [&>option]:bg-slate-900 [&>option]:text-white ${
+                      isProjectTypeEmpty
+                        ? "border-cyan-300/45 bg-cyan-300/12 text-cyan-100 shadow-[0_0_0_1px_rgba(103,232,249,0.18),0_0_28px_rgba(34,211,238,0.14)] hover:border-cyan-200/70 hover:bg-cyan-300/16 focus:border-cyan-200/80 focus:ring-4 focus:ring-cyan-300/18"
+                        : "border-white/10 bg-white/5 text-white hover:border-cyan-300/30 hover:bg-white/10 focus:border-cyan-300/50 focus:ring-2 focus:ring-cyan-300/15"
+                    }`}
+                  >
+                    <option value="" disabled hidden>
+                      {" "}
                     </option>
-                  ))}
-                </select>
+                    {copy.contact.options.projectTypes.map((label, index) => (
+                      <option
+                        key={projectTypeKeys[index]}
+                        value={projectTypeKeys[index]}
+                      >
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4">
+                    <ChevronDown
+                      className={`h-5 w-5 transition-all ${
+                        isProjectTypeEmpty
+                          ? "text-cyan-100 drop-shadow-[0_0_10px_rgba(103,232,249,0.38)]"
+                          : "text-white/60"
+                      }`}
+                    />
+                  </div>
+                </div>
               </div>
 
               {shouldShowTimeline && (
