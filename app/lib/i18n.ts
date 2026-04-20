@@ -30,7 +30,7 @@ export const translations = {
       languageToggle: "Alternar idioma",
     },
     hero: {
-      badge: "Disponível para trabalhos",
+      badge: "Aberto a novas oportunidades",
       roles: [
         { first: "Engenheiro", second: "de Software." },
         { first: "Desenvolvimento", second: "Full Stack." },
