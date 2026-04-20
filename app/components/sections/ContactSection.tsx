@@ -293,7 +293,7 @@ export function ContactSection() {
             </div>
           ) : (
             <form className="relative z-10 space-y-3.5 sm:space-y-4" onSubmit={handleSubmit}>
-              <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+              <div className="absolute -left-2499.75 top-auto h-px w-px overflow-hidden">
                 <label htmlFor="company">{copy.contact.botFieldLabel}</label>
                 <input
                   id="company"
