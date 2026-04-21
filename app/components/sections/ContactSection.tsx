@@ -433,7 +433,7 @@ export function ContactSection() {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-white py-3.5 font-bold text-black transition-all hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-70"
+                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-white py-3.5 font-bold text-black shadow-[0_12px_28px_rgba(255,255,255,0.08)] transition-all hover:-translate-y-0.5 hover:bg-gray-200 hover:shadow-[0_18px_36px_rgba(255,255,255,0.14)] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {status === "submitting" ? (
                   <>
