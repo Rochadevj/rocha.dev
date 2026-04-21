@@ -38,7 +38,6 @@ type FormData = {
   type: string;
   timeline: string;
   details: string;
-  company: string;
 };
 
 const CONTACT_SUBMIT_COOLDOWN_MS = 60 * 1000;
@@ -60,7 +59,6 @@ export function ContactSection() {
     type: "",
     timeline: timelineKeys[1],
     details: "",
-    company: "",
   });
   const formStartedAtRef = useRef(0);
   const isProjectTypeEmpty = !formData.type;
@@ -89,7 +87,6 @@ export function ContactSection() {
       type: "",
       timeline: timelineKeys[1],
       details: "",
-      company: "",
     });
     formStartedAtRef.current = Date.now();
   };
@@ -119,12 +116,6 @@ export function ContactSection() {
 
     try {
       const submittedAt = Date.now();
-
-      if (formData.company.trim()) {
-        setStatus("success");
-        resetForm();
-        return;
-      }
 
       if (submittedAt - formStartedAtRef.current < MIN_FORM_FILL_TIME_MS) {
         setStatus("error");
@@ -294,15 +285,14 @@ export function ContactSection() {
           ) : (
             <form className="relative z-10 space-y-3.5 sm:space-y-4" onSubmit={handleSubmit}>
               <div className="absolute -left-2499.75 top-auto h-px w-px overflow-hidden">
-                <label htmlFor="company">{copy.contact.botFieldLabel}</label>
+                <label htmlFor="_gotcha">{copy.contact.botFieldLabel}</label>
                 <input
-                  id="company"
-                  name="company"
+                  id="_gotcha"
+                  name="_gotcha"
                   type="text"
-                  value={formData.company}
-                  onChange={handleChange}
-                  autoComplete="off"
+                  autoComplete="new-password"
                   tabIndex={-1}
+                  aria-hidden="true"
                 />
               </div>
 
