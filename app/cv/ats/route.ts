@@ -116,6 +116,7 @@ export async function GET(request: NextRequest) {
         content.ats.fileName
       )}`,
       "Cache-Control": "public, max-age=0, must-revalidate",
+      "X-Robots-Tag": "noindex, nofollow",
     },
   });
 }

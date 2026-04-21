@@ -46,44 +46,52 @@ const metadataByLanguage: Record<
   }
 > = {
   "pt-BR": {
-    titleDefault: "Rocha | Desenvolvedor Full Stack",
-    titleTemplate: "%s | Portfolio do Rocha",
+    titleDefault: "Henrique Rocha | Desenvolvedor Full Stack",
+    titleTemplate: "%s | Henrique Rocha",
     description:
-      "Explore o portfolio full stack do Rocha: projetos com Next.js, TypeScript e automacao. Veja trabalhos em destaque, repositorios e entre em contato.",
+      "Portfolio de Henrique Rocha, desenvolvedor full stack. Projetos com Next.js, TypeScript, PHP e automacao para web, mobile e produtos digitais.",
     keywords: [
+      "henrique rocha",
+      "henrique rocha desenvolvedor",
+      "henrique rocha portfolio",
       "desenvolvedor full stack",
       "portfolio next.js",
       "projetos typescript",
+      "php",
       "automacao",
       "desenvolvimento web",
       "react",
       "engenheiro de software",
     ],
     openGraphLocale: "pt_BR",
-    siteName: "Portfolio Rocha",
+    siteName: "Henrique Rocha",
     twitterTitle: "Henrique Rocha | Desenvolvedor Full Stack",
     jsonLdDescription:
-      "Desenvolvedor full stack focado em criar aplicacoes web rapidas, confiaveis e bem projetadas com Next.js e TypeScript.",
+      "Henrique Rocha e um desenvolvedor full stack focado em criar aplicacoes web rapidas, confiaveis e bem projetadas com Next.js, TypeScript e PHP.",
   },
   en: {
-    titleDefault: "Rocha | Full-Stack Developer",
-    titleTemplate: "%s | Rocha's Portfolio",
+    titleDefault: "Henrique Rocha | Full-Stack Developer",
+    titleTemplate: "%s | Henrique Rocha",
     description:
-      "Explore Rocha's full-stack developer portfolio: Next.js, TypeScript, and automation projects. View featured work, repositories, and get in touch.",
+      "Henrique Rocha's portfolio. Full-stack projects with Next.js, TypeScript, PHP, and automation for web, mobile, and digital products.",
     keywords: [
+      "henrique rocha",
+      "henrique rocha developer",
+      "henrique rocha portfolio",
       "full-stack developer",
       "next.js portfolio",
       "typescript projects",
+      "php developer",
       "automation",
       "web development",
       "react",
       "software engineer",
     ],
     openGraphLocale: "en_US",
-    siteName: "Rocha Portfolio",
+    siteName: "Henrique Rocha",
     twitterTitle: "Henrique Rocha | Full-Stack Developer",
     jsonLdDescription:
-      "Full-stack developer focused on building fast, reliable, and well-crafted web applications with Next.js and TypeScript.",
+      "Henrique Rocha is a full-stack developer focused on building fast, reliable, and well-crafted web applications with Next.js, TypeScript, and PHP.",
   },
 };
 
@@ -112,8 +120,11 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description: metadataCopy.description,
     keywords: metadataCopy.keywords,
-    authors: [{ name: "Rocha", url: "https://henriquerocha.me" }],
-    creator: "Rocha",
+    authors: [{ name: "Henrique Rocha", url: "https://henriquerocha.me" }],
+    creator: "Henrique Rocha",
+    alternates: {
+      canonical: "https://henriquerocha.me",
+    },
     icons: {
       icon: [{ url: "/tech-favicon.svg", type: "image/svg+xml" }],
       shortcut: ["/tech-favicon.svg"],
@@ -167,6 +178,7 @@ export default async function RootLayout({
     "@type": "Person",
     name: "Henrique Rocha",
     url: "https://henriquerocha.me",
+    image: "https://henriquerocha.me/foto-perfil.png",
     sameAs: [
       "https://github.com/Rochadevj",
       "https://www.instagram.com/hee_rocha/",
