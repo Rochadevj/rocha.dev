@@ -1,6 +1,6 @@
 # Portfólio do Henrique Rocha
 
-Um site de portfólio moderno e responsivo para desenvolvedor, criado para apresentar meus projetos, habilidades e experiência. Construído com **Next.js 16**, possui animações avançadas com GSAP, suporte a múltiplos idiomas (PT-BR / EN), design limpo e uma interface intuitiva.
+Meu portfólio moderno e responsivo, criado para apresentar meus projetos, habilidades e experiência. Construído com **Next.js 16**, possui animações avançadas com GSAP, suporte a múltiplos idiomas (PT-BR / EN), design limpo e uma interface intuitiva.
 
 ---
 
@@ -226,7 +226,7 @@ Este projeto é open source e distribuído sob a licença MIT.
 
 ---
 
-## 🙏 Agradecimentos
+## 📋 Fontes
 
 - Desenvolvido com [Next.js](https://nextjs.org/)
 - Estilizado com [Tailwind CSS](https://tailwindcss.com/)
