@@ -104,7 +104,7 @@ export default function CvPage() {
                   henriquerocha1357@gmail.com
                 </a>
                 <a
-                  href="tel:+5551991288418"
+                  href="https://wa.me/5551991288418"
                   className="flex items-center gap-3 rounded-2xl border border-white/8 bg-white/4 px-4 py-3 text-sm text-white/86 transition-colors hover:bg-white/8"
                 >
                   <Phone className="h-4 w-4 text-cyan-200" />
