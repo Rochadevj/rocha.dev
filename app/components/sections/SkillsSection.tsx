@@ -2,12 +2,44 @@
 
 import { ReactNode } from "react";
 import { skills } from "@/app/data/skills";
-import { 
-  SiJavascript, SiTypescript, SiPhp, SiMysql, SiHtml5, SiCss3, SiNextdotjs, SiReact, 
-  SiTailwindcss, SiFramer, SiSanity, SiContentful, SiNodedotjs, SiExpress, 
-  SiPostgresql, SiMongodb, SiPrisma, SiPnpm, SiBun, SiGit, SiGithub, SiVercel, 
-  SiAmazon, SiDocker, SiExpo, SiClerk, SiLinux, SiRust, SiFlutter, SiBlender, 
-  SiAdobeillustrator, SiGodotengine, SiZod, SiBootstrap, SiWordpress, SiN8N, SiSupabase
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPhp,
+  SiMysql,
+  SiHtml5,
+  SiCss3,
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiFramer,
+  SiSanity,
+  SiContentful,
+  SiNodedotjs,
+  SiExpress,
+  SiPostgresql,
+  SiMongodb,
+  SiPrisma,
+  SiPnpm,
+  SiBun,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiAmazon,
+  SiDocker,
+  SiExpo,
+  SiClerk,
+  SiLinux,
+  SiRust,
+  SiFlutter,
+  SiBlender,
+  SiAdobeillustrator,
+  SiGodotengine,
+  SiZod,
+  SiBootstrap,
+  SiWordpress,
+  SiN8N,
+  SiSupabase,
 } from "react-icons/si";
 import { GiBearFace } from "react-icons/gi"; // For Zustand (Bear)
 import { useTranslations } from "@/app/components/i18n/LanguageProvider";
@@ -73,7 +105,7 @@ const skillColors: Record<string, { bg: string; text: string; color: string }> =
   MySQL: { bg: "bg-[#4479A1]/10", text: "text-[#4479A1]", color: "#4479A1" },
   MongoDB: { bg: "bg-[#47A248]/10", text: "text-[#47A248]", color: "#47A248" },
   Prisma: { bg: "bg-[#2D3748]/10", text: "text-white", color: "#ffffff" },
-  Zustand: { bg: "bg-[#443E38]/10", text: "text-[#F6C778]", color: "#443E38" }, // Using brownish for bear
+  Zustand: { bg: "bg-[#443E38]/10", text: "text-[#F6C778]", color: "#443E38" },
   Zod: { bg: "bg-[#3068B7]/10", text: "text-[#3068B7]", color: "#3068B7" },
   pnpm: { bg: "bg-[#F69220]/10", text: "text-[#F69220]", color: "#F69220" },
   Bun: { bg: "bg-[#FBF0DF]/10", text: "text-[#FBF0DF]", color: "#FBF0DF" },
@@ -114,41 +146,86 @@ export function SkillsSection() {
 
         {/* Process Steps */}
         <div className="mb-14 grid grid-cols-1 gap-4 sm:mb-20 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
-           {copy.skills.steps.map((step) => (
-             <div
-               key={step.title}
-               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5 transition-[background-color,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-cyan-300/20 hover:bg-white/[0.07] hover:shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_0_22px_rgba(34,211,238,0.05)] sm:p-6"
-             >
-               <div
-                 className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
-                 style={{
-                   background:
-                     "radial-gradient(160px circle at 18% 14%, rgba(34,211,238,0.11), rgba(34,211,238,0) 62%), radial-gradient(180px circle at 84% 88%, rgba(236,72,153,0.08), rgba(236,72,153,0) 64%)",
-                 }}
-               />
-               <span className="relative z-10 text-4xl font-black text-white/5 mb-4 block group-hover:text-accent/20 transition-colors duration-500">{step.icon}</span>
-               <h3 className="relative z-10 text-xl font-bold text-white mb-2">{step.title}</h3>
-               <p className="relative z-10 text-sm text-gray-400 leading-relaxed">{step.desc}</p>
-             </div>
-           ))}
+          {copy.skills.steps.map((step) => (
+            <div
+              key={step.title}
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5 transition-[background-color,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-cyan-300/20 hover:bg-white/[0.07] hover:shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_0_22px_rgba(34,211,238,0.05)] sm:p-6"
+            >
+              <div
+                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
+                style={{
+                  background:
+                    "radial-gradient(160px circle at 18% 14%, rgba(34,211,238,0.11), rgba(34,211,238,0) 62%), radial-gradient(180px circle at 84% 88%, rgba(236,72,153,0.08), rgba(236,72,153,0) 64%)",
+                }}
+              />
+              <span className="relative z-10 text-4xl font-black text-white/5 mb-4 block group-hover:text-accent/20 transition-colors duration-500">
+                {step.icon}
+              </span>
+              <h3 className="relative z-10 text-xl font-bold text-white mb-2">
+                {step.title}
+              </h3>
+              <p className="relative z-10 text-sm text-gray-400 leading-relaxed">
+                {step.desc}
+              </p>
+            </div>
+          ))}
         </div>
 
         <div className="mb-10 text-center sm:mb-12">
-            <h3 className="text-2xl font-bold text-white mb-6">{copy.skills.toolboxTitle}</h3>
-             <div className="flex flex-wrap justify-center gap-4 text-xs font-mono text-gray-500 mb-8">
-               <span>{copy.skills.toolboxCategories.frontend}</span> <span className="text-gray-700">/</span>
-               <span>{copy.skills.toolboxCategories.backend}</span> <span className="text-gray-700">/</span>
-               <span>{copy.skills.toolboxCategories.infrastructure}</span> <span className="text-gray-700">/</span>
-               <span>{copy.skills.toolboxCategories.testing}</span>
-             </div>
+          <h3 className="text-2xl font-bold text-white mb-6">
+            {copy.skills.toolboxTitle}
+          </h3>
+          <div className="flex flex-wrap justify-center gap-4 text-xs font-mono text-gray-500 mb-8">
+            <span>{copy.skills.toolboxCategories.frontend}</span>{" "}
+            <span className="text-gray-700">/</span>
+            <span>{copy.skills.toolboxCategories.backend}</span>{" "}
+            <span className="text-gray-700">/</span>
+            <span>{copy.skills.toolboxCategories.infrastructure}</span>{" "}
+            <span className="text-gray-700">/</span>
+            <span>{copy.skills.toolboxCategories.testing}</span>
+          </div>
+        </div>
+
+        <div className="mb-12 sm:mb-14">
+          <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-4 overflow-hidden rounded-3xl border border-white/10 bg-[#0b121b]/80 px-4 py-4 text-center shadow-[0_18px_40px_rgba(0,0,0,0.28)] sm:flex-row sm:justify-between sm:px-6 sm:py-5 sm:text-left">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120px_circle_at_12%_20%,rgba(34,211,238,0.12),transparent_60%),radial-gradient(160px_circle_at_88%_80%,rgba(16,185,129,0.12),transparent_60%)]" />
+            <div className="relative z-10">
+              <p className="text-[11px] font-black uppercase tracking-[0.2em] text-cyan-200/80">
+                {copy.skills.aiToolsTitle}
+              </p>
+            </div>
+            <div className="relative z-10 flex flex-wrap justify-center gap-2 sm:justify-end">
+              {copy.skills.aiTools.map((tool) => {
+                const isCopilot = tool.toLowerCase().includes("copilot");
+                const badgeClass = isCopilot
+                  ? "border-cyan-300/35 bg-cyan-300/10 text-cyan-100"
+                  : "border-emerald-300/35 bg-emerald-300/10 text-emerald-100";
+                const dotClass = isCopilot ? "bg-cyan-300/90" : "bg-emerald-300/90";
+
+                return (
+                  <span
+                    key={tool}
+                    className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold ${badgeClass}`}
+                  >
+                    <span className={`h-1.5 w-1.5 rounded-full ${dotClass}`} />
+                    {tool}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         {/* Skills grid */}
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
           {skills.map((skill, index) => {
-            const colors = skillColors[skill.name] || { bg: "bg-gray-800", text: "text-white", color: "#fff" };
+            const colors = skillColors[skill.name] || {
+              bg: "bg-gray-800",
+              text: "text-white",
+              color: "#fff",
+            };
             const icon = skillIcons[skill.name] || <span className="font-bold">?</span>;
-            
+
             return (
               <div
                 key={skill.name}
@@ -176,7 +253,7 @@ export function SkillsSection() {
                       "radial-gradient(62% 100% at 50% 100%, rgba(0,198,255,0.3) 0%, rgba(0,198,255,0.06) 42%, rgba(0,198,255,0) 100%)",
                   }}
                 />
-                <div 
+                <div
                   className="relative z-10 flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full text-lg sm:text-xl"
                   style={{ color: colors.color }}
                 >

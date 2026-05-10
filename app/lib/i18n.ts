@@ -308,6 +308,8 @@ export const translations = {
         infrastructure: "INFRAESTRUTURA",
         testing: "TESTES",
       },
+      aiToolsTitle: "Ferramentas de IA",
+      aiTools: ["GitHub Copilot", "OpenAI Codex"],
     },
     contact: {
       badge: "Contato",
@@ -670,6 +672,8 @@ export const translations = {
         infrastructure: "INFRASTRUCTURE",
         testing: "TESTING",
       },
+      aiToolsTitle: "AI tools",
+      aiTools: ["GitHub Copilot", "OpenAI Codex"],
     },
     contact: {
       badge: "Contact",
