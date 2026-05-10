@@ -113,7 +113,7 @@ export const cvContent: Record<Language, CvContent> = {
       languagesTitle: "IDIOMAS",
     },
     quickFacts: [
-      { label: "Base", value: "Porto Alegre, RS" },
+      { label: "Local", value: "Porto Alegre, RS" },
       { label: "Formato", value: "Remoto / Híbrido / Presencial" },
       { label: "Foco", value: "Web, mobile e automação" },
       { label: "Disponibilidade", value: "Atuação profissional + freelance" },
@@ -279,7 +279,7 @@ export const cvContent: Record<Language, CvContent> = {
       languagesTitle: "LANGUAGES",
     },
     quickFacts: [
-      { label: "Base", value: "Porto Alegre, Brazil" },
+      { label: "Local", value: "Porto Alegre, Brazil" },
       { label: "Format", value: "Remote" },
       { label: "Focus", value: "Web, mobile, automation" },
       { label: "Availability", value: "Open to work + freelance" },
