@@ -3,10 +3,12 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function MarqueeSection() {
+  const { copy } = useTranslations();
   const containerRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -54,10 +56,10 @@ export function MarqueeSection() {
           {Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="flex items-center gap-8 px-4">
               <span
-                className="text-5xl font-black uppercase tracking-tighter text-white/[0.02] sm:text-8xl md:text-9xl"
+                className="text-5xl font-black uppercase tracking-tighter text-white/2 sm:text-8xl md:text-9xl"
                 style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.24)" }}
               >
-                Projects
+                {copy.projects.marquee}
               </span>
               <span className="text-3xl text-accent sm:text-6xl">
                 {"\u2605"}
