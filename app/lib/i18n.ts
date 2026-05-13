@@ -378,6 +378,12 @@ export const translations = {
     cta: {
       line1: "Vamos criar",
       line2: "algo real.",
+      actions: {
+        whatsapp: "WhatsApp",
+        email: "Email",
+        cv: "Baixar CV",
+        projects: "Ver projetos",
+      },
     },
     footer: {
       builtWith: "Construído com",
@@ -747,6 +753,12 @@ export const translations = {
     cta: {
       line1: "Let's create",
       line2: "something real.",
+      actions: {
+        whatsapp: "WhatsApp",
+        email: "Email",
+        cv: "Download CV",
+        projects: "View projects",
+      },
     },
     footer: {
       builtWith: "Built with",

@@ -1,10 +1,22 @@
 "use client";
 
 import Image from "next/image";
+import { FileDown, FolderKanban, Mail, MessageCircle } from "lucide-react";
 import { useTranslations } from "@/app/components/i18n/LanguageProvider";
 
 export function CTASection() {
-  const { copy } = useTranslations();
+  const { copy, language } = useTranslations();
+  const resumeHref =
+    language === "pt-BR"
+      ? "/Henrique%20Rocha%20curr%C3%ADculo.pdf"
+      : "/Henrique%20Rocha%20curr%C3%ADculoIN.pdf";
+  const resumeDownloadName =
+    language === "pt-BR"
+      ? "Henrique-Rocha-Curriculo-PT-BR.pdf"
+      : "Henrique-Rocha-CV-EN.pdf";
+  const secondaryActionClass =
+    "inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 text-sm font-semibold text-white/78 transition-all hover:-translate-y-0.5 hover:border-cyan-300/24 hover:bg-white/[0.08] hover:text-white sm:h-12 sm:px-5";
+
   return (
     <section className="relative overflow-hidden px-4 py-10 sm:py-24">
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-between gap-5 sm:gap-8 md:flex-row md:gap-12">
@@ -30,6 +42,44 @@ export function CTASection() {
           <h2 className="pl-2 text-3xl font-medium leading-[0.95] tracking-tighter text-zinc-600 sm:text-5xl md:pl-24 md:text-7xl lg:text-8xl">
             {copy.cta.line2}
           </h2>
+
+          <div className="mt-5 flex max-w-3xl flex-wrap gap-2.5 pl-2 sm:gap-3 md:mt-7 md:pl-24">
+            <a
+              href="https://wa.me/5551991288418"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-white px-4 text-sm font-bold text-black shadow-[0_16px_36px_rgba(255,255,255,0.1)] transition-all hover:-translate-y-0.5 hover:bg-cyan-100 hover:shadow-[0_20px_44px_rgba(103,232,249,0.16)] sm:h-12 sm:px-5"
+            >
+              <MessageCircle className="h-4 w-4" />
+              {copy.cta.actions.whatsapp}
+            </a>
+            <a
+              href="mailto:henriquerocha1357@gmail.com"
+              className={secondaryActionClass}
+            >
+              <Mail className="h-4 w-4" />
+              {copy.cta.actions.email}
+            </a>
+            <a
+              href={resumeHref}
+              download={resumeDownloadName}
+              className={secondaryActionClass}
+            >
+              <FileDown className="h-4 w-4" />
+              {copy.cta.actions.cv}
+            </a>
+            <a
+              href="#projects"
+              onClick={(event) => {
+                event.preventDefault();
+                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className={secondaryActionClass}
+            >
+              <FolderKanban className="h-4 w-4" />
+              {copy.cta.actions.projects}
+            </a>
+          </div>
         </div>
 
         {/* Right Side: Photo Orb */}
