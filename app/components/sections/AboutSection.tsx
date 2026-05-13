@@ -29,6 +29,7 @@ export function AboutSection() {
     `${softHoverTransition} hover:border-[#8ad7ff]/28 hover:shadow-[0_0_0_1px_rgba(138,215,255,0.1),0_0_28px_rgba(138,215,255,0.08)]`;
   const aboutTagClass =
     "px-4 py-1.5 rounded-full border border-[#2341a8]/55 bg-[linear-gradient(135deg,rgba(12,24,44,0.88)_0%,rgba(18,12,40,0.82)_100%)] text-[#5de5fb] text-xs font-semibold tracking-[0.01em] shadow-[inset_0_1px_0_rgba(118,230,255,0.15),0_0_0_1px_rgba(26,85,224,0.18)]";
+  const inlineEmphasisClass = "font-medium text-white";
 
   useEffect(() => {
     const isPortuguese = language === "pt-BR";
@@ -166,10 +167,10 @@ export function AboutSection() {
                   {copy.about.whoParagraph1.prefix}
                   <a href="#projects" className="text-white hover:underline decoration-orange-500 underline-offset-4 transition-all">{copy.about.whoParagraph1.linkBuildTools}</a>
                   {copy.about.whoParagraph1.middle}
-                  <a  target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors border-b border-gray-700 hover:border-white">{copy.about.whoParagraph1.linkEmpathy}</a>,{" "}
-                  <a  target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors border-b border-gray-700 hover:border-white">{copy.about.whoParagraph1.linkScalability}</a>,{" "}
+                  <span className={inlineEmphasisClass}>{copy.about.whoParagraph1.linkEmpathy}</span>,{" "}
+                  <span className={inlineEmphasisClass}>{copy.about.whoParagraph1.linkScalability}</span>,{" "}
                   {language === "pt-BR" ? "e" : "and"}{" "}
-                  <a  target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors border-b border-gray-700 hover:border-white">{copy.about.whoParagraph1.linkPerformance}</a>
+                  <span className={inlineEmphasisClass}>{copy.about.whoParagraph1.linkPerformance}</span>
                   {copy.about.whoParagraph1.suffix}
                 </p>
                 <p className="text-gray-400 leading-relaxed text-sm md:text-base">
@@ -247,7 +248,7 @@ export function AboutSection() {
               </h3>
               <p className="text-gray-400 text-sm max-w-lg">
                 {copy.about.globalParagraph.prefix}
-                <a target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white border-b border-gray-600 hover:border-white transition-colors">{copy.about.globalParagraph.linkAsync}</a>
+                <span className="font-medium text-gray-200">{copy.about.globalParagraph.linkAsync}</span>
                 {copy.about.globalParagraph.middle}
                 <a href="#contact" className="text-gray-300 hover:text-white border-b border-gray-600 hover:border-white transition-colors">{copy.about.globalParagraph.linkCommunication}</a>
                 {copy.about.globalParagraph.suffix}
