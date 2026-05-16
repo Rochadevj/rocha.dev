@@ -22,11 +22,14 @@ async function resolveRequestLanguage() {
 export async function generateMetadata(): Promise<Metadata> {
   const language = await resolveRequestLanguage();
   const isPortuguese = language === "pt-BR";
+  const pageTitle = isPortuguese
+    ? "CV | Henrique Rocha"
+    : "Resume | Henrique Rocha";
 
   return {
-    title: isPortuguese
-      ? "CV | Henrique Rocha"
-      : "Resume | Henrique Rocha",
+    title: {
+      absolute: pageTitle,
+    },
     description: isPortuguese
       ? "Curriculo e resumo profissional de Henrique Rocha, desenvolvedor full stack com foco em web, mobile e automacao."
       : "Resume and professional overview of Henrique Rocha, a full-stack developer focused on web, mobile, and automation.",
@@ -34,9 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: "https://henriquerocha.me/cv",
     },
     openGraph: {
-      title: isPortuguese
-        ? "CV | Henrique Rocha"
-        : "Resume | Henrique Rocha",
+      title: pageTitle,
       description: isPortuguese
         ? "Curriculo e resumo profissional de Henrique Rocha, desenvolvedor full stack com foco em web, mobile e automacao."
         : "Resume and professional overview of Henrique Rocha, a full-stack developer focused on web, mobile, and automation.",
@@ -52,9 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: isPortuguese
-        ? "CV | Henrique Rocha"
-        : "Resume | Henrique Rocha",
+      title: pageTitle,
       description: isPortuguese
         ? "Curriculo e resumo profissional de Henrique Rocha, desenvolvedor full stack com foco em web, mobile e automacao."
         : "Resume and professional overview of Henrique Rocha, a full-stack developer focused on web, mobile, and automation.",
