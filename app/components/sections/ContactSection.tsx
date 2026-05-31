@@ -298,30 +298,40 @@ export function ContactSection() {
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-500 uppercase">
+                  <label
+                    htmlFor="contact-name"
+                    className="text-xs font-bold text-gray-500 uppercase"
+                  >
                     {copy.contact.labels.name}
                   </label>
                   <input
+                    id="contact-name"
                     name="name"
                     required
                     value={formData.name}
                     onChange={handleChange}
                     type="text"
+                    autoComplete="name"
                     placeholder={copy.contact.placeholders.name}
                     disabled={status === "submitting"}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent/50 transition-colors disabled:opacity-50"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-500 uppercase">
+                  <label
+                    htmlFor="contact-email"
+                    className="text-xs font-bold text-gray-500 uppercase"
+                  >
                     {copy.contact.labels.email}
                   </label>
                   <input
+                    id="contact-email"
                     name="email"
                     required
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
+                    autoComplete="email"
                     placeholder={copy.contact.placeholders.email}
                     disabled={status === "submitting"}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent/50 transition-colors disabled:opacity-50"
@@ -385,10 +395,14 @@ export function ContactSection() {
 
               {shouldShowTimeline && (
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-500 uppercase">
+                  <label
+                    htmlFor="contact-timeline"
+                    className="text-xs font-bold text-gray-500 uppercase"
+                  >
                     {copy.contact.labels.timeline}
                   </label>
                   <select
+                    id="contact-timeline"
                     name="timeline"
                     value={formData.timeline}
                     onChange={handleChange}
@@ -408,10 +422,14 @@ export function ContactSection() {
               )}
 
               <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-500 uppercase">
+                <label
+                  htmlFor="contact-details"
+                  className="text-xs font-bold text-gray-500 uppercase"
+                >
                   {detailsLabel}
                 </label>
                 <textarea
+                  id="contact-details"
                   name="details"
                   required
                   rows={3}
