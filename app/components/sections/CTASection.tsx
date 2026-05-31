@@ -109,12 +109,11 @@ export function CTASection() {
             {/* Inner Photo Circle */}
             <div className="absolute inset-1 bg-[#0a0a0a] rounded-full z-10 flex items-center justify-center border border-white/5 box-border overflow-hidden">
                 <Image
-                  src="/foto-perfil.png"
+                  src="/foto-perfil.webp"
                   alt="Henrique Rocha"
                   fill
                   sizes="(min-width: 1280px) 320px, (min-width: 768px) 256px, 192px"
-                  quality={100}
-                  priority
+                  quality={85}
                   className="object-cover object-center contrast-[1.08] saturate-[1.08]"
                   style={{ filter: "invert(0)" }}
                   suppressHydrationWarning

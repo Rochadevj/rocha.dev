@@ -27,11 +27,11 @@ export const projects: Project[] = [
     role: "Mobile Developer",
     tech: ["React Native", "TypeScript", "Appwrite", "TMDB API", "OpenRouter AI"],
     metric: "AI-powered Recommendations",
-    image: "/movietv-mockup/movie_tv.png",
+    image: "/movietv-mockup/movie_tv.webp",
     images: [
-      "/movietv-mockup/movie_tv_desc.png",
-      "/movietv-mockup/movie_tv.png",
-      "/movietv-mockup/movie_tv_salvos.png",
+      "/movietv-mockup/movie_tv_desc.webp",
+      "/movietv-mockup/movie_tv.webp",
+      "/movietv-mockup/movie_tv_salvos.webp",
     ],
   },
   {

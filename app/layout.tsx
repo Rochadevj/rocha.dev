@@ -178,7 +178,7 @@ export default async function RootLayout({
     "@type": "Person",
     name: "Henrique Rocha",
     url: "https://henriquerocha.me",
-    image: "https://henriquerocha.me/foto-perfil.png",
+    image: "https://henriquerocha.me/foto-perfil.webp",
     sameAs: [
       "https://github.com/Rochadevj",
       "https://www.instagram.com/hee_rocha/",

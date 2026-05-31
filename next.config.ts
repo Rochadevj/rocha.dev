@@ -71,7 +71,7 @@ const nextConfig: NextConfig = {
         headers: securityHeaders,
       },
       {
-        source: "/:all*(svg|jpg|png)",
+        source: "/:all*(svg|jpg|jpeg|png|webp|avif)",
         locale: false,
         headers: [
           {
