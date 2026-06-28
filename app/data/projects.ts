@@ -5,7 +5,6 @@ export interface Project {
   stars: number;
   url: string;
   outcome?: string; 
-  role?: string;
   tech?: string[];
   metric?: string;
   image?: string;
@@ -24,7 +23,6 @@ export const projects: Project[] = [
     stars: 5,
     url: "https://github.com/Rochadevj/MovieTV",
     outcome: "Smart movie discovery for everyday use.",
-    role: "Mobile Developer",
     tech: ["React Native", "TypeScript", "Appwrite", "TMDB API", "OpenRouter AI"],
     metric: "AI recommendations",
     image: "/movietv-mockup/movie_tv.webp",
@@ -42,7 +40,6 @@ export const projects: Project[] = [
     url: "https://github.com/Rochadevj/ClickCV",
     weburl: "https://click-cv.vercel.app/",
     outcome: "Simple and effective interactive resume building.",
-    role: "Full Stack Developer",
     tech: ["Javascript", "CSS", "html2pdf"],
     metric: "PDF export",
     image: "/clickCV.png",
@@ -58,7 +55,6 @@ export const projects: Project[] = [
     url: "https://github.com/Rochadevj/AnaliseAI",
     weburl: "https://analise-ai.vercel.app/",
     outcome: "Automation that turns operations into strategic data.",
-    role: "Full Stack Developer",
     tech: ["TypeScript", "N8N", "Docker", "PostgreSQL", "WAHA API"],
     metric: "Real client validation",
     image: "/analiseIA.png",
@@ -74,7 +70,6 @@ export const projects: Project[] = [
     url: "https://github.com/Rochadevj/Imobiflow",
     weburl: "https://imobiflow.vercel.app/",
     outcome: "Centralized real estate operations for multi-company teams.",
-    role: "Full-stack Architecture & Development",
     tech: ["ReactJS", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
     metric: "Multi-tenant SaaS",
     image: "/imobiflow.png",

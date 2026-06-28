@@ -14,7 +14,6 @@ gsap.registerPlugin(ScrollTrigger);
 type ProjectCopy = {
   description?: string;
   outcome?: string;
-  role?: string;
   metric?: string;
 };
 
@@ -100,8 +99,6 @@ export function ProjectsSection() {
             const galleryImages = project.images ?? [];
             const hasGallery = galleryImages.length > 0;
             const metric = localized?.metric ?? project.metric;
-            const role =
-              localized?.role || project.role || copy.projects.fallbackRole;
 
             return (
               <div
@@ -129,15 +126,6 @@ export function ProjectsSection() {
                           </p>
                         </div>
                       )}
-                      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)]">
-                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_58%)]" />
-                        <p className="relative z-10 text-[10px] font-black uppercase tracking-[0.18em] text-white/38">
-                          {copy.projects.roleLabel}
-                        </p>
-                        <p className="relative z-10 mt-1 text-sm font-semibold text-white/82">
-                          {role}
-                        </p>
-                      </div>
                    </div>
 
                    <p className="text-base leading-relaxed text-gray-400 sm:text-lg">
@@ -152,12 +140,6 @@ export function ProjectsSection() {
                            <p className="text-gray-300">{localized?.outcome ?? project.outcome}</p>
                         </div>
                       )}
-                       <div className="flex items-start gap-3">
-                           <Code2 className="w-5 h-5 text-accent shrink-0 mt-1" />
-                           <p className="text-gray-300">
-                             {role}
-                           </p>
-                        </div>
                    </div>
 
                    {/* Tech Stack Buttons */}

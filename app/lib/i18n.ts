@@ -108,9 +108,7 @@ export const translations = {
       source: "Código",
       liveDemo: "Demo",
       metricLabel: "Resultado",
-      roleLabel: "Papel",
       stackLabel: "Stack",
-      fallbackRole: "Desenvolvimento Full Stack",
       footer: "E outros projetos em andamento.",
       items: [
         {
@@ -118,34 +116,29 @@ export const translations = {
             "O MovieTV é um aplicativo mobile desenvolvido em React Native (Expo) que permite explorar filmes, buscar recomendações via IA e salvar favoritos. Integra a TMDB API para dados de filmes, Appwrite para backend e OpenRouter AI para buscas inteligentes.",
           outcome: "Exploração inteligente de filmes no dia a dia.",
           metric: "Recomendações com IA",
-          role: "Desenvolvimento Mobile",
         },
         {
           description:
             "O ClickCV é uma aplicação web interativa que permite criar currículos de forma visual e intuitiva, apenas clicando e ajustando os elementos diretamente na tela. Após a personalização, o usuário pode exportar o currículo em PDF pronto para uso.",
           outcome: "Criação de currículos interativos de forma simples e eficiente.",
           metric: "Exportação em PDF",
-          role: "Desenvolvimento Front-end",
         },
         {
           description:
             "Solução full stack para análise e registro automatizado de atendimentos via WhatsApp Business, desenvolvida e validada por cliente real. Integra WAHA, n8n, Docker e IA para processamento em tempo real, com dashboard em React e TypeScript para visualização de métricas e fluxos.",
           outcome: "Automação para gerar dados estratégicos.",
           metric: "Validado com cliente real",
-          role: "Desenvolvimento Full Stack",
         },
         {
           description:
             "Plataforma SaaS de gestão imobiliária multiempresa com vitrine pública de imóveis, painel administrativo e arquitetura multi-tenant.",
           outcome: "Operação imobiliária centralizada para times e empresas.",
           metric: "SaaS multi-tenant",
-          role: "Arquitetura e desenvolvimento full stack",
         },
         {
           description:
             "Portfolio responsivo e visualmente atraente para mostrar projetos e habilidades.",
           outcome: "",
-          role: "",
         },
       ],
     },
@@ -485,9 +478,7 @@ export const translations = {
       source: "Source",
       liveDemo: "Live Demo",
       metricLabel: "Result",
-      roleLabel: "Role",
       stackLabel: "Stack",
-      fallbackRole: "Full Stack Development",
       footer: "And other projects in progress.",
       items: [
         {
@@ -495,34 +486,29 @@ export const translations = {
             "MovieTV is a mobile app built with React Native (Expo) that lets users explore movies, get AI-powered recommendations, and save favorites. It integrates TMDB API for movie data, Appwrite for backend services, and OpenRouter AI for intelligent search.",
           outcome: "Smart movie discovery for everyday use.",
           metric: "AI recommendations",
-          role: "Mobile Developer",
         },
         {
           description:
             "ClickCV is an interactive web app that allows users to build resumes visually by clicking and adjusting elements directly on screen. After customization, users can export the resume as a ready-to-use PDF.",
           outcome: "Simple and effective interactive resume building.",
           metric: "PDF export",
-          role: "Front-End Developer",
         },
         {
           description:
             "Full-stack solution for analysis and automated logging of WhatsApp Business support interactions, developed and validated with a real client. It integrates WAHA, n8n, Docker, and AI for real-time processing, with a React + TypeScript dashboard for metrics and workflow visibility.",
           outcome: "Automation that turns operations into strategic data.",
           metric: "Real client validation",
-          role: "Full Stack Developer",
         },
         {
           description:
             "A multi-tenant real estate management platform with a public property showcase, administrative dashboard, and company-aware operations.",
           outcome: "Centralized real estate operations for multi-company teams.",
           metric: "Multi-tenant SaaS",
-          role: "Full-stack Architecture & Development",
         },
         {
           description:
             "A fully responsive and visually appealing portfolio website to showcase projects and skills.",
           outcome: "",
-          role: "",
         },
       ],
     },
