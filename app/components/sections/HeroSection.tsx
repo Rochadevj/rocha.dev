@@ -26,6 +26,7 @@ import {
   SiN8N,
   SiLinux,
   SiSupabase,
+  SiOpenai,
 } from "react-icons/si";
 
 export function HeroSection() {
@@ -69,6 +70,7 @@ export function HeroSection() {
     Supabase: { icon: <SiSupabase />, color: "#3ECF8E" },
     n8n: { icon: <SiN8N />, color: "#EA4B71" },
     Linux: { icon: <SiLinux />, color: "#FCC624" },
+    GPT: { icon: <SiOpenai />, color: "#10A37F" },
   };
 
   const techStack = skills

@@ -24,4 +24,5 @@ export const skills: Skill[] = [
   { name: "Supabase", color: "bg-emerald-500" },
   { name: "n8n", color: "bg-orange-500" },
   { name: "Linux", color: "bg-yellow-500" },
+  { name: "GPT", color: "bg-emerald-500" },
 ];
