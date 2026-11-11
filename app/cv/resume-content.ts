@@ -164,7 +164,7 @@ export const cvContent: Record<Language, CvContent> = {
         ],
       },
       {
-        period: "Ago 2024 · Atual",
+        period: "Ago 2024 · Jan 2026",
         role: "Desenvolvedor Web Autônomo",
         company: "Eff Sites",
         bullets: [
@@ -330,7 +330,7 @@ export const cvContent: Record<Language, CvContent> = {
         ],
       },
       {
-        period: "Aug 2024 · Present",
+        period: "Aug 2024 · Jan 2026",
         role: "Freelance Web Developer",
         company: "Eff Sites",
         bullets: [
